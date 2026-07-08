@@ -1,0 +1,16 @@
+# Netlify Deployment Configuration for Aerwood Showcase Site
+
+[build]
+  # The command Netlify will run to compile the showcase website
+  command = "npm run build"
+  
+  # The folder containing the optimized static/prerendered browser bundles
+  publish = "dist/aerwood/browser"
+
+# SPA routing redirect rule
+# Ensures that all requests that don't match a static file are redirected 
+# to index.html, preventing 404 errors on direct path loads.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

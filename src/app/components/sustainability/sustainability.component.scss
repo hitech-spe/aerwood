@@ -1,0 +1,125 @@
+/* Sustainability Component Styles */
+
+.grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.reverse-mobile {
+  @media (max-width: 992px) {
+    .sustainability-content {
+      order: 2;
+    }
+    .sustainability-visual {
+      order: 1;
+    }
+  }
+}
+
+.sustainability-content {
+  .section-title {
+    font-size: 2.5rem;
+    margin: 16px 0 28px;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.lead-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.eco-features {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.eco-item {
+  display: flex;
+  gap: 20px;
+}
+
+.eco-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(46, 125, 50, 0.15);
+  border-radius: 50%;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  color: var(--eco-green);
+}
+
+.eco-text {
+  h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  
+  p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+}
+
+.sustainability-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eco-circle-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.eco-floating-badge {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: var(--eco-green);
+  color: #FFFFFF;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(46, 125, 50, 0.3);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .badge-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .badge-subtitle {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: 4px;
+    opacity: 0.8;
+  }
+}

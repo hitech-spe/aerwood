@@ -1,0 +1,109 @@
+<section id="contacts" class="section">
+  <div class="container">
+    <div class="grid-split">
+      <div class="contacts-info">
+        <span class="badge badge-wood">{{ t().contacts.badge }}</span>
+        <h2 class="section-title">{{ t().contacts.title }}</h2>
+        <p class="lead-text">{{ t().contacts.intro }}</p>
+        
+        <div class="contact-details">
+          <!-- Phone -->
+          <div class="detail-item">
+            <span class="detail-icon">📞</span>
+            <div class="detail-text">
+              <span class="detail-label">{{ t().contacts.phone }}</span>
+              <a href="tel:+390212345678" class="detail-value">+39 02 1234 5678</a>
+            </div>
+          </div>
+          
+          <!-- Address -->
+          <div class="detail-item">
+            <span class="detail-icon">📍</span>
+            <div class="detail-text">
+              <span class="detail-label">{{ t().contacts.address }}</span>
+              <span class="detail-value">Via della Tecnologia 42, 20100 Milano (MI) - Italy</span>
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="detail-item">
+            <span class="detail-icon">✉️</span>
+            <div class="detail-text">
+              <span class="detail-label">{{ t().contacts.emailLabel }}</span>
+              <a href="mailto:info@aerwood.it" class="detail-value">info@aerwood.it</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contacts-form-wrapper">
+        <form class="contact-form" (submit)="submitContactForm($event)">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="form-name">{{ t().contacts.name }} *</label>
+            <input 
+              id="form-name" 
+              type="text" 
+              class="form-control" 
+              required
+              [value]="contactName()" 
+              (input)="onFieldChange('name', $event)" 
+            />
+          </div>
+          
+          <!-- Email -->
+          <div class="form-group">
+            <label for="form-email">{{ t().contacts.email }} *</label>
+            <input 
+              id="form-email" 
+              type="email" 
+              class="form-control" 
+              required
+              [value]="contactEmail()" 
+              (input)="onFieldChange('email', $event)" 
+            />
+          </div>
+          
+          <!-- Message -->
+          <div class="form-group">
+            <label for="form-message">{{ t().contacts.message }} *</label>
+            <textarea 
+              id="form-message" 
+              rows="5" 
+              class="form-control" 
+              required
+              [value]="contactMessage()" 
+              (input)="onFieldChange('message', $event)"
+            ></textarea>
+          </div>
+          
+          <!-- Feedback Messages -->
+          @if (contactStatus() === 'success') {
+            <div class="alert alert-success">
+              {{ t().contacts.success }}
+            </div>
+          }
+          
+          @if (contactStatus() === 'error') {
+            <div class="alert alert-danger">
+              {{ t().contacts.error }}
+            </div>
+          }
+          
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="btn btn-primary form-submit"
+            [disabled]="contactStatus() === 'sending'"
+          >
+            @if (contactStatus() === 'sending') {
+              {{ t().contacts.sending }}
+            } @else {
+              {{ t().contacts.send }}
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
