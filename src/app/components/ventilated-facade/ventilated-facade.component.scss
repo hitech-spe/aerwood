@@ -1,0 +1,129 @@
+/* Ventilated Facade Component Styles */
+
+.facade-section {
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.facade-content {
+  .section-title {
+    font-size: 2.5rem;
+    margin: 16px 0 24px;
+    color: #FFFFFF;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .lead-text {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 580px;
+  }
+}
+
+.facade-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.benefit-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.benefit-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-wood);
+  color: var(--primary-wood);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  background-color: rgba(194, 155, 56, 0.05);
+}
+
+.benefit-info {
+  h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    font-weight: 650;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    max-width: 480px;
+  }
+}
+
+.facade-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.blueprint-card {
+  position: relative;
+  background-color: #161718;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--primary-wood);
+  }
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blueprint-tag {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 2px;
+}

@@ -79,3 +79,15 @@ Se colleghi il repository Git a Netlify:
 - Netlify leggerà automaticamente il file `netlify.toml` configurando la build in un click.
 - Ad ogni commit sul ramo principale (es. `main` o `master`), Netlify effettuerà il deploy automatico (Continuous Deployment).
 
+---
+
+## 6. Ottimizzazione Responsive & Supporto Mobile
+
+La bozza del sito vetrina di Aerwood è progettata con un approccio **Mobile-First** e un layout completamente fluido per garantire un'esperienza d'uso impeccabile su schermi di qualsiasi dimensione (dagli smartphone più compatti ai display desktop ultrawide).
+
+### 6.1 Strategie di Adattamento Mobile
+- **Navigazione Sincronizzata**: Il menu della testata (`HeaderComponent`) si trasforma su schermi inferiori a `768px` in un cassetto di navigazione a schermo intero animato in CSS. La transizione della barra hamburger a forma di "X" e la chiusura automatica dei link al click offrono un feedback d'uso istantaneo e naturale.
+- **Griglie Responsive Fluide**: Le sezioni di catalogo (`Products`), i vantaggi (`WhyWpc`), la cartella colori (`Colors`) e l'area tecnica (`Technical`) utilizzano griglie CSS (`CSS Grid`) con raggruppamento e scalabilità automatica a seconda della larghezza del viewport (es. da 5 colonne su desktop a 1 colonna su piccoli smartphone).
+- **Elementi di Testo Line-Clamping**: Le descrizioni dei prodotti sono bloccate rigidamente a 2 righe tramite CSS `-webkit-line-clamp` per impedire asimmetrie estetiche o overflow testuali disordinati su mobile.
+- **Grafica SVG Scalabile**: Sia il dettagliato schema tecnico della *Facciata Ventilata* sia il *Configuratore Interattivo* in SVG utilizzano un sistema di coordinate responsive `viewBox` che permette loro di rimpicciolirsi senza perdere definizione, mantenendo leggibili testi, staffe e frecce del moto d'aria su tutti i telefoni.
+

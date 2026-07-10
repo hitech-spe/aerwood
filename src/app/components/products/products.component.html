@@ -1,101 +1,63 @@
 <section id="products" class="section section-dark">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header text-center">
       <span class="badge badge-wood">{{ t().products.badge }}</span>
       <h2 class="section-title">{{ t().products.title }}</h2>
       <p class="section-intro">{{ t().products.intro }}</p>
     </div>
     
     <div class="grid-three">
-      <!-- Collection 1: Acoustics -->
+      <!-- Collection 1: AeroShield -->
       <div class="product-card">
         <div class="card-visual">
-          <!-- Acoustic slats SVG pattern -->
-          <svg viewBox="0 0 350 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="350" height="220" fill="#1C1D1E"/>
-            <g stroke="var(--primary-wood)" stroke-width="3">
-              <line x1="20" y1="30" x2="20" y2="190" />
-              <line x1="40" y1="30" x2="40" y2="190" />
-              <line x1="60" y1="30" x2="60" y2="190" />
-              <line x1="80" y1="30" x2="80" y2="190" />
-              <line x1="100" y1="30" x2="100" y2="190" />
-              <line x1="120" y1="30" x2="120" y2="190" />
-              <line x1="140" y1="30" x2="140" y2="190" />
-              <line x1="160" y1="30" x2="160" y2="190" />
-              <line x1="180" y1="30" x2="180" y2="190" />
-              <line x1="200" y1="30" x2="200" y2="190" />
-              <line x1="220" y1="30" x2="220" y2="190" />
-              <line x1="240" y1="30" x2="240" y2="190" />
-              <line x1="260" y1="30" x2="260" y2="190" />
-              <line x1="280" y1="30" x2="280" y2="190" />
-              <line x1="300" y1="30" x2="300" y2="190" />
-              <line x1="320" y1="30" x2="320" y2="190" />
-            </g>
-            <circle cx="175" cy="110" r="45" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="5 5" fill="none" opacity="0.3"/>
-            <path d="M125 110 H225" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
-          </svg>
+          <img 
+            src="/assets/Pannelli%20in%20Wpc%20per%20rivestimenti%20esterni.jpeg" 
+            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
+            alt="AeroShield" 
+            class="product-img" 
+          />
+          <div class="card-badge">PREMIUM WPC</div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.acoustics }}</h3>
           <p class="card-text">{{ t().products.acousticsDesc }}</p>
-          <a href="#contacts" class="card-link">{{ t().products.discover }} →</a>
+          <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
         </div>
       </div>
       
-      <!-- Collection 2: Cladding -->
+      <!-- Collection 2: AeroSlat -->
       <div class="product-card">
         <div class="card-visual">
-          <!-- Continuous wall cladding pattern -->
-          <svg viewBox="0 0 350 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="350" height="220" fill="#2E2319"/>
-            <g stroke="#1A110B" stroke-width="4">
-              <line x1="30" y1="0" x2="30" y2="220" />
-              <line x1="70" y1="0" x2="70" y2="220" />
-              <line x1="110" y1="0" x2="110" y2="220" />
-              <line x1="150" y1="0" x2="150" y2="220" />
-              <line x1="190" y1="0" x2="190" y2="220" />
-              <line x1="230" y1="0" x2="230" y2="220" />
-              <line x1="270" y1="0" x2="270" y2="220" />
-              <line x1="310" y1="0" x2="310" y2="220" />
-            </g>
-            <!-- Wood grain visual style lines -->
-            <path d="M45,30 C55,70 50,110 52,150" stroke="#4B3B2B" stroke-width="1.5" fill="none" opacity="0.4"/>
-            <path d="M125,10 C135,90 128,140 131,210" stroke="#4B3B2B" stroke-width="1.5" fill="none" opacity="0.4"/>
-            <path d="M205,50 C212,110 208,160 214,200" stroke="#4B3B2B" stroke-width="1.5" fill="none" opacity="0.4"/>
-          </svg>
+          <img 
+            src="/assets/aero-slat.jpg" 
+            onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
+            alt="AeroSlat" 
+            class="product-img" 
+          />
+          <div class="card-badge">3D GEOMETRY</div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.cladding }}</h3>
           <p class="card-text">{{ t().products.claddingDesc }}</p>
-          <a href="#contacts" class="card-link">{{ t().products.discover }} →</a>
+          <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
         </div>
       </div>
       
-      <!-- Collection 3: Veneers -->
+      <!-- Collection 3: AeroDeck -->
       <div class="product-card">
         <div class="card-visual">
-          <!-- Fine natural veneers wood growth rings pattern -->
-          <svg viewBox="0 0 350 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="350" height="220" fill="#4B331F"/>
-            <g stroke="#2C1F12" stroke-width="2" opacity="0.8">
-              <circle cx="175" cy="250" r="230" fill="none" />
-              <circle cx="175" cy="250" r="210" fill="none" />
-              <circle cx="175" cy="250" r="190" fill="none" />
-              <circle cx="175" cy="250" r="170" fill="none" />
-              <circle cx="175" cy="250" r="150" fill="none" />
-              <circle cx="175" cy="250" r="130" fill="none" />
-              <circle cx="175" cy="250" r="110" fill="none" />
-              <circle cx="175" cy="250" r="90" fill="none" />
-              <circle cx="175" cy="250" r="70" fill="none" />
-              <circle cx="175" cy="250" r="50" fill="none" />
-            </g>
-            <path d="M 0,110 Q 175,90 350,110" stroke="var(--primary-wood)" stroke-width="1" opacity="0.3" fill="none"/>
-          </svg>
+          <img 
+            src="/assets/aero-deck.jpg" 
+            onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80'" 
+            alt="AeroDeck" 
+            class="product-img" 
+          />
+          <div class="card-badge">OUTDOOR</div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.veneers }}</h3>
           <p class="card-text">{{ t().products.veneersDesc }}</p>
-          <a href="#contacts" class="card-link">{{ t().products.discover }} →</a>
+          <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
         </div>
       </div>
     </div>

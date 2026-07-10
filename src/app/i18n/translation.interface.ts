@@ -6,11 +6,17 @@ export interface Translations {
     gallery: string;
     sustainability: string;
     contacts: string;
+    whyWpc: string;
+    ventilatedFacade: string;
+    colors: string;
+    projects: string;
+    technical: string;
   };
   hero: {
     title: string;
     subtitle: string;
     cta: string;
+    ctaSecondary: string;
   };
   about: {
     badge: string;
@@ -33,6 +39,49 @@ export interface Translations {
     veneersDesc: string;
     discover: string;
   };
+  whyWpc: {
+    badge: string;
+    title: string;
+    waterproof: string;
+    waterproofDesc: string;
+    maintenance: string;
+    maintenanceDesc: string;
+    woodEffect: string;
+    woodEffectDesc: string;
+    eco: string;
+    ecoDesc: string;
+  };
+  ventilatedFacade: {
+    badge: string;
+    title: string;
+    intro: string;
+    layerWall: string;
+    layerInsulation: string;
+    layerSubstructure: string;
+    layerAirGap: string;
+    layerCladding: string;
+    benefit1: string;
+    benefit1Desc: string;
+    benefit2: string;
+    benefit2Desc: string;
+    benefit3: string;
+    benefit3Desc: string;
+  };
+  colors: {
+    badge: string;
+    title: string;
+    intro: string;
+    teak: string;
+    teakDesc: string;
+    walnut: string;
+    walnutDesc: string;
+    oak: string;
+    oakDesc: string;
+    charcoal: string;
+    charcoalDesc: string;
+    stone: string;
+    stoneDesc: string;
+  };
   gallery: {
     badge: string;
     title: string;
@@ -51,6 +100,33 @@ export interface Translations {
       rendering: string;
       hd: string;
     };
+  };
+  projects: {
+    badge: string;
+    title: string;
+    intro: string;
+    project1Title: string;
+    project1Desc: string;
+    project2Title: string;
+    project2Desc: string;
+    project3Title: string;
+    project3Desc: string;
+    project4Title: string;
+    project4Desc: string;
+  };
+  technical: {
+    badge: string;
+    title: string;
+    intro: string;
+    catalog: string;
+    catalogSize: string;
+    specs: string;
+    specsSize: string;
+    guide: string;
+    guideSize: string;
+    datasheets: string;
+    datasheetsSize: string;
+    download: string;
   };
   sustainability: {
     badge: string;

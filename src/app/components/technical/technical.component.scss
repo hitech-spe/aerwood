@@ -1,0 +1,126 @@
+/* Technical Downloads Component Styles */
+
+.technical-section {
+  background-color: #FDFDFD;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.doc-card {
+  background-color: #FFFFFF;
+  padding: 32px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: var(--primary-wood);
+    
+    .doc-svg {
+      transform: scale(1.08);
+    }
+    
+    .doc-download-btn {
+      background-color: var(--primary-wood);
+      color: #FFFFFF;
+    }
+  }
+}
+
+.doc-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  transition: var(--transition-normal);
+}
+
+.pdf-icon {
+  background-color: rgba(194, 155, 56, 0.04);
+  border: 1px solid rgba(194, 155, 56, 0.1);
+}
+
+.docx-icon {
+  background-color: rgba(138, 101, 70, 0.04);
+  border: 1px solid rgba(138, 101, 70, 0.1);
+}
+
+.doc-svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.4s ease;
+}
+
+.doc-details {
+  flex-grow: 1;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.doc-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.doc-size {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(34, 34, 34, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.doc-download-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  padding: 10px 20px;
+  
+  .btn-icon {
+    font-size: 0.95rem;
+    font-weight: 800;
+    transition: transform var(--transition-fast);
+  }
+  
+  &:hover {
+    .btn-icon {
+      transform: translateY(2px);
+    }
+  }
+}
