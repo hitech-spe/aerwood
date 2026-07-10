@@ -4,6 +4,7 @@ Questo file contiene le linee guida fondamentali, i token di design e le specifi
 
 ## 1. Sistema di Design & Identità del Brand
 
+
 Aerwood si posiziona come un brand B2B di lusso e premium industriale, specializzato in pannelli in legno di alta gamma, soluzioni fonoassorbenti per l'acustica e rivestimenti architettonici personalizzati (cladding).
 
 ### 1.1 Tavolozza dei Colori (Proprietà Personalizzate CSS)
