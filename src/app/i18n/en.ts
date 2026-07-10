@@ -93,10 +93,10 @@ export const enTranslations: Translations = {
     walnut: 'Canaletto Walnut',
     oak: 'Natural Oak',
     charcoal: 'Carbon Ash',
-    room: 'Select Façade',
+    room: 'Select Setting',
     living: 'Modern Villa Façade',
-    office: 'Executive Building',
-    hotel: 'Luxury Hotel Entrance',
+    office: 'Poolside & Solarium',
+    hotel: 'Terrace & Roof Garden',
     features: {
       texture: 'Realistic Vectorization',
       rendering: 'Real-Time Render',

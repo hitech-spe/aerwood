@@ -93,10 +93,10 @@ export const itTranslations: Translations = {
     walnut: 'Noce Canaletto',
     oak: 'Rovere Naturale',
     charcoal: 'Frassino Carbon',
-    room: 'Seleziona Facciata',
+    room: 'Seleziona Ambientazione',
     living: 'Facciata Villa Moderna',
-    office: 'Edificio Direzionale',
-    hotel: 'Ingresso Hotel Luxury',
+    office: 'Piscina & Solarium',
+    hotel: 'Terrazzo & Roof Garden',
     features: {
       texture: 'Vettorializzazione Realistica',
       rendering: 'Render in Tempo Reale',
