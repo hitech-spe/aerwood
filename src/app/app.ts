@@ -22,7 +22,6 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     WhyWpcComponent,
     VentilatedFacadeComponent,
     ColorsComponent,
-    GalleryComponent,
     ProjectsComponent,
     TechnicalComponent,
     AboutComponent,
