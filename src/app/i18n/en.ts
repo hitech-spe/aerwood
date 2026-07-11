@@ -35,8 +35,8 @@ export const enTranslations: Translations = {
     intro: 'Each Aerwood profile is engineered to guarantee high performance, long-term aesthetic durability, and easy installation for wall claddings and outdoor decking.',
     acoustics: 'AeroShield (Closed Siding)',
     acousticsDesc: 'Profile for continuous slatted ventilated facades. Clean linear design, perfect for elegant architectural screens.',
-    cladding: 'AeroSlat (3D Slatted Cladding)',
-    claddingDesc: 'Three-dimensional cladding with high geometric impact. Creates extraordinary play of light and shadow on facades.',
+    cladding: 'AeroSlat (3D Slat - Backlit Draft)',
+    claddingDesc: 'Three-dimensional cladding concept with integrated LED backlighting. Exclusive preview currently in prototyping phase.',
     veneers: 'AeroDeck (Outdoor Decking)',
     veneersDesc: 'High-resistance outdoor decking planks. Slip-resistant surface, splinter-free, and warm to the touch.',
     discover: 'Request Profile Info'

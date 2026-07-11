@@ -35,8 +35,8 @@ export const itTranslations: Translations = {
     intro: 'Ogni profilo Aerwood è ingegnerizzato per garantire alte prestazioni, durabilità estetica e facilità di installazione per pareti e pavimentazioni esterne.',
     acoustics: 'AeroShield (Dogato Chiuso)',
     acousticsDesc: 'Profilo per facciate ventilate a doghe continue. Design lineare ed estremamente pulito, ideale per schermature eleganti.',
-    cladding: 'AeroSlat (Listellato 3D)',
-    claddingDesc: 'Rivestimento tridimensionale ad alto impatto geometrico. Crea straordinari giochi di luci e ombre sulle facciate.',
+    cladding: 'AeroSlat (Listellato 3D - Bozza Retroilluminata)',
+    claddingDesc: 'Concept di rivestimento tridimensionale con retroilluminazione a LED integrata. Anteprima esclusiva in fase di prototipazione.',
     veneers: 'AeroDeck (Pavimentazione)',
     veneersDesc: 'Doghe per pavimentazione esterna ad altissima resistenza. Superficie antiscivolo, anti-scheggia e calda al tatto.',
     discover: 'Richiedi Info Profilo'

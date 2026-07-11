@@ -6,17 +6,17 @@
       <p class="section-intro">{{ t().products.intro }}</p>
     </div>
     
-    <div class="grid-three">
+    <div class="grid-two">
       <!-- Collection 1: AeroShield -->
       <div class="product-card">
         <div class="card-visual">
           <img 
-            src="/assets/pannelli-wpc-rivestimenti-esterni.jpeg" 
+            src="/assets/pannello1.png" 
             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
             alt="AeroShield" 
             class="product-img" 
           />
-          <div class="card-badge">PREMIUM WPC</div>
+          <div class="card-badge badge-glow">PREMIUM WPC</div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.acoustics }}</h3>
@@ -25,38 +25,22 @@
         </div>
       </div>
       
-      <!-- Collection 2: AeroSlat -->
+      <!-- Collection 2: AeroSlat (Bozza/Draft Concept) -->
       <!--div class="product-card">
         <div class="card-visual">
           <img 
-            src="/assets/aero-slat.jpg" 
+            src="/assets/pannello2.png" 
             onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
             alt="AeroSlat" 
             class="product-img" 
           />
-          <div class="card-badge">3D GEOMETRY</div>
+          <div class="card-badge badge-glow">
+            {{ langService.currentLanguage() === 'it' ? 'BOZZA CONCEPT' : 'DRAFT CONCEPT' }}
+          </div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.cladding }}</h3>
           <p class="card-text">{{ t().products.claddingDesc }}</p>
-          <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-        </div>
-      </div>
-      
-
-      <div class="product-card">
-        <div class="card-visual">
-          <img 
-            src="/assets/aero-deck.jpg" 
-            onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroDeck" 
-            class="product-img" 
-          />
-          <div class="card-badge">OUTDOOR</div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">{{ t().products.veneers }}</h3>
-          <p class="card-text">{{ t().products.veneersDesc }}</p>
           <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
         </div>
       </div-->
