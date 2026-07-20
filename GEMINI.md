@@ -1,11 +1,11 @@
-# Aerwood - Specifiche Sito Vetrina
+# Airwood - Specifiche Sito Vetrina
 
-Questo file contiene le linee guida fondamentali, i token di design e le specifiche dell'architettura tecnica per il sito vetrina di Aerwood.
+Questo file contiene le linee guida fondamentali, i token di design e le specifiche dell'architettura tecnica per il sito vetrina di Airwood.
 
 ## 1. Sistema di Design & Identità del Brand
 
 
-Aerwood si posiziona come un brand B2B di lusso e premium industriale, specializzato in pannelli in legno di alta gamma, soluzioni fonoassorbenti per l'acustica e rivestimenti architettonici personalizzati (cladding).
+Airwood si posiziona come un brand B2B di lusso e premium industriale, specializzato in pannelli in legno di alta gamma, soluzioni fonoassorbenti per l'acustica e rivestimenti architettonici personalizzati (cladding).
 
 ### 1.1 Tavolozza dei Colori (Proprietà Personalizzate CSS)
 ```css
@@ -49,7 +49,7 @@ L'applicazione è sviluppata in Angular 19+ con Server-Side Rendering (SSR) abil
 
 ## 3. Internazionalizzazione (i18n)
 
-Per evitare complesse configurazioni di compilazione o pesanti dipendenze a runtime, Aerwood utilizza un motore **i18n basato su Angular Signals**:
+Per evitare complesse configurazioni di compilazione o pesanti dipendenze a runtime, Airwood utilizza un motore **i18n basato su Angular Signals**:
 - Stato: Gestito in `LanguageService` tramite un segnale `language` (`'it' | 'en'`).
 - Sicurezza SSR: Lato server (durante l'SSR), la lingua predefinita è `'it'`. Lato client, l'applicazione carica e memorizza automaticamente la scelta dell'utente in `localStorage`.
 - Dizionario di Traduzione: Dizionari TypeScript tipizzati che implementano una comune interfaccia `Translations`, garantendo l'allineamento perfetto delle chiavi tra le lingue.
@@ -72,7 +72,7 @@ Il sito è configurato per essere distribuito su **Netlify** come sito statico p
 ### 5.1 File di Configurazione `netlify.toml`
 Abbiamo incluso un file `netlify.toml` nella radice del progetto che imposta automaticamente:
 1.  **Command di Build**: `npm run build` (che genera la build ottimizzata e prerenderizza il sito).
-2.  **Publish Directory**: `dist/aerwood/browser` (la cartella contenente i file statici finali).
+2.  **Publish Directory**: `dist/airwood/browser` (la cartella contenente i file statici finali).
 3.  **Regole di Redirect**: Redirige tutto il traffico a `/index.html` per evitare errori 404 in caso di routing SPA su link interni.
 
 ### 5.2 Istruzioni per il Deploy
@@ -84,7 +84,7 @@ Se colleghi il repository Git a Netlify:
 
 ## 6. Ottimizzazione Responsive & Supporto Mobile
 
-La bozza del sito vetrina di Aerwood è progettata con un approccio **Mobile-First** e un layout completamente fluido per garantire un'esperienza d'uso impeccabile su schermi di qualsiasi dimensione (dagli smartphone più compatti ai display desktop ultrawide).
+La bozza del sito vetrina di Airwood è progettata con un approccio **Mobile-First** e un layout completamente fluido per garantire un'esperienza d'uso impeccabile su schermi di qualsiasi dimensione (dagli smartphone più compatti ai display desktop ultrawide).
 
 ### 6.1 Strategie di Adattamento Mobile
 - **Navigazione Sincronizzata**: Il menu della testata (`HeaderComponent`) si trasforma su schermi inferiori a `768px` in un cassetto di navigazione a schermo intero animato in CSS. La transizione della barra hamburger a forma di "X" e la chiusura automatica dei link al click offrono un feedback d'uso istantaneo e naturale.

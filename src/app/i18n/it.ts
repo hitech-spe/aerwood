@@ -23,7 +23,7 @@ export const itTranslations: Translations = {
   about: {
     badge: 'Eccellenza & Orgoglio',
     title: 'Chi Siamo',
-    text1: 'Aerwood è sinonimo di eccellenza e innovazione nel settore dei rivestimenti in WPC premium. Dal nostro stabilimento in Italia esportiamo soluzioni di architettura sostenibile pensate per resistere al tempo e ridisegnare gli spazi del futuro.',
+    text1: 'Airwood è sinonimo di eccellenza e innovazione nel settore dei rivestimenti in WPC premium. Dal nostro stabilimento in Italia esportiamo soluzioni di architettura sostenibile pensate per resistere al tempo e ridisegnare gli spazi del futuro.',
     text2: 'Ogni nostro pannello rappresenta la sintesi perfetta tra maestria artigianale e precisione tecnologica industriale.',
     stat_experience: 'Anni di Innovazione',
     stat_certified: 'Certificazioni FSC®',
@@ -32,7 +32,7 @@ export const itTranslations: Translations = {
   products: {
     badge: 'Catalogo Profili WPC',
     title: 'Le Nostre Soluzioni',
-    intro: 'Ogni profilo Aerwood è ingegnerizzato per garantire alte prestazioni, durabilità estetica e facilità di installazione per pareti e pavimentazioni esterne.',
+    intro: 'Ogni profilo Airwood è ingegnerizzato per garantire alte prestazioni, durabilità estetica e facilità di installazione per pareti e pavimentazioni esterne.',
     acoustics: 'Titolo di Prova Pannello 1',
     acousticsDesc: 'Questa è una descrizione di prova per il Pannello 1. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     cladding: 'Titolo di Prova Pannello 2',
@@ -61,7 +61,7 @@ export const itTranslations: Translations = {
     layerInsulation: '2. Strato Isolante Termico continuo',
     layerSubstructure: '3. Sottostruttura in Alluminio / Staffe',
     layerAirGap: '4. Camera d\'aria (Effetto Camino)',
-    layerCladding: '5. Rivestimento Esterno WPC Aerwood',
+    layerCladding: '5. Rivestimento Esterno WPC Airwood',
     benefit1: 'Isolamento Termico',
     benefit1Desc: 'Eliminazione totale dei ponti termici, portando a un enorme risparmio energetico sia in estate che in inverno.',
     benefit2: 'Smaltimento Umidità',
@@ -87,7 +87,7 @@ export const itTranslations: Translations = {
   gallery: {
     badge: 'Configuratore Interattivo',
     title: 'Simulatore Finiture',
-    intro: 'Prova l\'esperienza di visualizzare i diversi pannelli Aerwood applicati ad ambienti architettonici reali di esterni. Seleziona l\'essenza legnosa e la tipologia di facciata per vedere il render aggiornarsi istantaneamente.',
+    intro: 'Prova l\'esperienza di visualizzare i diversi pannelli Airwood applicati ad ambienti architettonici reali di esterni. Seleziona l\'essenza legnosa e la tipologia di facciata per vedere il render aggiornarsi istantaneamente.',
     instructions: 'Interagisci con i controlli sottostanti per cambiare finitura o tipologia di facciata.',
     style: 'Finitura Legno',
     walnut: 'Noce Canaletto',
@@ -119,8 +119,8 @@ export const itTranslations: Translations = {
   technical: {
     badge: 'Area Download Tecnici',
     title: 'Risorse per Progettisti',
-    intro: 'Accedi alla nostra documentazione tecnica completa per inserire i sistemi Aerwood nei tuoi progetti ed elaborare i capitolati.',
-    catalog: 'Catalogo Generale Aerwood 2026',
+    intro: 'Accedi alla nostra documentazione tecnica completa per inserire i sistemi Airwood nei tuoi progetti ed elaborare i capitolati.',
+    catalog: 'Catalogo Generale Airwood 2026',
     catalogSize: 'PDF • 14.5 MB',
     specs: 'Voci di Capitolato Tecnico WPC',
     specsSize: 'DOCX • 1.2 MB',
@@ -157,7 +157,7 @@ export const itTranslations: Translations = {
     emailLabel: 'Email Supporto'
   },
   footer: {
-    copyright: '© 2026 Aerwood S.r.l. Tutti i diritti riservati.',
+    copyright: '© 2026 Airwood S.r.l. Tutti i diritti riservati.',
     rights: 'Progettazione e produzione pannelli acustici e rivestimenti.',
     vat: 'P.IVA IT 01234567890'
   }

@@ -23,7 +23,7 @@ export const enTranslations: Translations = {
   about: {
     badge: 'Excellence & Pride',
     title: 'About Us',
-    text1: 'Aerwood stands for excellence and innovation in the premium WPC cladding sector. From our manufacturing facility in Italy, we export sustainable architectural solutions designed to withstand the test of time and redefine future spaces.',
+    text1: 'Airwood stands for excellence and innovation in the premium WPC cladding sector. From our manufacturing facility in Italy, we export sustainable architectural solutions designed to withstand the test of time and redefine future spaces.',
     text2: 'Each of our panels represents the perfect synthesis of handcrafted mastery and advanced industrial manufacturing precision.',
     stat_experience: 'Years of Innovation',
     stat_certified: 'FSC® Certified',
@@ -32,7 +32,7 @@ export const enTranslations: Translations = {
   products: {
     badge: 'WPC Profile Catalog',
     title: 'Our Solutions',
-    intro: 'Each Aerwood profile is engineered to guarantee high performance, long-term aesthetic durability, and easy installation for wall claddings and outdoor decking.',
+    intro: 'Each Airwood profile is engineered to guarantee high performance, long-term aesthetic durability, and easy installation for wall claddings and outdoor decking.',
     acoustics: 'Test Title Panel 1',
     acousticsDesc: 'This is a test description for Panel 1. It serves as temporary placeholder text to evaluate design and alignment.',
     cladding: 'Test Title Panel 2',
@@ -87,7 +87,7 @@ export const enTranslations: Translations = {
   gallery: {
     badge: 'Interactive Configurator',
     title: 'Finishes Simulator',
-    intro: 'Experience visualizing different Aerwood panels applied to real-world external architectural settings. Select the wood finish and façade type to see the render update instantly.',
+    intro: 'Experience visualizing different Airwood panels applied to real-world external architectural settings. Select the wood finish and façade type to see the render update instantly.',
     instructions: 'Interact with the controls below to change finishes or façade types.',
     style: 'Wood Finish',
     walnut: 'Canaletto Walnut',
@@ -119,8 +119,8 @@ export const enTranslations: Translations = {
   technical: {
     badge: 'Technical Download Area',
     title: 'Architect Resources',
-    intro: 'Access our complete technical documentation to seamlessly integrate Aerwood systems into your architectural plans and specifications.',
-    catalog: 'Aerwood General Catalog 2026',
+    intro: 'Access our complete technical documentation to seamlessly integrate Airwood systems into your architectural plans and specifications.',
+    catalog: 'Airwood General Catalog 2026',
     catalogSize: 'PDF • 14.5 MB',
     specs: 'WPC Specification Clauses',
     specsSize: 'DOCX • 1.2 MB',
@@ -157,7 +157,7 @@ export const enTranslations: Translations = {
     emailLabel: 'Support Email'
   },
   footer: {
-    copyright: '© 2026 Aerwood S.r.l. All rights reserved.',
+    copyright: '© 2026 Airwood S.r.l. All rights reserved.',
     rights: 'Design and manufacture of acoustic panels and cladding.',
     vat: 'VAT IT 01234567890'
   }

@@ -66,7 +66,7 @@
   animation: gold-ambient-pulse 3s infinite ease-in-out;
   
   .product-img {
-    filter: brightness(1.15) contrast(1.05) saturate(1.15);
+    /* Filter is defined in the global .product-img class and its subclasses */
   }
   
   &:hover {
@@ -133,10 +133,132 @@
 }
 
 .product-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, clip-path 0.4s ease;
+}
+
+.product-img-bg {
+  z-index: 1;
+  filter: brightness(1.15) contrast(1.05) saturate(1.15); /* Always clean, original studio look */
+}
+
+.product-img-panel {
+  z-index: 2;
+  /* Isolate strictly a central horizontal strip (crop 35% top/bottom, 0% left/right to capture only the horizontal panel) */
+  clip-path: inset(35% 0 35% 0);
+  
+  &.filter-original {
+    /* Seamlessly expand to full-screen when showing original version */
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1.15) contrast(1.05) saturate(1.15);
+  }
+
+  &.filter-teak {
+    /* Warm golden/orange tone, keeps white background 100% white because white has 0 saturation */
+    filter: hue-rotate(5deg) saturate(1.3) brightness(1.0) contrast(1.05);
+  }
+
+  &.filter-walnut {
+    /* Deeper warm dark brown walnut */
+    filter: hue-rotate(-15deg) saturate(0.8) brightness(0.6) contrast(1.2);
+  }
+
+  &.filter-oak {
+    /* Brighter, light yellowish Scandinavian oak */
+    filter: hue-rotate(15deg) saturate(0.7) brightness(1.25) contrast(0.95);
+  }
+
+  &.filter-charcoal {
+    /* Neutral gray desaturated, darkened for Charcoal Ash */
+    filter: grayscale(100%) brightness(0.4) contrast(1.2);
+  }
+
+  &.filter-stone {
+    /* Balanced medium gray for Stone Gray */
+    filter: grayscale(100%) brightness(0.75) contrast(1.0);
+  }
+}
+
+/* Contenitore fluttuante dei pallini colore */
+.color-chips-overlay {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.color-chip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  
+  &:hover {
+    transform: scale(1.2);
+    border-color: #FFFFFF;
+    
+    &::after {
+      border-color: rgba(194, 155, 56, 0.4);
+    }
+  }
+  
+  &.active {
+    transform: scale(1.25);
+    border-color: #FFFFFF;
+    box-shadow: 0 0 10px var(--primary-wood);
+    
+    &::after {
+      border-color: var(--primary-wood);
+    }
+  }
+  
+  &.chip-original {
+    background: linear-gradient(135deg, #8A6546 0%, #D4A359 50%, #2E2F31 100%);
+    border-color: rgba(255, 255, 255, 0.6);
+    
+    .chip-inner-icon {
+      font-size: 9px;
+      color: #FFFFFF;
+      font-weight: bold;
+      line-height: 1;
+      display: block;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    }
+  }
 }
 
 .card-badge {
@@ -152,6 +274,7 @@
   letter-spacing: 1px;
   border-radius: 4px;
   border: 1px solid rgba(194, 155, 56, 0.3);
+  z-index: 5; /* Sit above the tint overlays */
   
   /* Glowing / Neon draft indicator */
   &.badge-glow {

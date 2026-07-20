@@ -17,7 +17,7 @@ export class LanguageService {
     // Safely hydrate from localStorage on the client side
     if (isPlatformBrowser(this.platformId)) {
       try {
-        const savedLang = localStorage.getItem('aerwood_lang');
+        const savedLang = localStorage.getItem('airwood_lang');
         if (savedLang === 'it' || savedLang === 'en') {
           this.activeLanguage.set(savedLang);
         } else {
@@ -48,7 +48,7 @@ export class LanguageService {
     this.activeLanguage.set(lang);
     if (isPlatformBrowser(this.platformId)) {
       try {
-        localStorage.setItem('aerwood_lang', lang);
+        localStorage.setItem('airwood_lang', lang);
       } catch (e) {
         console.warn('Could not write to localStorage', e);
       }

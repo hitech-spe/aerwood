@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "aerwood": {
+    "airwood": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -70,10 +70,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "aerwood:build:production"
+              "buildTarget": "airwood:build:production"
             },
             "development": {
-              "buildTarget": "aerwood:build:development"
+              "buildTarget": "airwood:build:development"
             }
           },
           "defaultConfiguration": "development"

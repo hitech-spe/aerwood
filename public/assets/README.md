@@ -1,4 +1,4 @@
-# Cartella Assets di Aerwood
+# Cartella Assets di Airwood
 
 Inserisci in questa cartella le immagini dei profili dei modelli WPC da visualizzare nella sezione prodotti.
 

@@ -10,12 +10,45 @@
       <!-- Collection 1: AeroShield -->
       <div class="product-card">
         <div class="card-visual">
+          <!-- Background Image: Always original (including original studio room background) -->
           <img 
             src="/assets/pannello1.jpeg"
             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroShield" 
-            class="product-img" 
+            alt="AeroShield Original Room" 
+            class="product-img product-img-bg" 
           />
+          
+          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <img 
+            src="/assets/pannello1.jpeg"
+            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
+            alt="AeroShield Tinted Panel" 
+            [class]="'product-img product-img-panel filter-' + activeFinishCard1()"
+          />
+          
+          <!-- Floating interactive color selector -->
+          <div class="color-chips-overlay">
+            <!-- Reset to original button -->
+            <button 
+              class="color-chip chip-original"
+              [class.active]="activeFinishCard1() === 'original'"
+              (click)="selectFinish(1, 'original'); $event.stopPropagation()"
+              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
+              <span class="chip-inner-icon">↺</span>
+            </button>
+            
+            <!-- Finish selection dots -->
+            @for (finish of finishes; track finish.id) {
+              <button 
+                class="color-chip"
+                [class.active]="activeFinishCard1() === finish.id"
+                [style.background-color]="finish.hex"
+                (click)="selectFinish(1, finish.id); $event.stopPropagation()"
+                [title]="t().colors[finish.nameKey]">
+              </button>
+            }
+          </div>
+          
           <div class="card-badge badge-glow">PREMIUM WPC</div>
         </div>
         <div class="card-body">
@@ -28,12 +61,45 @@
       <!-- Collection 2: AeroSlat (Bozza/Draft Concept) -->
       <div class="product-card">
         <div class="card-visual">
+          <!-- Background Image: Always original (including original studio room background) -->
           <img 
             src="/assets/pannello2.jpeg"
             onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroSlat" 
-            class="product-img" 
+            alt="AeroSlat Original Room" 
+            class="product-img product-img-bg" 
           />
+          
+          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <img 
+            src="/assets/pannello2.jpeg"
+            onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
+            alt="AeroSlat Tinted Panel" 
+            [class]="'product-img product-img-panel filter-' + activeFinishCard2()"
+          />
+          
+          <!-- Floating interactive color selector -->
+          <div class="color-chips-overlay">
+            <!-- Reset to original button -->
+            <button 
+              class="color-chip chip-original"
+              [class.active]="activeFinishCard2() === 'original'"
+              (click)="selectFinish(2, 'original'); $event.stopPropagation()"
+              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
+              <span class="chip-inner-icon">↺</span>
+            </button>
+            
+            <!-- Finish selection dots -->
+            @for (finish of finishes; track finish.id) {
+              <button 
+                class="color-chip"
+                [class.active]="activeFinishCard2() === finish.id"
+                [style.background-color]="finish.hex"
+                (click)="selectFinish(2, finish.id); $event.stopPropagation()"
+                [title]="t().colors[finish.nameKey]">
+              </button>
+            }
+          </div>
+          
           <div class="card-badge badge-glow">
             {{ langService.currentLanguage() === 'it' ? 'BOZZA CONCEPT' : 'DRAFT CONCEPT' }}
           </div>
