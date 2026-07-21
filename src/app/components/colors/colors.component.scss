@@ -5,9 +5,9 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.grid-five {
+.colors-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 48px;
   
@@ -91,24 +91,38 @@
 }
 
 /* WPC Wood Tone Declarations */
-.teak-wood {
-  background-color: #D4A359;
+.white-wood {
+  background-color: #F8F9FA;
   span {
-    background: linear-gradient(to right, #D4A359, #C29147);
+    background: linear-gradient(to right, #F8F9FA, #E9ECEF);
   }
 }
 
-.walnut-wood {
-  background-color: #704F34;
+.sand-wood {
+  background-color: #E5C39E;
   span {
-    background: linear-gradient(to right, #704F34, #5A3E26);
+    background: linear-gradient(to right, #E5C39E, #CBA47B);
   }
 }
 
-.oak-wood {
-  background-color: #E3CDA4;
+.pearlGrey-wood {
+  background-color: #D1D5DB;
   span {
-    background: linear-gradient(to right, #E3CDA4, #CD9F7E);
+    background: linear-gradient(to right, #D8DBE2, #BAC1CC);
+  }
+}
+
+.honey-wood {
+  background-color: #E59F3C;
+  span {
+    background: linear-gradient(to right, #E59F3C, #C8821F);
+  }
+}
+
+.avorico-wood {
+  background-color: #F4EBE1;
+  span {
+    background: linear-gradient(to right, #F7F1EA, #DDD2C4);
   }
 }
 
@@ -119,10 +133,10 @@
   }
 }
 
-.stone-wood {
-  background-color: #8A9597;
+.coffee-wood {
+  background-color: #4B382A;
   span {
-    background: linear-gradient(to right, #8A9597, #707A7C);
+    background: linear-gradient(to right, #4B382A, #34251B);
   }
 }
 

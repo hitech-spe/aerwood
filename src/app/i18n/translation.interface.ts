@@ -71,16 +71,20 @@ export interface Translations {
     badge: string;
     title: string;
     intro: string;
-    teak: string;
-    teakDesc: string;
-    walnut: string;
-    walnutDesc: string;
-    oak: string;
-    oakDesc: string;
+    white: string;
+    whiteDesc: string;
+    sand: string;
+    sandDesc: string;
+    pearlGrey: string;
+    pearlGreyDesc: string;
+    honey: string;
+    honeyDesc: string;
+    avorico: string;
+    avoricoDesc: string;
     charcoal: string;
     charcoalDesc: string;
-    stone: string;
-    stoneDesc: string;
+    coffee: string;
+    coffeeDesc: string;
   };
   gallery: {
     badge: string;
