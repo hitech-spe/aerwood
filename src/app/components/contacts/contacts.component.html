@@ -47,7 +47,7 @@
           <!-- Hidden inputs for Netlify forms dynamic submission -->
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden-honeypot" style="display: none;">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            <label>Don't fill this out if you're human: <input name="bot-field" [value]="contactBotField()" (input)="onFieldChange('bot-field', $event)" /></label>
           </p>
 
           <!-- Name -->

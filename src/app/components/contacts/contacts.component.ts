@@ -16,13 +16,15 @@ export class ContactsComponent {
   readonly contactName = signal('');
   readonly contactEmail = signal('');
   readonly contactMessage = signal('');
+  readonly contactBotField = signal('');
   readonly contactStatus = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  onFieldChange(field: 'name' | 'email' | 'message', event: Event): void {
+  onFieldChange(field: 'name' | 'email' | 'message' | 'bot-field', event: Event): void {
     const input = event.target as HTMLInputElement | HTMLTextAreaElement;
     if (field === 'name') this.contactName.set(input.value);
     if (field === 'email') this.contactEmail.set(input.value);
     if (field === 'message') this.contactMessage.set(input.value);
+    if (field === 'bot-field') this.contactBotField.set(input.value);
   }
 
   submitContactForm(event: Event): void {
@@ -43,7 +45,8 @@ export class ContactsComponent {
       'form-name': 'contact',
       'name': name,
       'email': email,
-      'message': message
+      'message': message,
+      'bot-field': this.contactBotField()
     });
 
     fetch('/', {
@@ -60,6 +63,7 @@ export class ContactsComponent {
       this.contactName.set('');
       this.contactEmail.set('');
       this.contactMessage.set('');
+      this.contactBotField.set('');
       
       // Reset feedback status after a few seconds
       setTimeout(() => {
