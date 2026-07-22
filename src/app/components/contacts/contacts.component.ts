@@ -2,10 +2,11 @@ import { Component, signal, inject } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-  selector: 'app-contacts',
-  imports: [],
-  templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.scss'
+    selector: 'app-contacts',
+    imports: [],
+    templateUrl: './contacts.component.html',
+    standalone: true,
+    styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
   readonly langService = inject(LanguageService);
@@ -27,15 +28,33 @@ export class ContactsComponent {
   submitContactForm(event: Event): void {
     event.preventDefault();
     
-    if (!this.contactName().trim() || !this.contactEmail().trim() || !this.contactMessage().trim()) {
+    const name = this.contactName().trim();
+    const email = this.contactEmail().trim();
+    const message = this.contactMessage().trim();
+
+    if (!name || !email || !message) {
       this.contactStatus.set('error');
       return;
     }
 
     this.contactStatus.set('sending');
 
-    // Simulate API submission
-    setTimeout(() => {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      'name': name,
+      'email': email,
+      'message': message
+    });
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Netlify form submission failed');
+      }
       this.contactStatus.set('success');
       // Reset fields
       this.contactName.set('');
@@ -46,6 +65,10 @@ export class ContactsComponent {
       setTimeout(() => {
         this.contactStatus.set('idle');
       }, 5000);
-    }, 1500);
+    })
+    .catch(error => {
+      console.error('Netlify Form Submission Error:', error);
+      this.contactStatus.set('error');
+    });
   }
 }

@@ -2,13 +2,13 @@ import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-    selector: 'app-hero',
-    imports: [],
-    templateUrl: './hero.component.html',
-    standalone: true,
-    styleUrl: './hero.component.scss'
+  selector: 'app-terms',
+  standalone: true,
+  imports: [],
+  templateUrl: './terms.component.html',
+  styleUrl: './terms.component.scss'
 })
-export class HeroComponent {
+export class TermsComponent {
   readonly langService = inject(LanguageService);
   readonly t = this.langService.t;
 }

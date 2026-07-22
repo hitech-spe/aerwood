@@ -1,10 +1,11 @@
 import { Component, signal, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

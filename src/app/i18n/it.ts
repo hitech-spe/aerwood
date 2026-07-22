@@ -163,6 +163,69 @@ export const itTranslations: Translations = {
   footer: {
     copyright: '© 2026 Airwood S.r.l. Tutti i diritti riservati.',
     rights: 'Progettazione e produzione pannelli acustici e rivestimenti.',
-    vat: 'P.IVA IT 01234567890'
+    vat: 'P.IVA IT 01234567890',
+    privacy: 'Privacy Policy',
+    terms: 'Termini e Condizioni',
+    developedBy: 'Sviluppato da'
+  },
+  privacy: {
+    badge: 'Trasparenza e Sicurezza',
+    title: 'Informativa sulla Privacy',
+    lastUpdated: 'Ultimo aggiornamento: 21 Luglio 2026',
+    intro: 'In Airwood, la tutela dei tuoi dati personali è una priorità assoluta. Questa informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati quando visiti il nostro sito o ci contatti per preventivi.',
+    sections: [
+      {
+        title: '1. Titolare del Trattamento dei Dati',
+        content: 'Il Titolare del trattamento dei dati personali è Airwood S.r.l., con sede legale in Milano (MI), Italia. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all\'indirizzo email: privacy@airwood.it.'
+      },
+      {
+        title: '2. Tipologie di Dati Raccolti',
+        content: 'Raccogliamo principalmente dati forniti volontariamente dall\'utente tramite il modulo di contatto (quali nome, indirizzo email, azienda, recapito telefonico e dettagli del progetto) e dati tecnici di navigazione raccolti automaticamente tramite cookie o tecnologie simili per ottimizzare le prestazioni del sito.'
+      },
+      {
+        title: '3. Finalità del Trattamento',
+        content: 'I tuoi dati sono trattati esclusivamente per le seguenti finalità: rispondere alle tue richieste di contatto o di preventivo gratuito, fornire assistenza e consulenza tecnica specialistica sulla gamma dei nostri profili e pannelli WPC, adempiere agli obblighi legali e amministrativi, e monitorare l\'esperienza d\'uso sul nostro sito per finalità di miglioramento tecnico.'
+      },
+      {
+        title: '4. Base Giuridica del Trattamento',
+        content: 'Il trattamento dei tuoi dati si fonda sull\'esecuzione di misure precontrattuali o contrattuali (per soddisfare una tua esplicita richiesta di informazioni o quotazioni), sul rispetto degli obblighi di legge a cui è soggetta la società, e sul legittimo interesse di Airwood a promuovere in modo efficiente i propri prodotti e servizi sul mercato.'
+      },
+      {
+        title: '5. Conservazione dei Dati',
+        content: 'I dati personali raccolti saranno conservati per il tempo strettamente necessario a raggiungere le finalità per cui sono stati raccolti (ovvero per tutta la durata del rapporto di consulenza e follow-up commerciale) e, successivamente, per i periodi previsti dalle leggi civili e fiscali applicabili.'
+      },
+      {
+        title: '6. Diritti dell\'Interessato',
+        content: 'Ai sensi del Regolamento Europeo 2016/679 (GDPR), hai il diritto in qualunque momento di ottenere la conferma dell\'esistenza dei dati, conoscerne il contenuto, chiederne la rettifica, la limitazione, la portabilità o la cancellazione scrivendo direttamente all\'indirizzo email privacy@airwood.it.'
+      }
+    ]
+  },
+  terms: {
+    badge: 'Condizioni d\'Uso',
+    title: 'Termini e Condizioni',
+    lastUpdated: 'Ultimo aggiornamento: 21 Luglio 2026',
+    intro: 'Benvenuto sul sito di Airwood. L\'accesso e l\'uso di questo sito sono regolati dai seguenti Termini e Condizioni. Utilizzando il sito, accetti di rispettarli integralmente.',
+    sections: [
+      {
+        title: '1. Proprietà Intellettuale',
+        content: 'Tutti i contenuti visivi, testuali, grafici e informativi presenti su questo sito — inclusi i loghi Airwood, le schede tecniche, le guide di posa, le voci di capitolato e la programmazione vettoriale del configuratore di finiture interattivo — sono di proprietà esclusiva di Airwood S.r.l. o concessi in licenza, e sono tutelati dalle vigenti normative nazionali e internazionali sul diritto d\'autore.'
+      },
+      {
+        title: '2. Condizioni di Utilizzo del Sito e Download',
+        content: 'È consentita la navigazione e il download dei documenti tecnici (es. cataloghi generali, schede dei materiali) esclusivamente a scopo professionale di progettazione, preventivazione o uso personale. È severamente vietato riprodruire, distribuire, modificare o incorporare in altri siti qualsiasi materiale o codice di questo portale senza preventiva autorizzazione scritta da parte di Airwood.'
+      },
+      {
+        title: '3. Esclusione di Responsabilità sulle Simulazioni',
+        content: 'Airwood si impegna a fornire informazioni tecniche estremamente precise. Tuttavia, il simulatore grafico delle finiture (configuratore) e i campioni di colore digitali presentati sul sito hanno scopo puramente indicativo e illustrativo. Le venature, le sfumature e i colori reali del WPC possono variare in base alla produzione industriale e alle condizioni di luce naturale. Consigliamo sempre la richiesta di un campione fisico prima dell\'ordine.'
+      },
+      {
+        title: '4. Modifiche ai Prodotti e ai Termini',
+        content: 'Airwood S.r.l. si riserva il diritto insindacabile di apportare in qualsiasi momento modifiche tecniche o estetiche ai propri profili, pannelli fonoassorbenti o facciate ventilate per esigenze di miglioramento industriale, senza obbligo di preavviso. Anche le presenti condizioni d\'uso potranno essere aggiornate periodicamente.'
+      },
+      {
+        title: '5. Legge Applicabile e Foro Competente',
+        content: 'Le presenti condizioni sono regolate e interpretate in conformità alla legge italiana. Per qualsiasi controversia derivante dall\'interpretazione, validità o esecuzione dei presenti termini, sarà competente in via esclusiva il Foro di Milano, Italia.'
+      }
+    ]
   }
 };

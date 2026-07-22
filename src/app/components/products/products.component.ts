@@ -5,13 +5,15 @@ export interface FinishOption {
   id: string;
   nameKey: 'white' | 'sand' | 'pearlGrey' | 'honey' | 'avorico' | 'charcoal' | 'coffee';
   hex: string;
+  code: string;
 }
 
 @Component({
-  selector: 'app-products',
-  imports: [],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+    selector: 'app-products',
+    imports: [],
+    templateUrl: './products.component.html',
+    standalone: true,
+    styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
   readonly langService = inject(LanguageService);
@@ -23,21 +25,26 @@ export class ProductsComponent {
 
   // Modal State
   readonly isModalOpen = signal<boolean>(false);
+  readonly currentModalCard = signal<1 | 2 | null>(null);
   readonly modalTitle = signal<string>('');
   readonly modalBgImage = signal<string>('');
   readonly modalPanelImage = signal<string>('');
   readonly modalFilterClass = signal<string>('');
 
-  // Premium wood finishes aligned with our general color palette
+  // Premium wood finishes aligned with our general color palette and technical architectural codes
   readonly finishes: FinishOption[] = [
-    { id: 'white', nameKey: 'white', hex: '#F8F9FA' },
-    { id: 'sand', nameKey: 'sand', hex: '#E5C39E' },
-    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#D1D5DB' },
-    { id: 'honey', nameKey: 'honey', hex: '#E59F3C' },
-    { id: 'avorico', nameKey: 'avorico', hex: '#F4EBE1' },
-    { id: 'charcoal', nameKey: 'charcoal', hex: '#2E2F31' },
-    { id: 'coffee', nameKey: 'coffee', hex: '#4B382A' }
+    { id: 'white', nameKey: 'white', hex: '#F8F9FA', code: 'AW-9010' },
+    { id: 'sand', nameKey: 'sand', hex: '#E5C39E', code: 'AW-1015' },
+    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#D1D5DB', code: 'AW-7040' },
+    { id: 'honey', nameKey: 'honey', hex: '#E59F3C', code: 'AW-8001' },
+    { id: 'avorico', nameKey: 'avorico', hex: '#F4EBE1', code: 'AW-1013' },
+    { id: 'charcoal', nameKey: 'charcoal', hex: '#2E2F31', code: 'AW-7021' },
+    { id: 'coffee', nameKey: 'coffee', hex: '#4B382A', code: 'AW-8017' }
   ];
+
+  getFinishDetails(finishId: string): FinishOption | null {
+    return this.finishes.find(f => f.id === finishId) || null;
+  }
 
   selectFinish(card: 1 | 2, finishId: string): void {
     if (card === 1) {
@@ -74,7 +81,23 @@ export class ProductsComponent {
     }
   }
 
+  selectFinishInModal(finishId: string): void {
+    const card = this.currentModalCard();
+    if (card) {
+      this.selectFinish(card, finishId);
+      this.modalFilterClass.set('filter-' + finishId);
+    }
+  }
+
+  getActiveFinishInModal(): string {
+    const card = this.currentModalCard();
+    if (card === 1) return this.activeFinishCard1();
+    if (card === 2) return this.activeFinishCard2();
+    return 'original';
+  }
+
   openCardModal(cardNum: 1 | 2): void {
+    this.currentModalCard.set(cardNum);
     if (cardNum === 1) {
       const title = 'AeroShield';
       this.openImageModal(

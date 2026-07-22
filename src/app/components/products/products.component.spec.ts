@@ -86,4 +86,15 @@ describe('ProductsComponent', () => {
     component.onEscapeKey();
     expect(component.isModalOpen()).toBe(false);
   });
+
+  it('should allow changing finish within the modal', () => {
+    component.openCardModal(1);
+    expect(component.isModalOpen()).toBe(true);
+    expect(component.getActiveFinishInModal()).toBe('original');
+
+    component.selectFinishInModal('sand');
+    expect(component.getActiveFinishInModal()).toBe('sand');
+    expect(component.activeFinishCard1()).toBe('sand');
+    expect(component.modalFilterClass()).toBe('filter-sand');
+  });
 });

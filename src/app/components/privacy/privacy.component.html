@@ -1,0 +1,20 @@
+<section class="section privacy-section">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="badge badge-wood">{{ t().privacy.badge }}</span>
+      <h1 class="privacy-title">{{ t().privacy.title }}</h1>
+      <p class="privacy-date">{{ t().privacy.lastUpdated }}</p>
+      <div class="divider-line"></div>
+      <p class="privacy-intro">{{ t().privacy.intro }}</p>
+    </div>
+
+    <div class="privacy-content">
+      @for (sec of t().privacy.sections; track sec.title) {
+        <div class="privacy-card">
+          <h2 class="card-title">{{ sec.title }}</h2>
+          <p class="card-text">{{ sec.content }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

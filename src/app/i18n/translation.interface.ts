@@ -162,5 +162,28 @@ export interface Translations {
     copyright: string;
     rights: string;
     vat: string;
+    privacy: string;
+    terms: string;
+    developedBy: string;
+  };
+  privacy: {
+    badge: string;
+    title: string;
+    lastUpdated: string;
+    intro: string;
+    sections: {
+      title: string;
+      content: string;
+    }[];
+  };
+  terms: {
+    badge: string;
+    title: string;
+    lastUpdated: string;
+    intro: string;
+    sections: {
+      title: string;
+      content: string;
+    }[];
   };
 }

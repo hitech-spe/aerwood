@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
+import { Router, provideRouter } from '@angular/router';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { App } from './app';
+import { routes } from './app.routes';
 import { LanguageService } from './services/language.service';
 
 describe('App', () => {
@@ -9,7 +11,10 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [LanguageService]
+      providers: [
+        LanguageService,
+        provideRouter(routes)
+      ]
     }).compileComponents();
 
     langService = TestBed.inject(LanguageService);
@@ -23,6 +28,8 @@ describe('App', () => {
 
   it('should render localized title', async () => {
     const fixture = TestBed.createComponent(App);
+    const router = TestBed.inject(Router);
+    await router.navigate(['']);
     fixture.detectChanges(); // Trigger change detection
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;

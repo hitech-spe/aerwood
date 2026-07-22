@@ -1,0 +1,20 @@
+<section class="section terms-section">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="badge badge-wood">{{ t().terms.badge }}</span>
+      <h1 class="terms-title">{{ t().terms.title }}</h1>
+      <p class="terms-date">{{ t().terms.lastUpdated }}</p>
+      <div class="divider-line"></div>
+      <p class="terms-intro">{{ t().terms.intro }}</p>
+    </div>
+
+    <div class="terms-content">
+      @for (sec of t().terms.sections; track sec.title) {
+        <div class="terms-card">
+          <h2 class="card-title">{{ sec.title }}</h2>
+          <p class="card-text">{{ sec.content }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

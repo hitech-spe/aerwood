@@ -163,6 +163,69 @@ export const enTranslations: Translations = {
   footer: {
     copyright: '© 2026 Airwood S.r.l. All rights reserved.',
     rights: 'Design and manufacture of acoustic panels and cladding.',
-    vat: 'VAT IT 01234567890'
+    vat: 'VAT IT 01234567890',
+    privacy: 'Privacy Policy',
+    terms: 'Terms and Conditions',
+    developedBy: 'Developed by'
+  },
+  privacy: {
+    badge: 'Transparency and Security',
+    title: 'Privacy Policy',
+    lastUpdated: 'Last updated: July 21, 2026',
+    intro: 'At Airwood, protecting your personal data is our absolute priority. This policy describes how we collect, use, and protect your data when you visit our site or contact us for quotes.',
+    sections: [
+      {
+        title: '1. Data Controller',
+        content: 'The Data Controller for personal data is Airwood S.r.l., with registered office in Milan (MI), Italy. For any privacy-related requests, you can contact us at the following email address: privacy@airwood.it.'
+      },
+      {
+        title: '2. Types of Data Collected',
+        content: 'We primarily collect data voluntarily provided by the user via the contact form (such as name, email address, company name, phone number, and project details) and technical navigation data automatically collected through cookies or similar technologies to optimize website performance.'
+      },
+      {
+        title: '3. Purpose of Processing',
+        content: 'Your data is processed exclusively for the following purposes: responding to your contact or free quote requests, providing expert technical consulting and assistance on our range of WPC profiles and panels, complying with legal and administrative obligations, and monitoring user experience on our website for technical improvement purposes.'
+      },
+      {
+        title: '4. Legal Basis for Processing',
+        content: 'The processing of your data is based on the performance of pre-contractual or contractual measures (to satisfy your explicit request for information or quotations), on compliance with legal obligations to which the company is subject, and on the legitimate interest of Airwood to efficiently promote its products and services on the market.'
+      },
+      {
+        title: '5. Data Retention',
+        content: 'The personal data collected will be stored for the period strictly necessary to fulfill the purposes for which they were collected (i.e., for the entire duration of the consulting relationship and commercial follow-up) and, subsequently, for the periods required by applicable civil and tax laws.'
+      },
+      {
+        title: '6. Your Rights',
+        content: 'Pursuant to European Regulation 2016/679 (GDPR), you have the right at any time to obtain confirmation of the existence of your data, know its content, request its rectification, restriction, portability, or erasure by writing directly to the email address privacy@airwood.it.'
+      }
+    ]
+  },
+  terms: {
+    badge: 'Terms of Use',
+    title: 'Terms and Conditions',
+    lastUpdated: 'Last updated: July 21, 2026',
+    intro: 'Welcome to the Airwood website. Access to and use of this site are governed by the following Terms and Conditions. By using this site, you agree to comply with them fully.',
+    sections: [
+      {
+        title: '1. Intellectual Property',
+        content: 'All visual, textual, graphic, and informational content on this site — including Airwood logos, technical drawings, installation manuals, architectural specifications, and the vector programming of the interactive finishes configurator — are the exclusive property of Airwood S.r.l. or licensed to it, and are protected by applicable national and international copyright laws.'
+      },
+      {
+        title: '2. Terms of Website Use and Downloads',
+        content: 'Browsing and downloading technical documents (e.g., general catalogs, material datasheets) is permitted exclusively for professional design, quoting, or personal use. It is strictly forbidden to reproduce, distribute, modify, or embed any material or code from this portal into other sites without the prior written consent of Airwood.'
+      },
+      {
+        title: '3. Disclaimer on Simulator and Renders',
+        content: 'Airwood is committed to providing highly accurate technical information. However, the graphic finishes simulator (configurator) and the digital color samples shown on this site are for illustrative and indicative purposes only. Real WPC grains, shades, and colors can vary due to industrial manufacturing tolerances and natural lighting conditions. We always recommend requesting a physical sample before placing an order.'
+      },
+      {
+        title: '4. Product and Terms Modifications',
+        content: 'Airwood S.r.l. reserves the right to make technical or aesthetic modifications to its profiles, acoustic panels, or ventilated facades at any time for industrial improvement purposes, without prior notice. These terms of use may also be updated periodically.'
+      },
+      {
+        title: '5. Governing Law and Jurisdiction',
+        content: 'These terms are governed by and construed in accordance with Italian law. For any dispute arising from the interpretation, validity, or performance of these terms, the Court of Milan, Italy, shall have exclusive jurisdiction.'
+      }
+    ]
   }
 };

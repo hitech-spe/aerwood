@@ -60,7 +60,13 @@
             }
           </div>
           
-          <div class="card-badge badge-glow">PREMIUM WPC</div>
+          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard1() !== 'original'">
+            @if (activeFinishCard1() === 'original') {
+              PREMIUM WPC
+            } @else {
+              {{ t().colors[getFinishDetails(activeFinishCard1())!.nameKey] }} • {{ getFinishDetails(activeFinishCard1())!.code }}
+            }
+          </div>
         </div>
         <div class="card-body">
           <h3 class="card-title">{{ t().products.acoustics }}</h3>
@@ -122,8 +128,12 @@
             }
           </div>
           
-          <div class="card-badge badge-glow">
-            {{ langService.currentLanguage() === 'it' ? 'BOZZA CONCEPT' : 'DRAFT CONCEPT' }}
+          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard2() !== 'original'">
+            @if (activeFinishCard2() === 'original') {
+              {{ langService.currentLanguage() === 'it' ? 'BOZZA CONCEPT' : 'DRAFT CONCEPT' }}
+            } @else {
+              {{ t().colors[getFinishDetails(activeFinishCard2())!.nameKey] }} • {{ getFinishDetails(activeFinishCard2())!.code }}
+            }
           </div>
         </div>
         <div class="card-body">
@@ -163,10 +173,38 @@
       </div>
       
       <div class="modal-caption">
-        <h4 class="modal-title">{{ modalTitle() }}</h4>
-        <p class="modal-subtitle">
-          {{ langService.currentLanguage() === 'it' ? 'Dettaglio Finitura Selezionata' : 'Selected Finish Detail' }}
-        </p>
+        <div class="modal-caption-text">
+          <h4 class="modal-title">{{ modalTitle() }}</h4>
+          <p class="modal-subtitle">
+            @if (getActiveFinishInModal() === 'original') {
+              {{ langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo' }}
+            } @else {
+              {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}
+            }
+          </p>
+        </div>
+        
+        <div class="modal-color-selector">
+          <!-- Reset to original button -->
+          <button 
+            class="color-chip chip-original"
+            [class.active]="getActiveFinishInModal() === 'original'"
+            (click)="selectFinishInModal('original')"
+            [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
+            <span class="chip-inner-icon">↺</span>
+          </button>
+          
+          <!-- Finish selection dots -->
+          @for (finish of finishes; track finish.id) {
+            <button 
+              class="color-chip"
+              [class.active]="getActiveFinishInModal() === finish.id"
+              [style.background-color]="finish.hex"
+              (click)="selectFinishInModal(finish.id)"
+              [title]="t().colors[finish.nameKey]">
+            </button>
+          }
+        </div>
       </div>
     </div>
   </div>

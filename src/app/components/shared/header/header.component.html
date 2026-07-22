@@ -1,17 +1,17 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="container header-container">
-    <a href="#home" class="logo" (click)="closeMenu()">
+    <a routerLink="/" fragment="home" class="logo" (click)="closeMenu()">
       <span class="logo-text">AIR<span>WOOD</span></span>
     </a>
     
     <!-- Desktop and Mobile Navigation Menu -->
     <nav class="nav" [class.active]="isMenuOpen()">
-      <a href="#home" class="nav-link" (click)="closeMenu()">{{ t().nav.home }}</a>
-      <a href="#products" class="nav-link" (click)="closeMenu()">{{ t().nav.products }}</a>
-      <a href="#ventilated-facade" class="nav-link" (click)="closeMenu()">{{ t().nav.ventilatedFacade }}</a>
-      <a href="#colors" class="nav-link" (click)="closeMenu()">{{ t().nav.colors }}</a>
-      <a href="#projects" class="nav-link" (click)="closeMenu()">{{ t().nav.projects }}</a>
-      <a href="#technical" class="nav-link" (click)="closeMenu()">{{ t().nav.technical }}</a>
+      <a routerLink="/" fragment="home" class="nav-link" (click)="closeMenu()">{{ t().nav.home }}</a>
+      <a routerLink="/" fragment="products" class="nav-link" (click)="closeMenu()">{{ t().nav.products }}</a>
+      <a routerLink="/" fragment="ventilated-facade" class="nav-link" (click)="closeMenu()">{{ t().nav.ventilatedFacade }}</a>
+      <a routerLink="/" fragment="colors" class="nav-link" (click)="closeMenu()">{{ t().nav.colors }}</a>
+      <a routerLink="/" fragment="projects" class="nav-link" (click)="closeMenu()">{{ t().nav.projects }}</a>
+      <a routerLink="/" fragment="technical" class="nav-link" (click)="closeMenu()">{{ t().nav.technical }}</a>
     </nav>
     
     <div class="header-actions">
@@ -22,7 +22,7 @@
         <button [class.active]="currentLang() === 'en'" (click)="setLanguage('en')" aria-label="English">EN</button>
       </div>
       
-      <a href="#contacts" class="btn btn-outline-light nav-cta" (click)="closeMenu()">{{ t().nav.contacts }}</a>
+      <a routerLink="/" fragment="contacts" class="btn btn-outline-light nav-cta" (click)="closeMenu()">{{ t().nav.contacts }}</a>
       
       <!-- Hamburger Menu Button -->
       <button class="hamburger-btn" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Toggle menu">
