@@ -37,6 +37,8 @@ export interface Translations {
     claddingDesc: string;
     veneers: string;
     veneersDesc: string;
+    panel4: string;
+    panel4Desc: string;
     discover: string;
   };
   whyWpc: {

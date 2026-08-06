@@ -39,6 +39,8 @@ export const enTranslations: Translations = {
     claddingDesc: 'This is a test description for Panel 2. It serves as temporary placeholder text to evaluate design and alignment.',
     veneers: 'Test Title Panel 3',
     veneersDesc: 'This is a test description for Panel 3. It serves as temporary placeholder text to evaluate design and alignment.',
+    panel4: 'Test Title Panel 4',
+    panel4Desc: 'This is a test description for Panel 4. It serves as temporary placeholder text to evaluate design and alignment.',
     discover: 'Request Profile Info'
   },
   whyWpc: {

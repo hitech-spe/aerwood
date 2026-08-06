@@ -28,6 +28,7 @@ describe('ProductsComponent', () => {
     expect(component.activeFinishCard1()).toBe('original');
     expect(component.activeFinishCard2()).toBe('original');
     expect(component.activeFinishCard3()).toBe('original');
+    expect(component.activeFinishCard4()).toBe('original');
     expect(component.isModalOpen()).toBe(false);
   });
 
@@ -36,16 +37,25 @@ describe('ProductsComponent', () => {
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('original');
     expect(component.activeFinishCard3()).toBe('original');
+    expect(component.activeFinishCard4()).toBe('original');
 
     component.selectFinish(2, 'charcoal');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('charcoal');
     expect(component.activeFinishCard3()).toBe('original');
+    expect(component.activeFinishCard4()).toBe('original');
 
     component.selectFinish(3, 'white');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('charcoal');
     expect(component.activeFinishCard3()).toBe('white');
+    expect(component.activeFinishCard4()).toBe('original');
+
+    component.selectFinish(4, 'honey');
+    expect(component.activeFinishCard1()).toBe('sand');
+    expect(component.activeFinishCard2()).toBe('charcoal');
+    expect(component.activeFinishCard3()).toBe('white');
+    expect(component.activeFinishCard4()).toBe('honey');
   });
 
   it('should open image modal with correct details', () => {
@@ -96,6 +106,17 @@ describe('ProductsComponent', () => {
     expect(component.modalBgImage()).toBe('/assets/pannello3.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello3.webp');
     expect(component.modalFilterClass()).toBe('filter-white');
+  });
+
+  it('should open card modal for card 4 with active finish', () => {
+    component.selectFinish(4, 'sand');
+    component.openCardModal(4);
+    
+    expect(component.isModalOpen()).toBe(true);
+    expect(component.modalTitle()).toBe('AeroLouvre');
+    expect(component.modalBgImage()).toBe('/assets/pannello4.webp');
+    expect(component.modalPanelImage()).toBe('/assets/pannello4-senzaSfondo.webp');
+    expect(component.modalFilterClass()).toBe('filter-sand');
   });
 
   it('should close modal on Escape key press', () => {

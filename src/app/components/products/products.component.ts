@@ -23,10 +23,11 @@ export class ProductsComponent {
   readonly activeFinishCard1 = signal<string>('original');
   readonly activeFinishCard2 = signal<string>('original');
   readonly activeFinishCard3 = signal<string>('original');
+  readonly activeFinishCard4 = signal<string>('original');
 
   // Modal State
   readonly isModalOpen = signal<boolean>(false);
-  readonly currentModalCard = signal<1 | 2 | 3 | null>(null);
+  readonly currentModalCard = signal<1 | 2 | 3 | 4 | null>(null);
   readonly modalTitle = signal<string>('');
   readonly modalBgImage = signal<string>('');
   readonly modalPanelImage = signal<string>('');
@@ -47,13 +48,15 @@ export class ProductsComponent {
     return this.finishes.find(f => f.id === finishId) || null;
   }
 
-  selectFinish(card: 1 | 2 | 3, finishId: string): void {
+  selectFinish(card: 1 | 2 | 3 | 4, finishId: string): void {
     if (card === 1) {
       this.activeFinishCard1.set(finishId);
     } else if (card === 2) {
       this.activeFinishCard2.set(finishId);
-    } else {
+    } else if (card === 3) {
       this.activeFinishCard3.set(finishId);
+    } else if (card === 4) {
+      this.activeFinishCard4.set(finishId);
     }
   }
 
@@ -97,10 +100,11 @@ export class ProductsComponent {
     if (card === 1) return this.activeFinishCard1();
     if (card === 2) return this.activeFinishCard2();
     if (card === 3) return this.activeFinishCard3();
+    if (card === 4) return this.activeFinishCard4();
     return 'original';
   }
 
-  openCardModal(cardNum: 1 | 2 | 3): void {
+  openCardModal(cardNum: 1 | 2 | 3 | 4): void {
     this.currentModalCard.set(cardNum);
     if (cardNum === 1) {
       const title = 'AeroShield';
@@ -118,13 +122,21 @@ export class ProductsComponent {
         '/assets/pannello2.webp',
         'filter-' + this.activeFinishCard2()
       );
-    } else {
+    } else if (cardNum === 3) {
       const title = 'AeroDeck';
       this.openImageModal(
         title,
         '/assets/pannello3.jpeg',
         '/assets/pannello3.webp',
         'filter-' + this.activeFinishCard3()
+      );
+    } else if (cardNum === 4) {
+      const title = 'AeroLouvre';
+      this.openImageModal(
+        title,
+        '/assets/pannello4.webp',
+        '/assets/pannello4-senzaSfondo.webp',
+        'filter-' + this.activeFinishCard4()
       );
     }
   }

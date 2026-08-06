@@ -39,6 +39,8 @@ export const itTranslations: Translations = {
     claddingDesc: 'Questa è una descrizione di prova per il Pannello 2. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     veneers: 'Titolo di Prova Pannello 3',
     veneersDesc: 'Questa è una descrizione di prova per il Pannello 3. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
+    panel4: 'Titolo di Prova Pannello 4',
+    panel4Desc: 'Questa è una descrizione di prova per il Pannello 4. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     discover: 'Richiedi Info Profilo'
   },
   whyWpc: {
