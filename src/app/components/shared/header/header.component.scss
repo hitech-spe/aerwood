@@ -29,6 +29,21 @@
   z-index: 1100;
 }
 
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
 .logo-text {
   font-family: var(--font-heading);
   font-size: 1.5rem;

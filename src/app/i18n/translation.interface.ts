@@ -155,8 +155,18 @@ export interface Translations {
     success: string;
     error: string;
     phone: string;
+    phoneVal: string;
     address: string;
+    addressVal: string;
     emailLabel: string;
+    emailVal: string;
+    hoursLabel: string;
+    hoursVal: string;
+  };
+  map: {
+    badge: string;
+    title: string;
+    viewLarge: string;
   };
   footer: {
     copyright: string;

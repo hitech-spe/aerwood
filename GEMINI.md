@@ -92,3 +92,39 @@ La bozza del sito vetrina di Airwood è progettata con un approccio **Mobile-Fir
 - **Elementi di Testo Line-Clamping**: Le descrizioni dei prodotti sono bloccate rigidamente a 2 righe tramite CSS `-webkit-line-clamp` per impedire asimmetrie estetiche o overflow testuali disordinati su mobile.
 - **Grafica SVG Scalabile**: Sia il dettagliato schema tecnico della *Facciata Ventilata* sia il *Configuratore Interattivo* in SVG utilizzano un sistema di coordinate responsive `viewBox` che permette loro di rimpicciolirsi senza perdere definizione, mantenendo leggibili testi, staffe e frecce del moto d'aria su tutti i telefoni.
 
+---
+
+## 7. Animazioni con AOS (Animate On Scroll)
+
+Per arricchire l'esperienza visiva del sito vetrina di Airwood senza intaccare le prestazioni né compromettere la stabilità del Server-Side Rendering (SSR), è stata integrata la libreria **AOS (Animate On Scroll)**.
+
+### 7.1 Integrazione Sicura con SSR
+Poiché AOS fa un uso intensivo di API specifiche del browser come `window` e `document`, la sua inizializzazione diretta nel ciclo di vita standard causerebbe errori durante la compilazione o l'esecuzione lato server (SSR).
+Per ovviare a questo problema:
+- **Inizializzazione in `afterNextRender`**: AOS viene inizializzato esclusivamente all'interno del gancio `afterNextRender` del componente radice `App` (`src/app/app.ts`), garantendo che il codice venga eseguito solo lato client.
+- **Gestione del Routing SPA**: Per rilevare e animare correttamente i componenti caricati dinamicamente tramite router, viene effettuata la sottoscrizione agli eventi `NavigationEnd`. Al cambio di rotta, viene invocato un `AOS.refresh()` con un piccolo delay per dare tempo al DOM di stabilizzarsi.
+
+### 7.2 Configurazione Predefinita di AOS
+I parametri configurati a livello globale per il sito Airwood sono:
+- `duration: 800` (800ms per un effetto premium fluido e non invasivo)
+- `once: true` (l'animazione avviene solo la prima volta che l'utente scorre verso il basso)
+- `offset: 50` (la transizione inizia quando l'elemento è a 50px dall'area visibile del viewport)
+- `easing: 'ease-out-cubic'` (curva di accelerazione fluida)
+
+### 7.3 Esempio di Utilizzo nei Template HTML
+Per applicare un'animazione di comparsa premium su qualsiasi elemento (sezioni, griglie o card), basta utilizzare gli attributi di AOS:
+```html
+<!-- Comparsa dal basso verso l'alto -->
+<div data-aos="fade-up">...</div>
+
+<!-- Comparsa da sinistra (es. per immagini/caratteristiche alternate) -->
+<div data-aos="fade-right" data-aos-delay="100">...</div>
+
+<!-- Griglia con elementi ad apparizione progressiva (Staggered) -->
+<div class="grid">
+  <div data-aos="fade-up" data-aos-delay="0">Primo Elemento</div>
+  <div data-aos="fade-up" data-aos-delay="100">Secondo Elemento</div>
+  <div data-aos="fade-up" data-aos-delay="200">Terzo Elemento</div>
+</div>
+```
+

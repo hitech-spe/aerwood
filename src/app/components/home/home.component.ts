@@ -8,6 +8,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { TechnicalComponent } from '../technical/technical.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactsComponent } from '../contacts/contacts.component';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ import { ContactsComponent } from '../contacts/contacts.component';
     ProjectsComponent,
     TechnicalComponent,
     AboutComponent,
-    ContactsComponent
+    ContactsComponent,
+    MapComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

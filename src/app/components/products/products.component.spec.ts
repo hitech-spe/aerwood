@@ -27,6 +27,7 @@ describe('ProductsComponent', () => {
   it('should initialize with default states', () => {
     expect(component.activeFinishCard1()).toBe('original');
     expect(component.activeFinishCard2()).toBe('original');
+    expect(component.activeFinishCard3()).toBe('original');
     expect(component.isModalOpen()).toBe(false);
   });
 
@@ -34,10 +35,17 @@ describe('ProductsComponent', () => {
     component.selectFinish(1, 'sand');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('original');
+    expect(component.activeFinishCard3()).toBe('original');
 
     component.selectFinish(2, 'charcoal');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('charcoal');
+    expect(component.activeFinishCard3()).toBe('original');
+
+    component.selectFinish(3, 'white');
+    expect(component.activeFinishCard1()).toBe('sand');
+    expect(component.activeFinishCard2()).toBe('charcoal');
+    expect(component.activeFinishCard3()).toBe('white');
   });
 
   it('should open image modal with correct details', () => {
@@ -77,6 +85,17 @@ describe('ProductsComponent', () => {
     expect(component.modalBgImage()).toBe('/assets/pannello2.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello2.webp');
     expect(component.modalFilterClass()).toBe('filter-charcoal');
+  });
+
+  it('should open card modal for card 3 with active finish', () => {
+    component.selectFinish(3, 'white');
+    component.openCardModal(3);
+    
+    expect(component.isModalOpen()).toBe(true);
+    expect(component.modalTitle()).toBe('AeroDeck');
+    expect(component.modalBgImage()).toBe('/assets/pannello3.jpeg');
+    expect(component.modalPanelImage()).toBe('/assets/pannello3.webp');
+    expect(component.modalFilterClass()).toBe('filter-white');
   });
 
   it('should close modal on Escape key press', () => {

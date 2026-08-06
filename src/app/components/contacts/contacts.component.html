@@ -12,7 +12,7 @@
             <span class="detail-icon">📞</span>
             <div class="detail-text">
               <span class="detail-label">{{ t().contacts.phone }}</span>
-              <a href="tel:+390212345678" class="detail-value">+39 02 1234 5678</a>
+              <a [href]="'tel:' + t().contacts.phoneVal.replace(' ', '')" class="detail-value">{{ t().contacts.phoneVal }}</a>
             </div>
           </div>
           
@@ -21,7 +21,7 @@
             <span class="detail-icon">📍</span>
             <div class="detail-text">
               <span class="detail-label">{{ t().contacts.address }}</span>
-              <span class="detail-value">Via della Tecnologia 42, 20100 Milano (MI) - Italy</span>
+              <span class="detail-value">{{ t().contacts.addressVal }}</span>
             </div>
           </div>
           
@@ -30,13 +30,22 @@
             <span class="detail-icon">✉️</span>
             <div class="detail-text">
               <span class="detail-label">{{ t().contacts.emailLabel }}</span>
-              <a href="mailto:info@airwood.it" class="detail-value">info@airwood.it</a>
+              <a [href]="'mailto:' + t().contacts.emailVal" class="detail-value">{{ t().contacts.emailVal }}</a>
+            </div>
+          </div>
+
+          <!-- Working Hours -->
+          <div class="detail-item">
+            <span class="detail-icon">🕒</span>
+            <div class="detail-text">
+              <span class="detail-label">{{ t().contacts.hoursLabel }}</span>
+              <span class="detail-value hours-value">{{ t().contacts.hoursVal }}</span>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="contacts-form-wrapper">
+      <div class="contacts-form-wrapper" data-aos="fade-left" data-aos-delay="250">
         <form 
           class="contact-form" 
           name="contact" 
@@ -122,3 +131,4 @@
     </div>
   </div>
 </section>
+

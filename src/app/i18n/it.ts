@@ -157,13 +157,23 @@ export const itTranslations: Translations = {
     success: 'Grazie! Il tuo messaggio è stato inviato correttamente. Ti ricontatteremo a breve.',
     error: 'Si è verificato un errore durante l\'invio. Riprova più tardi.',
     phone: 'Telefono',
+    phoneVal: '+39 080 310 1237',
     address: 'Sede Legale & Stabilimento',
-    emailLabel: 'Email Supporto'
+    addressVal: 'C.da Parco del Vecchio Bovio, Altamura (BA) 70022',
+    emailLabel: 'Email Supporto',
+    emailVal: 'info@fortesrl.it',
+    hoursLabel: 'Orari di Apertura',
+    hoursVal: 'Lun – Gio: 8:00 – 13:00 / 15:00 – 18:00\nVen: 8:00 – 13:00 / 15:00 – 17:00\nSab – Dom: Chiuso'
+  },
+  map: {
+    badge: 'Sede & Stabilimento',
+    title: 'Vieni a Trovarci',
+    viewLarge: 'Visualizza mappa grande'
   },
   footer: {
     copyright: '© 2026 Airwood S.r.l. Tutti i diritti riservati.',
     rights: 'Progettazione e produzione pannelli acustici e rivestimenti.',
-    vat: 'P.IVA IT 01234567890',
+    vat: 'P.IVA IT 04508330729',
     privacy: 'Privacy Policy',
     terms: 'Termini e Condizioni',
     developedBy: 'Sviluppato da'
@@ -224,7 +234,7 @@ export const itTranslations: Translations = {
       },
       {
         title: '5. Legge Applicabile e Foro Competente',
-        content: 'Le presenti condizioni sono regolate e interpretate in conformità alla legge italiana. Per qualsiasi controversia derivante dall\'interpretazione, validità o esecuzione dei presenti termini, sarà competente in via esclusiva il Foro di Milano, Italia.'
+        content: 'Le presenti condizioni sono regolate e interpretate in conformità alla legge italiana. Per qualsiasi controversia derivante dall\'interpretazione, validità o esecuzione dei primi termini, sarà competente in via esclusiva il Foro di Bari, Italia.'
       }
     ]
   }

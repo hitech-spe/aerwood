@@ -157,13 +157,23 @@ export const enTranslations: Translations = {
     success: 'Thank you! Your message has been sent successfully. We will contact you shortly.',
     error: 'An error occurred while sending. Please try again later.',
     phone: 'Phone',
+    phoneVal: '+39 080 310 1237',
     address: 'Headquarters & Factory',
-    emailLabel: 'Support Email'
+    addressVal: 'C.da Parco del Vecchio Bovio, Altamura (BA) 70022 - Italy',
+    emailLabel: 'Support Email',
+    emailVal: 'info@fortesrl.it',
+    hoursLabel: 'Working Hours',
+    hoursVal: 'Mon – Thu: 8:00 – 13:00 / 15:00 – 18:00\nFri: 8:00 – 13:00 / 15:00 – 17:00\nSat – Sun: Closed'
+  },
+  map: {
+    badge: 'Headquarters & Factory',
+    title: 'Come Visit Us',
+    viewLarge: 'View larger map'
   },
   footer: {
     copyright: '© 2026 Airwood S.r.l. All rights reserved.',
     rights: 'Design and manufacture of acoustic panels and cladding.',
-    vat: 'VAT IT 01234567890',
+    vat: 'VAT IT 04508330729',
     privacy: 'Privacy Policy',
     terms: 'Terms and Conditions',
     developedBy: 'Developed by'
@@ -176,7 +186,7 @@ export const enTranslations: Translations = {
     sections: [
       {
         title: '1. Data Controller',
-        content: 'The Data Controller for personal data is Airwood S.r.l., with registered office in Milan (MI), Italy. For any privacy-related requests, you can contact us at the following email address: privacy@airwood.it.'
+        content: 'The Data Controller for personal data is Airwood S.r.l., with registered office in C.da Parco del Vecchio Bovio, Altamura (BA) 70022, Italy. For any privacy-related requests, you can contact us at the following email address: info@fortesrl.it.'
       },
       {
         title: '2. Types of Data Collected',
@@ -196,7 +206,7 @@ export const enTranslations: Translations = {
       },
       {
         title: '6. Your Rights',
-        content: 'Pursuant to European Regulation 2016/679 (GDPR), you have the right at any time to obtain confirmation of the existence of your data, know its content, request its rectification, restriction, portability, or erasure by writing directly to the email address privacy@airwood.it.'
+        content: 'Pursuant to European Regulation 2016/679 (GDPR), you have the right at any time to obtain confirmation of the existence of your data, know its content, request its rectification, restriction, portability, or erasure by writing directly to the email address info@fortesrl.it.'
       }
     ]
   },
@@ -224,7 +234,7 @@ export const enTranslations: Translations = {
       },
       {
         title: '5. Governing Law and Jurisdiction',
-        content: 'These terms are governed by and construed in accordance with Italian law. For any dispute arising from the interpretation, validity, or performance of these terms, the Court of Milan, Italy, shall have exclusive jurisdiction.'
+        content: 'These terms are governed by and construed in accordance with Italian law. For any dispute arising from the interpretation, validity, or performance of these terms, the Court of Bari, Italy, shall have exclusive jurisdiction.'
       }
     ]
   }
