@@ -37,8 +37,8 @@ export const itTranslations: Translations = {
     acousticsDesc: 'Questa è una descrizione di prova per il Pannello 1. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     cladding: 'Titolo di Prova Pannello 2',
     claddingDesc: 'Questa è una descrizione di prova per il Pannello 2. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
-    veneers: 'AeroDeck (Pavimentazione)',
-    veneersDesc: 'Doghe per pavimentazione esterna ad altissima resistenza. Superficie antiscivolo, anti-scheggia e calda al tatto.',
+    veneers: 'Titolo di Prova Pannello 3',
+    veneersDesc: 'Questa è una descrizione di prova per il Pannello 3. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     discover: 'Richiedi Info Profilo'
   },
   whyWpc: {
@@ -81,7 +81,7 @@ export const itTranslations: Translations = {
     pearlGreyDesc: 'Elegante e raffinato, con sfumature argentee che conferiscono pulizia visiva e modernità discreta.',
     honey: 'Miele',
     honeyDesc: 'Un biondo caldo ricco di riflessi solari, che esalta la venatura del legno con naturalezza classica.',
-    avorico: 'Avorico',
+    avorio: 'Avorio',
     avoricoDesc: 'Un crema morbido e sofisticato, perfetto per atmosfere di lusso discreto ed eleganza senza tempo.',
     charcoal: 'Carbone',
     charcoalDesc: 'Un grigio fumo intenso e contemporaneo, ideale per progetti dal design ultra-moderno e industriale.',

@@ -37,8 +37,8 @@ export const enTranslations: Translations = {
     acousticsDesc: 'This is a test description for Panel 1. It serves as temporary placeholder text to evaluate design and alignment.',
     cladding: 'Test Title Panel 2',
     claddingDesc: 'This is a test description for Panel 2. It serves as temporary placeholder text to evaluate design and alignment.',
-    veneers: 'AeroDeck (Outdoor Decking)',
-    veneersDesc: 'High-resistance outdoor decking planks. Slip-resistant surface, splinter-free, and warm to the touch.',
+    veneers: 'Test Title Panel 3',
+    veneersDesc: 'This is a test description for Panel 3. It serves as temporary placeholder text to evaluate design and alignment.',
     discover: 'Request Profile Info'
   },
   whyWpc: {
@@ -81,7 +81,7 @@ export const enTranslations: Translations = {
     pearlGreyDesc: 'Elegant and refined, with silver undertones that deliver visual cleanliness and discreet modernity.',
     honey: 'Honey',
     honeyDesc: 'A warm golden tone rich with sunny reflections, naturally enhancing the classic look of fine wood.',
-    avorico: 'Avorico',
+    avorio: 'Avorio',
     avoricoDesc: 'A soft, sophisticated cream tone, perfect for atmospheres of quiet luxury and timeless elegance.',
     charcoal: 'Charcoal Black',
     charcoalDesc: 'An intense, contemporary dark gray, ideal for ultra-modern and industrial design concepts.',

@@ -3,7 +3,7 @@ import { LanguageService } from '../../services/language.service';
 
 export interface FinishOption {
   id: string;
-  nameKey: 'white' | 'sand' | 'pearlGrey' | 'honey' | 'avorico' | 'charcoal' | 'coffee';
+  nameKey: 'white' | 'sand' | 'pearlGrey' | 'honey' | 'avorio' | 'charcoal' | 'coffee';
   hex: string;
   code: string;
 }
@@ -38,7 +38,7 @@ export class ProductsComponent {
     { id: 'sand', nameKey: 'sand', hex: '#E5C39E', code: 'AW-1015' },
     { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#D1D5DB', code: 'AW-7040' },
     { id: 'honey', nameKey: 'honey', hex: '#E59F3C', code: 'AW-8001' },
-    { id: 'avorico', nameKey: 'avorico', hex: '#F4EBE1', code: 'AW-1013' },
+    { id: 'avorico', nameKey: 'avorio', hex: '#F4EBE1', code: 'AW-1013' },
     { id: 'charcoal', nameKey: 'charcoal', hex: '#2E2F31', code: 'AW-7021' },
     { id: 'coffee', nameKey: 'coffee', hex: '#4B382A', code: 'AW-8017' }
   ];

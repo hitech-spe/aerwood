@@ -79,7 +79,7 @@ export interface Translations {
     pearlGreyDesc: string;
     honey: string;
     honeyDesc: string;
-    avorico: string;
+    avorio: string;
     avoricoDesc: string;
     charcoal: string;
     charcoalDesc: string;
