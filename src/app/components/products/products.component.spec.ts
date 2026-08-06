@@ -114,8 +114,8 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroLouvre');
-    expect(component.modalBgImage()).toBe('/assets/pannello4.webp');
-    expect(component.modalPanelImage()).toBe('/assets/pannello4-senzaSfondo.webp');
+    expect(component.modalBgImage()).toBe('/assets/pannello4.jpeg');
+    expect(component.modalPanelImage()).toBe('/assets/pannello4.webp');
     expect(component.modalFilterClass()).toBe('filter-sand');
   });
 

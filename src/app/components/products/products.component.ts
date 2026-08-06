@@ -134,8 +134,8 @@ export class ProductsComponent {
       const title = 'AeroLouvre';
       this.openImageModal(
         title,
+        '/assets/pannello4.jpeg',
         '/assets/pannello4.webp',
-        '/assets/pannello4-senzaSfondo.webp',
         'filter-' + this.activeFinishCard4()
       );
     }
