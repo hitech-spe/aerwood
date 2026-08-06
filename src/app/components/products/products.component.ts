@@ -29,7 +29,6 @@ export class ProductsComponent {
   readonly isModalOpen = signal<boolean>(false);
   readonly currentModalCard = signal<1 | 2 | 3 | 4 | null>(null);
   readonly modalTitle = signal<string>('');
-  readonly modalBgImage = signal<string>('');
   readonly modalPanelImage = signal<string>('');
   readonly modalFilterClass = signal<string>('');
 
@@ -60,9 +59,8 @@ export class ProductsComponent {
     }
   }
 
-  openImageModal(title: string, bgImg: string, panelImg: string, filterClass: string): void {
+  openImageModal(title: string, panelImg: string, filterClass: string): void {
     this.modalTitle.set(title);
-    this.modalBgImage.set(bgImg);
     this.modalPanelImage.set(panelImg);
     this.modalFilterClass.set(filterClass);
     this.isModalOpen.set(true);
@@ -110,7 +108,6 @@ export class ProductsComponent {
       const title = 'AeroShield';
       this.openImageModal(
         title,
-        '/assets/pannello1.jpeg',
         '/assets/pannello1.webp',
         'filter-' + this.activeFinishCard1()
       );
@@ -118,7 +115,6 @@ export class ProductsComponent {
       const title = 'AeroSlat';
       this.openImageModal(
         title,
-        '/assets/pannello2.jpeg',
         '/assets/pannello2.webp',
         'filter-' + this.activeFinishCard2()
       );
@@ -126,7 +122,6 @@ export class ProductsComponent {
       const title = 'AeroDeck';
       this.openImageModal(
         title,
-        '/assets/pannello3.jpeg',
         '/assets/pannello3.webp',
         'filter-' + this.activeFinishCard3()
       );
@@ -134,7 +129,6 @@ export class ProductsComponent {
       const title = 'AeroLouvre';
       this.openImageModal(
         title,
-        '/assets/pannello4.jpeg',
         '/assets/pannello4.webp',
         'filter-' + this.activeFinishCard4()
       );

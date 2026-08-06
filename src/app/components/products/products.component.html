@@ -10,19 +10,11 @@
       <!-- Collection 1: AeroShield -->
       <div class="product-card" data-aos="fade-right" data-aos-delay="100">
         <div class="card-visual" (click)="openCardModal(1)" style="cursor: pointer;">
-          <!-- Background Image: Always original (including original studio room background) -->
-          <img 
-            src="/assets/pannello1.jpeg"
-            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroShield Original Room" 
-            class="product-img product-img-bg" 
-          />
-          
-          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <!-- Panel Image: Shown on a clean light neutral background with dynamic color filters applied -->
           <img 
             src="/assets/pannello1.webp"
             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroShield Tinted Panel" 
+            alt="AeroShield Panel" 
             [class]="'product-img product-img-panel filter-' + activeFinishCard1()"
           />
           
@@ -78,19 +70,11 @@
       <!-- Collection 2: AeroSlat (Bozza/Draft Concept) -->
       <div class="product-card" data-aos="fade-left" data-aos-delay="250">
         <div class="card-visual" (click)="openCardModal(2)" style="cursor: pointer;">
-          <!-- Background Image: Always original (including original studio room background) -->
-          <img 
-            src="/assets/pannello2.jpeg"
-            onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroSlat Original Room" 
-            class="product-img product-img-bg" 
-          />
-          
-          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <!-- Panel Image: Shown on a clean light neutral background with dynamic color filters applied -->
           <img 
             src="/assets/pannello2.webp"
             onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroSlat Tinted Panel" 
+            alt="AeroSlat Panel" 
             [class]="'product-img product-img-panel filter-' + activeFinishCard2()"
           />
           
@@ -146,19 +130,11 @@
       <!-- Collection 3: AeroDeck -->
       <div class="product-card" data-aos="fade-left" data-aos-delay="400">
         <div class="card-visual" (click)="openCardModal(3)" style="cursor: pointer;">
-          <!-- Background Image: Always original (including original studio room background) -->
-          <img 
-            src="/assets/pannello3.jpeg"
-            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroDeck Original Room" 
-            class="product-img product-img-bg" 
-          />
-          
-          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <!-- Panel Image: Shown on a clean light neutral background with dynamic color filters applied -->
           <img 
             src="/assets/pannello3.webp"
             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroDeck Tinted Panel" 
+            alt="AeroDeck Panel" 
             [class]="'product-img product-img-panel filter-' + activeFinishCard3()"
           />
           
@@ -214,19 +190,11 @@
       <!-- Collection 4: AeroLouvre -->
       <div class="product-card" data-aos="fade-left" data-aos-delay="550">
         <div class="card-visual" (click)="openCardModal(4)" style="cursor: pointer;">
-          <!-- Background Image: Always original (including original studio room background) -->
-          <img 
-            src="/assets/pannello4.jpeg"
-            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroLouvre Original Room" 
-            class="product-img product-img-bg" 
-          />
-          
-          <!-- Foreground Image: Clipped to only show the central panel, with dynamic color filters applied -->
+          <!-- Panel Image: Shown on a clean light neutral background with dynamic color filters applied -->
           <img 
             src="/assets/pannello4.webp"
             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" 
-            alt="AeroLouvre Tinted Panel" 
+            alt="AeroLouvre Panel" 
             [class]="'product-img product-img-panel filter-' + activeFinishCard4()"
           />
           
@@ -291,19 +259,11 @@
     
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="modal-image-wrapper">
-        <!-- Background Image -->
-        <img 
-          [src]="modalBgImage()" 
-          onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
-          [alt]="modalTitle() + ' - Original'" 
-          class="modal-img modal-img-bg"
-        />
-        
-        <!-- Foreground Image (Tint overlay) -->
+        <!-- Panel Image (Tint overlay) -->
         <img 
           [src]="modalPanelImage()" 
           onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
-          [alt]="modalTitle() + ' - Tinted Panel'" 
+          [alt]="modalTitle() + ' - Panel'" 
           [class]="'modal-img modal-img-panel ' + modalFilterClass()"
         />
       </div>

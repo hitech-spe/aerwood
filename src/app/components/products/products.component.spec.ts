@@ -59,16 +59,15 @@ describe('ProductsComponent', () => {
   });
 
   it('should open image modal with correct details', () => {
-    component.openImageModal('Test Product', 'bg.jpg', 'panel.png', 'filter-white');
+    component.openImageModal('Test Product', 'panel.png', 'filter-white');
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('Test Product');
-    expect(component.modalBgImage()).toBe('bg.jpg');
     expect(component.modalPanelImage()).toBe('panel.png');
     expect(component.modalFilterClass()).toBe('filter-white');
   });
 
   it('should close image modal', () => {
-    component.openImageModal('Test', 'bg.jpg', 'panel.png', 'filter-white');
+    component.openImageModal('Test', 'panel.png', 'filter-white');
     expect(component.isModalOpen()).toBe(true);
 
     component.closeImageModal();
@@ -81,7 +80,6 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroShield');
-    expect(component.modalBgImage()).toBe('/assets/pannello1.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello1.webp');
     expect(component.modalFilterClass()).toBe('filter-honey');
   });
@@ -92,7 +90,6 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroSlat');
-    expect(component.modalBgImage()).toBe('/assets/pannello2.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello2.webp');
     expect(component.modalFilterClass()).toBe('filter-charcoal');
   });
@@ -103,7 +100,6 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroDeck');
-    expect(component.modalBgImage()).toBe('/assets/pannello3.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello3.webp');
     expect(component.modalFilterClass()).toBe('filter-white');
   });
@@ -114,7 +110,6 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroLouvre');
-    expect(component.modalBgImage()).toBe('/assets/pannello4.jpeg');
     expect(component.modalPanelImage()).toBe('/assets/pannello4.webp');
     expect(component.modalFilterClass()).toBe('filter-sand');
   });
