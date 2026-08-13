@@ -19,7 +19,6 @@ import { MapComponent } from '../map/map.component';
     WhyWpcComponent,
     VentilatedFacadeComponent,
     ColorsComponent,
-    ProjectsComponent,
     TechnicalComponent,
     AboutComponent,
     ContactsComponent,

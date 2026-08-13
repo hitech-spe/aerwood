@@ -25,31 +25,31 @@ describe('ProductsComponent', () => {
   });
 
   it('should initialize with default states', () => {
-    expect(component.activeFinishCard1()).toBe('original');
-    expect(component.activeFinishCard2()).toBe('original');
-    expect(component.activeFinishCard3()).toBe('original');
-    expect(component.activeFinishCard4()).toBe('original');
+    expect(component.activeFinishCard1()).toBe('white');
+    expect(component.activeFinishCard2()).toBe('white');
+    expect(component.activeFinishCard3()).toBe('white');
+    expect(component.activeFinishCard4()).toBe('white');
     expect(component.isModalOpen()).toBe(false);
   });
 
   it('should select finish correctly', () => {
     component.selectFinish(1, 'sand');
     expect(component.activeFinishCard1()).toBe('sand');
-    expect(component.activeFinishCard2()).toBe('original');
-    expect(component.activeFinishCard3()).toBe('original');
-    expect(component.activeFinishCard4()).toBe('original');
+    expect(component.activeFinishCard2()).toBe('white');
+    expect(component.activeFinishCard3()).toBe('white');
+    expect(component.activeFinishCard4()).toBe('white');
 
     component.selectFinish(2, 'charcoal');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('charcoal');
-    expect(component.activeFinishCard3()).toBe('original');
-    expect(component.activeFinishCard4()).toBe('original');
+    expect(component.activeFinishCard3()).toBe('white');
+    expect(component.activeFinishCard4()).toBe('white');
 
     component.selectFinish(3, 'white');
     expect(component.activeFinishCard1()).toBe('sand');
     expect(component.activeFinishCard2()).toBe('charcoal');
     expect(component.activeFinishCard3()).toBe('white');
-    expect(component.activeFinishCard4()).toBe('original');
+    expect(component.activeFinishCard4()).toBe('white');
 
     component.selectFinish(4, 'honey');
     expect(component.activeFinishCard1()).toBe('sand');
@@ -125,7 +125,7 @@ describe('ProductsComponent', () => {
   it('should allow changing finish within the modal', () => {
     component.openCardModal(1);
     expect(component.isModalOpen()).toBe(true);
-    expect(component.getActiveFinishInModal()).toBe('original');
+    expect(component.getActiveFinishInModal()).toBe('white');
 
     component.selectFinishInModal('sand');
     expect(component.getActiveFinishInModal()).toBe('sand');

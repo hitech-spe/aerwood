@@ -20,10 +20,10 @@ export class ProductsComponent {
   readonly t = this.langService.t;
 
   // Independent state for each product card
-  readonly activeFinishCard1 = signal<string>('original');
-  readonly activeFinishCard2 = signal<string>('original');
-  readonly activeFinishCard3 = signal<string>('original');
-  readonly activeFinishCard4 = signal<string>('original');
+  readonly activeFinishCard1 = signal<string>('white');
+  readonly activeFinishCard2 = signal<string>('white');
+  readonly activeFinishCard3 = signal<string>('white');
+  readonly activeFinishCard4 = signal<string>('white');
 
   // Modal State
   readonly isModalOpen = signal<boolean>(false);
@@ -34,13 +34,13 @@ export class ProductsComponent {
 
   // Premium wood finishes aligned with our general color palette and technical architectural codes
   readonly finishes: FinishOption[] = [
-    { id: 'white', nameKey: 'white', hex: '#F8F9FA', code: 'AW-9010' },
+    { id: 'white', nameKey: 'white', hex: '#FFFFFFFF', code: 'AW-9010' },
     { id: 'sand', nameKey: 'sand', hex: '#E5C39E', code: 'AW-1015' },
     { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#D1D5DB', code: 'AW-7040' },
     { id: 'honey', nameKey: 'honey', hex: '#E59F3C', code: 'AW-8001' },
-    { id: 'avorico', nameKey: 'avorio', hex: '#F4EBE1', code: 'AW-1013' },
+    { id: 'avorico', nameKey: 'avorio', hex: '#FFFFF0', code: 'AW-1013' },
     { id: 'charcoal', nameKey: 'charcoal', hex: '#2E2F31', code: 'AW-7021' },
-    { id: 'coffee', nameKey: 'coffee', hex: '#4B382A', code: 'AW-8017' }
+    { id: 'coffee', nameKey: 'coffee', hex: '#4E3629', code: 'AW-8017' }
   ];
 
   getFinishDetails(finishId: string): FinishOption | null {
