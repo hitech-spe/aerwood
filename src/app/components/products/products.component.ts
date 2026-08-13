@@ -35,11 +35,11 @@ export class ProductsComponent {
   // Premium wood finishes aligned with our general color palette and technical architectural codes
   readonly finishes: FinishOption[] = [
     { id: 'white', nameKey: 'white', hex: '#FFFFFFFF', code: 'AW-9010' },
-    { id: 'sand', nameKey: 'sand', hex: '#E5C39E', code: 'AW-1015' },
-    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#D1D5DB', code: 'AW-7040' },
-    { id: 'honey', nameKey: 'honey', hex: '#E59F3C', code: 'AW-8001' },
+    { id: 'sand', nameKey: 'sand', hex: '#C2B280', code: 'AW-1015' },
+    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#E4E5E0', code: 'AW-7040' },
+    { id: 'honey', nameKey: 'honey', hex: '#E3A857', code: 'AW-8001' },
     { id: 'avorico', nameKey: 'avorio', hex: '#FFFFF0', code: 'AW-1013' },
-    { id: 'charcoal', nameKey: 'charcoal', hex: '#2E2F31', code: 'AW-7021' },
+    { id: 'charcoal', nameKey: 'charcoal', hex: '#36454F', code: 'AW-7021' },
     { id: 'coffee', nameKey: 'coffee', hex: '#4E3629', code: 'AW-8017' }
   ];
 
@@ -99,7 +99,7 @@ export class ProductsComponent {
     if (card === 2) return this.activeFinishCard2();
     if (card === 3) return this.activeFinishCard3();
     if (card === 4) return this.activeFinishCard4();
-    return 'original';
+    return this.finishes[0]?.id || 'white';
   }
 
   openCardModal(cardNum: 1 | 2 | 3 | 4): void {

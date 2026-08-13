@@ -31,15 +31,6 @@
           
           <!-- Floating interactive color selector -->
           <div class="color-chips-overlay">
-            <!-- Reset to original button -->
-            <button 
-              class="color-chip chip-original"
-              [class.active]="activeFinishCard1() === 'original'"
-              (click)="selectFinish(1, 'original'); $event.stopPropagation()"
-              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
-              <span class="chip-inner-icon">↺</span>
-            </button>
-            
             <!-- Finish selection dots -->
             @for (finish of finishes; track finish.id) {
               <button 
@@ -52,12 +43,8 @@
             }
           </div>
           
-          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard1() !== 'original'">
-            @if (activeFinishCard1() === 'original') {
-              PREMIUM WPC
-            } @else {
-              {{ t().colors[getFinishDetails(activeFinishCard1())!.nameKey] }} • {{ getFinishDetails(activeFinishCard1())!.code }}
-            }
+          <div class="card-badge badge-tinted">
+            {{ t().colors[getFinishDetails(activeFinishCard1())!.nameKey] }} • {{ getFinishDetails(activeFinishCard1())!.code }}
           </div>
         </div>
         <div class="card-body">
@@ -67,7 +54,7 @@
         </div>
       </div>
       
-      <!-- Collection 2: AeroSlat (Bozza/Draft Concept) -->
+      <!-- Collection 2: AeroSlat -->
       <div class="product-card" data-aos="fade-left" data-aos-delay="250">
         <div class="card-visual" (click)="openCardModal(2)" style="cursor: pointer;">
           <!-- Panel Image: Shown on a clean light neutral background with dynamic color filters applied -->
@@ -91,15 +78,6 @@
           
           <!-- Floating interactive color selector -->
           <div class="color-chips-overlay">
-            <!-- Reset to original button -->
-            <button 
-              class="color-chip chip-original"
-              [class.active]="activeFinishCard2() === 'original'"
-              (click)="selectFinish(2, 'original'); $event.stopPropagation()"
-              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
-              <span class="chip-inner-icon">↺</span>
-            </button>
-            
             <!-- Finish selection dots -->
             @for (finish of finishes; track finish.id) {
               <button 
@@ -112,12 +90,8 @@
             }
           </div>
           
-          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard2() !== 'original'">
-            @if (activeFinishCard2() === 'original') {
-              {{ langService.currentLanguage() === 'it' ? 'BOZZA CONCEPT' : 'DRAFT CONCEPT' }}
-            } @else {
-              {{ t().colors[getFinishDetails(activeFinishCard2())!.nameKey] }} • {{ getFinishDetails(activeFinishCard2())!.code }}
-            }
+          <div class="card-badge badge-tinted">
+            {{ t().colors[getFinishDetails(activeFinishCard2())!.nameKey] }} • {{ getFinishDetails(activeFinishCard2())!.code }}
           </div>
         </div>
         <div class="card-body">
@@ -151,15 +125,6 @@
           
           <!-- Floating interactive color selector -->
           <div class="color-chips-overlay">
-            <!-- Reset to original button -->
-            <button 
-              class="color-chip chip-original"
-              [class.active]="activeFinishCard3() === 'original'"
-              (click)="selectFinish(3, 'original'); $event.stopPropagation()"
-              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
-              <span class="chip-inner-icon">↺</span>
-            </button>
-            
             <!-- Finish selection dots -->
             @for (finish of finishes; track finish.id) {
               <button 
@@ -172,12 +137,8 @@
             }
           </div>
           
-          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard3() !== 'original'">
-            @if (activeFinishCard3() === 'original') {
-              {{ langService.currentLanguage() === 'it' ? 'DECKING PREMIUM' : 'PREMIUM DECKING' }}
-            } @else {
-              {{ t().colors[getFinishDetails(activeFinishCard3())!.nameKey] }} • {{ getFinishDetails(activeFinishCard3())!.code }}
-            }
+          <div class="card-badge badge-tinted">
+            {{ t().colors[getFinishDetails(activeFinishCard3())!.nameKey] }} • {{ getFinishDetails(activeFinishCard3())!.code }}
           </div>
         </div>
         <div class="card-body">
@@ -211,15 +172,6 @@
           
           <!-- Floating interactive color selector -->
           <div class="color-chips-overlay">
-            <!-- Reset to original button -->
-            <button 
-              class="color-chip chip-original"
-              [class.active]="activeFinishCard4() === 'original'"
-              (click)="selectFinish(4, 'original'); $event.stopPropagation()"
-              [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
-              <span class="chip-inner-icon">↺</span>
-            </button>
-            
             <!-- Finish selection dots -->
             @for (finish of finishes; track finish.id) {
               <button 
@@ -232,12 +184,8 @@
             }
           </div>
           
-          <div class="card-badge badge-glow" [class.badge-tinted]="activeFinishCard4() !== 'original'">
-            @if (activeFinishCard4() === 'original') {
-              {{ langService.currentLanguage() === 'it' ? 'LOUVRE PREMIUM' : 'PREMIUM LOUVRE' }}
-            } @else {
-              {{ t().colors[getFinishDetails(activeFinishCard4())!.nameKey] }} • {{ getFinishDetails(activeFinishCard4())!.code }}
-            }
+          <div class="card-badge badge-tinted">
+            {{ t().colors[getFinishDetails(activeFinishCard4())!.nameKey] }} • {{ getFinishDetails(activeFinishCard4())!.code }}
           </div>
         </div>
         <div class="card-body">
@@ -272,24 +220,11 @@
         <div class="modal-caption-text">
           <h4 class="modal-title">{{ modalTitle() }}</h4>
           <p class="modal-subtitle">
-            @if (getActiveFinishInModal() === 'original') {
-              {{ langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo' }}
-            } @else {
-              {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}
-            }
+            {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}
           </p>
         </div>
         
         <div class="modal-color-selector">
-          <!-- Reset to original button -->
-          <button 
-            class="color-chip chip-original"
-            [class.active]="getActiveFinishInModal() === 'original'"
-            (click)="selectFinishInModal('original')"
-            [title]="langService.currentLanguage() === 'it' ? 'Foto Originale' : 'Original Photo'">
-            <span class="chip-inner-icon">↺</span>
-          </button>
-          
           <!-- Finish selection dots -->
           @for (finish of finishes; track finish.id) {
             <button 
