@@ -6,14 +6,19 @@ export interface FinishOption {
   nameKey: 'white' | 'sand' | 'pearlGrey' | 'honey' | 'avorio' | 'charcoal' | 'coffee';
   hex: string;
   code: string;
+  // Le mantengo nel caso tu voglia integrarle nell'HTML in futuro
+  baseFilter?: string;
+  specularFilter?: string;
+  blendMode?: string;
+  overlayOpacity?: string;
 }
 
 @Component({
-    selector: 'app-products',
-    imports: [],
-    templateUrl: './products.component.html',
-    standalone: true,
-    styleUrl: './products.component.scss'
+  selector: 'app-products',
+  imports: [],
+  templateUrl: './products.component.html',
+  standalone: true,
+  styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
   readonly langService = inject(LanguageService);
@@ -30,17 +35,16 @@ export class ProductsComponent {
   readonly currentModalCard = signal<1 | 2 | 3 | 4 | null>(null);
   readonly modalTitle = signal<string>('');
   readonly modalPanelImage = signal<string>('');
-  readonly modalFilterClass = signal<string>('');
 
-  // Premium wood finishes aligned with our general color palette and technical architectural codes
+  // Premium wood finishes
   readonly finishes: FinishOption[] = [
-    { id: 'white', nameKey: 'white', hex: '#FFFFFFFF', code: 'AW-9010' },
-    { id: 'sand', nameKey: 'sand', hex: '#C2B280', code: 'AW-1015' },
-    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#E4E5E0', code: 'AW-7040' },
-    { id: 'honey', nameKey: 'honey', hex: '#E3A857', code: 'AW-8001' },
-    { id: 'avorico', nameKey: 'avorio', hex: '#FFFFF0', code: 'AW-1013' },
-    { id: 'charcoal', nameKey: 'charcoal', hex: '#36454F', code: 'AW-7021' },
-    { id: 'coffee', nameKey: 'coffee', hex: '#4E3629', code: 'AW-8017' }
+    { id: 'white', nameKey: 'white', hex: '#FFFFFF', code: 'AW-9010', baseFilter: 'grayscale(100%) brightness(1.4) contrast(1.1)', specularFilter: 'grayscale(100%) brightness(0.15) opacity(0.15)', blendMode: 'color', overlayOpacity: '0.9' },
+    { id: 'sand', nameKey: 'sand', hex: '#C2B280', code: 'AW-1015', baseFilter: 'grayscale(100%) brightness(1.2) contrast(1.1)', specularFilter: 'grayscale(100%) brightness(0.2) opacity(0.2)', blendMode: 'color', overlayOpacity: '0.95' },
+    { id: 'pearlGrey', nameKey: 'pearlGrey', hex: '#E4E5E0', code: 'AW-7040', baseFilter: 'grayscale(100%) brightness(1.25) contrast(1.1)', specularFilter: 'grayscale(100%) brightness(0.2) opacity(0.2)', blendMode: 'color', overlayOpacity: '0.95' },
+    { id: 'honey', nameKey: 'honey', hex: '#E3A857', code: 'AW-8001', baseFilter: 'grayscale(100%) brightness(1.15) contrast(1.15)', specularFilter: 'grayscale(100%) brightness(0.2) opacity(0.25)', blendMode: 'color', overlayOpacity: '0.95' },
+    { id: 'avorico', nameKey: 'avorio', hex: '#FFFFF0', code: 'AW-1013', baseFilter: 'grayscale(100%) brightness(1.35) contrast(1.1)', specularFilter: 'grayscale(100%) brightness(0.15) opacity(0.15)', blendMode: 'color', overlayOpacity: '0.95' },
+    { id: 'charcoal', nameKey: 'charcoal', hex: '#36454F', code: 'AW-7021', baseFilter: 'grayscale(100%) brightness(1.2) contrast(1.4)', specularFilter: 'grayscale(100%) brightness(0.25) opacity(0.25)', blendMode: 'multiply', overlayOpacity: '0.9' },
+    { id: 'coffee', nameKey: 'coffee', hex: '#4E3629', code: 'AW-8017', baseFilter: 'grayscale(100%) brightness(1.15) contrast(1.35)', specularFilter: 'grayscale(100%) brightness(0.25) opacity(0.25)', blendMode: 'multiply', overlayOpacity: '0.9' }
   ];
 
   getFinishDetails(finishId: string): FinishOption | null {
@@ -48,23 +52,17 @@ export class ProductsComponent {
   }
 
   selectFinish(card: 1 | 2 | 3 | 4, finishId: string): void {
-    if (card === 1) {
-      this.activeFinishCard1.set(finishId);
-    } else if (card === 2) {
-      this.activeFinishCard2.set(finishId);
-    } else if (card === 3) {
-      this.activeFinishCard3.set(finishId);
-    } else if (card === 4) {
-      this.activeFinishCard4.set(finishId);
-    }
+    if (card === 1) this.activeFinishCard1.set(finishId);
+    else if (card === 2) this.activeFinishCard2.set(finishId);
+    else if (card === 3) this.activeFinishCard3.set(finishId);
+    else if (card === 4) this.activeFinishCard4.set(finishId);
   }
 
-  openImageModal(title: string, panelImg: string, filterClass: string): void {
+  openImageModal(title: string, panelImg: string): void {
     this.modalTitle.set(title);
     this.modalPanelImage.set(panelImg);
-    this.modalFilterClass.set(filterClass);
     this.isModalOpen.set(true);
-    // Disable body scroll when modal is open (SSR safe check)
+
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'hidden';
     }
@@ -72,7 +70,7 @@ export class ProductsComponent {
 
   closeImageModal(): void {
     this.isModalOpen.set(false);
-    // Restore body scroll (SSR safe check)
+
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }
@@ -89,7 +87,6 @@ export class ProductsComponent {
     const card = this.currentModalCard();
     if (card) {
       this.selectFinish(card, finishId);
-      this.modalFilterClass.set('filter-' + finishId);
     }
   }
 
@@ -105,33 +102,13 @@ export class ProductsComponent {
   openCardModal(cardNum: 1 | 2 | 3 | 4): void {
     this.currentModalCard.set(cardNum);
     if (cardNum === 1) {
-      const title = 'AeroShield';
-      this.openImageModal(
-        title,
-        '/assets/pannello1.webp',
-        'filter-' + this.activeFinishCard1()
-      );
+      this.openImageModal('AeroShield', '/assets/pannello1.webp');
     } else if (cardNum === 2) {
-      const title = 'AeroSlat';
-      this.openImageModal(
-        title,
-        '/assets/pannello2.webp',
-        'filter-' + this.activeFinishCard2()
-      );
+      this.openImageModal('AeroSlat', '/assets/pannello2.webp');
     } else if (cardNum === 3) {
-      const title = 'AeroDeck';
-      this.openImageModal(
-        title,
-        '/assets/pannello3.webp',
-        'filter-' + this.activeFinishCard3()
-      );
+      this.openImageModal('AeroDeck', '/assets/pannello3.webp');
     } else if (cardNum === 4) {
-      const title = 'AeroLouvre';
-      this.openImageModal(
-        title,
-        '/assets/pannello4.webp',
-        'filter-' + this.activeFinishCard4()
-      );
+      this.openImageModal('AeroLouvre', '/assets/pannello4.webp');
     }
   }
 }
