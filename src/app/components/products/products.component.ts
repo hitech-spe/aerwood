@@ -57,15 +57,15 @@ export class ProductsComponent {
 
   getCard1RenderImage(finishId: string): string {
     const renderMap: Record<string, string> = {
-      'white': 'render-bianco.webp',
-      'sand': 'render-sabbia.webp',
-      'pearlGrey': 'render-grigioPerla.webp',
-      'honey': 'render-miele.webp',
-      'avorico': 'render-avorio.webp',
-      'charcoal': 'render-carbone.webp',
-      'coffee': 'render-caffe.webp'
+      'white': 'render-bianco.jpg',
+      'sand': 'render-sabbia.jpg',
+      'pearlGrey': 'render-grigioPerla.jpg',
+      'honey': 'render-miele.jpg',
+      'avorico': 'render-avorio.jpg',
+      'charcoal': 'render-carbone.jpg',
+      'coffee': 'render-caffe.jpg'
     };
-    const filename = renderMap[finishId] || 'render-bianco.webp';
+    const filename = renderMap[finishId] || 'render-bianco.jpg';
     return `/assets/pannello1/${filename}`;
   }
 
