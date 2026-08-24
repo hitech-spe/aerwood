@@ -30,6 +30,10 @@ export class ProductsComponent {
   readonly activeFinishCard3 = signal<string>('white');
   readonly activeFinishCard4 = signal<string>('white');
 
+  // Toggle state between profile and render view for Card 1
+  readonly activeViewCard1 = signal<'profile' | 'render'>('profile');
+  readonly activeModalView = signal<'profile' | 'render'>('profile');
+
   // Modal State
   readonly isModalOpen = signal<boolean>(false);
   readonly currentModalCard = signal<1 | 2 | 3 | 4 | null>(null);
@@ -49,6 +53,20 @@ export class ProductsComponent {
 
   getFinishDetails(finishId: string): FinishOption | null {
     return this.finishes.find(f => f.id === finishId) || null;
+  }
+
+  getCard1RenderImage(finishId: string): string {
+    const renderMap: Record<string, string> = {
+      'white': 'render-bianco.webp',
+      'sand': 'render-sabbia.webp',
+      'pearlGrey': 'render-grigioPerla.webp',
+      'honey': 'render-miele.webp',
+      'avorico': 'render-avorio.webp',
+      'charcoal': 'render-carbone.webp',
+      'coffee': 'render-caffe.webp'
+    };
+    const filename = renderMap[finishId] || 'render-bianco.webp';
+    return `/assets/pannello1/${filename}`;
   }
 
   selectFinish(card: 1 | 2 | 3 | 4, finishId: string): void {
@@ -102,13 +120,18 @@ export class ProductsComponent {
   openCardModal(cardNum: 1 | 2 | 3 | 4): void {
     this.currentModalCard.set(cardNum);
     if (cardNum === 1) {
-      this.openImageModal('AeroShield', '/assets/pannello1.webp');
-    } else if (cardNum === 2) {
-      this.openImageModal('AeroSlat', '/assets/pannello2.webp');
-    } else if (cardNum === 3) {
-      this.openImageModal('AeroDeck', '/assets/pannello3.webp');
-    } else if (cardNum === 4) {
-      this.openImageModal('AeroLouvre', '/assets/pannello4.webp');
+      // Synchronize modal view with Card 1's active view
+      this.activeModalView.set(this.activeViewCard1());
+      this.openImageModal('AeroShield', '/assets/pannello1/pannello1.webp');
+    } else {
+      this.activeModalView.set('profile');
+      if (cardNum === 2) {
+        this.openImageModal('AeroSlat', '/assets/pannello2.webp');
+      } else if (cardNum === 3) {
+        this.openImageModal('AeroDeck', '/assets/pannello3.webp');
+      } else if (cardNum === 4) {
+        this.openImageModal('AeroLouvre', '/assets/pannello4.webp');
+      }
     }
   }
 }

@@ -59,15 +59,14 @@ describe('ProductsComponent', () => {
   });
 
   it('should open image modal with correct details', () => {
-    component.openImageModal('Test Product', 'panel.png', 'filter-white');
+    component.openImageModal('Test Product', 'panel.png');
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('Test Product');
     expect(component.modalPanelImage()).toBe('panel.png');
-    expect(component.modalFilterClass()).toBe('filter-white');
   });
 
   it('should close image modal', () => {
-    component.openImageModal('Test', 'panel.png', 'filter-white');
+    component.openImageModal('Test', 'panel.png');
     expect(component.isModalOpen()).toBe(true);
 
     component.closeImageModal();
@@ -80,8 +79,8 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroShield');
-    expect(component.modalPanelImage()).toBe('/assets/pannello1.webp');
-    expect(component.modalFilterClass()).toBe('filter-honey');
+    expect(component.modalPanelImage()).toBe('/assets/pannello1/pannello1.webp');
+    expect(component.activeFinishCard1()).toBe('honey');
   });
 
   it('should open card modal for card 2 with active finish', () => {
@@ -91,7 +90,7 @@ describe('ProductsComponent', () => {
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroSlat');
     expect(component.modalPanelImage()).toBe('/assets/pannello2.webp');
-    expect(component.modalFilterClass()).toBe('filter-charcoal');
+    expect(component.activeFinishCard2()).toBe('charcoal');
   });
 
   it('should open card modal for card 3 with active finish', () => {
@@ -101,7 +100,7 @@ describe('ProductsComponent', () => {
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroDeck');
     expect(component.modalPanelImage()).toBe('/assets/pannello3.webp');
-    expect(component.modalFilterClass()).toBe('filter-white');
+    expect(component.activeFinishCard3()).toBe('white');
   });
 
   it('should open card modal for card 4 with active finish', () => {
@@ -111,7 +110,7 @@ describe('ProductsComponent', () => {
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroLouvre');
     expect(component.modalPanelImage()).toBe('/assets/pannello4.webp');
-    expect(component.modalFilterClass()).toBe('filter-sand');
+    expect(component.activeFinishCard4()).toBe('sand');
   });
 
   it('should close modal on Escape key press', () => {
@@ -130,6 +129,18 @@ describe('ProductsComponent', () => {
     component.selectFinishInModal('sand');
     expect(component.getActiveFinishInModal()).toBe('sand');
     expect(component.activeFinishCard1()).toBe('sand');
-    expect(component.modalFilterClass()).toBe('filter-sand');
+  });
+
+  it('should toggle view state for card 1', () => {
+    expect(component.activeViewCard1()).toBe('profile');
+    component.activeViewCard1.set('render');
+    expect(component.activeViewCard1()).toBe('render');
+  });
+
+  it('should toggle view state inside the modal', () => {
+    component.openCardModal(1);
+    expect(component.activeModalView()).toBe('profile');
+    component.activeModalView.set('render');
+    expect(component.activeModalView()).toBe('render');
   });
 });
