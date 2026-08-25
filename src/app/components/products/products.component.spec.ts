@@ -99,7 +99,7 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroDeck');
-    expect(component.modalPanelImage()).toBe('/assets/pannello3.webp');
+    expect(component.modalPanelImage()).toBe('/assets/pannello3/pannello3.webp');
     expect(component.activeFinishCard3()).toBe('white');
   });
 
@@ -109,7 +109,7 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroLouvre');
-    expect(component.modalPanelImage()).toBe('/assets/pannello4.webp');
+    expect(component.modalPanelImage()).toBe('/assets/pannello4/pannello4.webp');
     expect(component.activeFinishCard4()).toBe('sand');
   });
 
@@ -143,6 +143,18 @@ describe('ProductsComponent', () => {
     expect(component.activeViewCard2()).toBe('render');
   });
 
+  it('should toggle view state for card 3', () => {
+    expect(component.activeViewCard3()).toBe('profile');
+    component.activeViewCard3.set('render');
+    expect(component.activeViewCard3()).toBe('render');
+  });
+
+  it('should toggle view state for card 4', () => {
+    expect(component.activeViewCard4()).toBe('profile');
+    component.activeViewCard4.set('render');
+    expect(component.activeViewCard4()).toBe('render');
+  });
+
   it('should toggle view state inside the modal for card 1', () => {
     component.openCardModal(1);
     expect(component.activeModalView()).toBe('profile');
@@ -152,6 +164,20 @@ describe('ProductsComponent', () => {
 
   it('should toggle view state inside the modal for card 2', () => {
     component.openCardModal(2);
+    expect(component.activeModalView()).toBe('profile');
+    component.activeModalView.set('render');
+    expect(component.activeModalView()).toBe('render');
+  });
+
+  it('should toggle view state inside the modal for card 3', () => {
+    component.openCardModal(3);
+    expect(component.activeModalView()).toBe('profile');
+    component.activeModalView.set('render');
+    expect(component.activeModalView()).toBe('render');
+  });
+
+  it('should toggle view state inside the modal for card 4', () => {
+    component.openCardModal(4);
     expect(component.activeModalView()).toBe('profile');
     component.activeModalView.set('render');
     expect(component.activeModalView()).toBe('render');

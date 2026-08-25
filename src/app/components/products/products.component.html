@@ -32,7 +32,7 @@
                     @if (activeViewCard1() === 'render') {
                         <!-- Immagine Render Finale (Statico, Senza filtri) -->
                         <img
-                                [src]="getCard1RenderImage(activeFinishCard1())"
+                                [src]="getCardRenderImage(1, activeFinishCard1())"
                                 onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
                                 alt="AeroShield Ambient Render"
                                 class="product-img product-img-render"
@@ -117,7 +117,7 @@
                     @if (activeViewCard2() === 'render') {
                         <!-- Immagine Render Finale (Statico, Senza filtri) -->
                         <img
-                                [src]="getCard2RenderImage(activeFinishCard2())"
+                                [src]="getCardRenderImage(2, activeFinishCard2())"
                                 onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
                                 alt="AeroSlat Ambient Render"
                                 class="product-img product-img-render"
@@ -181,35 +181,52 @@
             <div class="product-card" data-aos="fade-left" data-aos-delay="400">
                 <div class="card-visual" (click)="openCardModal(3)" style="cursor: pointer;">
 
-                    <!-- Immagine di base -->
-                    <img
-                            src="/assets/pannello3.webp"
-                            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                            alt="AeroDeck Panel"
-                            class="product-img product-img-panel"
-                            [style.filter]="getFinishDetails(activeFinishCard3())!.baseFilter"
-                    />
-
-                    <!-- Overlay Colore Dinamico MASCHERATO -->
-                    <div class="panel-color-overlay"
-                         [style.background-color]="getFinishDetails(activeFinishCard3())!.hex"
-                         [style.mix-blend-mode]="getFinishDetails(activeFinishCard3())!.blendMode"
-                         [style.opacity]="getFinishDetails(activeFinishCard3())!.overlayOpacity"
-                         style="-webkit-mask-image: url('/assets/pannello3.webp'); mask-image: url('/assets/pannello3.webp');">
+                    <!-- View Toggle Tabs (Profilo vs Render) -->
+                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard3() === 'profile'"
+                            (click)="activeViewCard3.set('profile')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
+                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
+                        </button>
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard3() === 'render'"
+                            (click)="activeViewCard3.set('render')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
+                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
+                        </button>
                     </div>
 
-                    <!-- Zoom Magnifier -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
+                    @if (activeViewCard3() === 'render') {
+                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
+                        <img
+                                [src]="getCardRenderImage(3, activeFinishCard3())"
+                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroDeck Ambient Render"
+                                class="product-img product-img-render"
+                        />
+                    } @else {
+                        <!-- Immagine di base Profilo -->
+                        <img
+                                src="/assets/pannello3/pannello3.webp"
+                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroDeck Profile Panel"
+                                class="product-img product-img-panel"
+                                [style.filter]="getFinishDetails(activeFinishCard3())!.baseFilter"
+                        />
 
-                    <!-- Color Selector -->
+                        <!-- Overlay Colore Dinamico MASCHERATO -->
+                        <div class="panel-color-overlay"
+                             [style.background-color]="getFinishDetails(activeFinishCard3())!.hex"
+                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard3())!.blendMode"
+                             [style.opacity]="getFinishDetails(activeFinishCard3())!.overlayOpacity"
+                             style="-webkit-mask-image: url('/assets/pannello3/pannello3.webp'); mask-image: url('/assets/pannello3/pannello3.webp');">
+                        </div>
+                    }
+
+                    <!-- Floating interactive color selector -->
                     <div class="color-chips-overlay">
                         @for (finish of finishes; track finish.id) {
                             <button
@@ -225,34 +242,6 @@
                     <div class="card-badge badge-tinted">
                         {{ t().colors[getFinishDetails(activeFinishCard3())!.nameKey] }} • {{ getFinishDetails(activeFinishCard3())!.code }}
                     </div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ t().products.veneers }}</h3>
-                    <p class="card-text">{{ t().products.veneersDesc }}</p>
-                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-                </div>
-            </div>
-
-            <!-- Collection 4: AeroLouvre -->
-            <div class="product-card" data-aos="fade-left" data-aos-delay="550">
-                <div class="card-visual" (click)="openCardModal(4)" style="cursor: pointer;">
-
-                    <!-- Immagine di base -->
-                    <img
-                            src="/assets/pannello4.webp"
-                            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                            alt="AeroLouvre Panel"
-                            class="product-img product-img-panel"
-                            [style.filter]="getFinishDetails(activeFinishCard4())!.baseFilter"
-                    />
-
-                    <!-- Overlay Colore Dinamico MASCHERATO -->
-                    <div class="panel-color-overlay"
-                         [style.background-color]="getFinishDetails(activeFinishCard4())!.hex"
-                         [style.mix-blend-mode]="getFinishDetails(activeFinishCard4())!.blendMode"
-                         [style.opacity]="getFinishDetails(activeFinishCard4())!.overlayOpacity"
-                         style="-webkit-mask-image: url('/assets/pannello4.webp'); mask-image: url('/assets/pannello4.webp');">
-                    </div>
 
                     <!-- Zoom Magnifier -->
                     <div class="zoom-hint">
@@ -265,7 +254,64 @@
                         <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
                     </div>
 
-                    <!-- Color Selector -->
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ t().products.veneers }}</h3>
+                    <p class="card-text">{{ t().products.veneersDesc }}</p>
+                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
+                </div>
+            </div>
+
+            <!-- Collection 4: AeroLouvre -->
+            <div class="product-card" data-aos="fade-left" data-aos-delay="550">
+                <div class="card-visual" (click)="openCardModal(4)" style="cursor: pointer;">
+
+                    <!-- View Toggle Tabs (Profilo vs Render) -->
+                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard4() === 'profile'"
+                            (click)="activeViewCard4.set('profile')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
+                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
+                        </button>
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard4() === 'render'"
+                            (click)="activeViewCard4.set('render')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
+                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
+                        </button>
+                    </div>
+
+                    @if (activeViewCard4() === 'render') {
+                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
+                        <img
+                                [src]="getCardRenderImage(4, activeFinishCard4())"
+                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroLouvre Ambient Render"
+                                class="product-img product-img-render"
+                        />
+                    } @else {
+                        <!-- Immagine di base Profilo -->
+                        <img
+                                src="/assets/pannello4/pannello4.webp"
+                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroLouvre Profile Panel"
+                                class="product-img product-img-panel"
+                                [style.filter]="getFinishDetails(activeFinishCard4())!.baseFilter"
+                        />
+
+                        <!-- Overlay Colore Dinamico MASCHERATO -->
+                        <div class="panel-color-overlay"
+                             [style.background-color]="getFinishDetails(activeFinishCard4())!.hex"
+                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard4())!.blendMode"
+                             [style.opacity]="getFinishDetails(activeFinishCard4())!.overlayOpacity"
+                             style="-webkit-mask-image: url('/assets/pannello4/pannello4.webp'); mask-image: url('/assets/pannello4/pannello4.webp');">
+                        </div>
+                    }
+
+                    <!-- Floating interactive color selector -->
                     <div class="color-chips-overlay">
                         @for (finish of finishes; track finish.id) {
                             <button
@@ -281,6 +327,18 @@
                     <div class="card-badge badge-tinted">
                         {{ t().colors[getFinishDetails(activeFinishCard4())!.nameKey] }} • {{ getFinishDetails(activeFinishCard4())!.code }}
                     </div>
+
+                    <!-- Zoom Magnifier -->
+                    <div class="zoom-hint">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                        </svg>
+                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">{{ t().products.panel4 }}</h3>
@@ -300,32 +358,30 @@
         </button>
 
         <div class="modal-content" (click)="$event.stopPropagation()">
-            <div class="modal-image-wrapper">
+            <div class="modal-image-wrapper" [class.render-view-active]="activeModalView() === 'render'">
 
                 <!-- View Toggle Tabs inside Modal (Profilo vs Render) -->
-                @if (currentModalCard() === 1 || currentModalCard() === 2) {
-                    <div class="view-toggle-tabs modal-toggle-tabs">
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeModalView() === 'profile'"
-                            (click)="activeModalView.set('profile')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                        </button>
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeModalView() === 'render'"
-                            (click)="activeModalView.set('render')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                        </button>
-                    </div>
-                }
+                <div class="view-toggle-tabs modal-toggle-tabs">
+                    <button 
+                        class="view-toggle-btn" 
+                        [class.active]="activeModalView() === 'profile'"
+                        (click)="activeModalView.set('profile')"
+                        [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
+                        {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
+                    </button>
+                    <button 
+                        class="view-toggle-btn" 
+                        [class.active]="activeModalView() === 'render'"
+                        (click)="activeModalView.set('render')"
+                        [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
+                        {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
+                    </button>
+                </div>
 
-                @if ((currentModalCard() === 1 || currentModalCard() === 2) && activeModalView() === 'render') {
+                @if (activeModalView() === 'render') {
                     <!-- Modal Render Image (Statico, Senza filtri) -->
                     <img
-                            [src]="currentModalCard() === 1 ? getCard1RenderImage(getActiveFinishInModal()) : getCard2RenderImage(getActiveFinishInModal())"
+                            [src]="getCardRenderImage(currentModalCard()!, getActiveFinishInModal())"
                             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
                             [alt]="modalTitle() + ' - Render'"
                             class="modal-img modal-img-render"
@@ -356,7 +412,7 @@
                 <div class="modal-caption-text">
                     <h4 class="modal-title">{{ modalTitle() }}</h4>
                     <p class="modal-subtitle">
-                        @if ((currentModalCard() === 1 || currentModalCard() === 2) && activeModalView() === 'render') {
+                        @if (activeModalView() === 'render') {
                             {{ langService.currentLanguage() === 'it' ? 'Ambientazione Realistica' : 'Realistic Environment' }}
                         } @else {
                             {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}

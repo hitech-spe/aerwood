@@ -30,9 +30,11 @@ export class ProductsComponent {
   readonly activeFinishCard3 = signal<string>('white');
   readonly activeFinishCard4 = signal<string>('white');
 
-  // Toggle state between profile and render view for Card 1 and Card 2
+  // Toggle state between profile and render view for Cards 1, 2, 3, and 4
   readonly activeViewCard1 = signal<'profile' | 'render'>('profile');
   readonly activeViewCard2 = signal<'profile' | 'render'>('profile');
+  readonly activeViewCard3 = signal<'profile' | 'render'>('profile');
+  readonly activeViewCard4 = signal<'profile' | 'render'>('profile');
   readonly activeModalView = signal<'profile' | 'render'>('profile');
 
   // Modal State
@@ -56,7 +58,7 @@ export class ProductsComponent {
     return this.finishes.find(f => f.id === finishId) || null;
   }
 
-  getCard1RenderImage(finishId: string): string {
+  getCardRenderImage(cardNum: number, finishId: string): string {
     const renderMap: Record<string, string> = {
       'white': 'render-bianco.jpg',
       'sand': 'render-sabbia.jpg',
@@ -67,21 +69,7 @@ export class ProductsComponent {
       'coffee': 'render-caffe.jpg'
     };
     const filename = renderMap[finishId] || 'render-bianco.jpg';
-    return `/assets/pannello1/${filename}`;
-  }
-
-  getCard2RenderImage(finishId: string): string {
-    const renderMap: Record<string, string> = {
-      'white': 'render-bianco.jpg',
-      'sand': 'render-sabbia.jpg',
-      'pearlGrey': 'render-grigioPerla.jpg',
-      'honey': 'render-miele.jpg',
-      'avorico': 'render-avorio.jpg',
-      'charcoal': 'render-carbone.jpg',
-      'coffee': 'render-caffe.jpg'
-    };
-    const filename = renderMap[finishId] || 'render-bianco.jpg';
-    return `/assets/pannello2/${filename}`;
+    return `/assets/pannello${cardNum}/${filename}`;
   }
 
   selectFinish(card: 1 | 2 | 3 | 4, finishId: string): void {
@@ -142,13 +130,14 @@ export class ProductsComponent {
       // Synchronize modal view with Card 2's active view
       this.activeModalView.set(this.activeViewCard2());
       this.openImageModal('AeroSlat', '/assets/pannello2/pannello2.webp');
-    } else {
-      this.activeModalView.set('profile');
-      if (cardNum === 3) {
-        this.openImageModal('AeroDeck', '/assets/pannello3.webp');
-      } else if (cardNum === 4) {
-        this.openImageModal('AeroLouvre', '/assets/pannello4.webp');
-      }
+    } else if (cardNum === 3) {
+      // Synchronize modal view with Card 3's active view
+      this.activeModalView.set(this.activeViewCard3());
+      this.openImageModal('AeroDeck', '/assets/pannello3/pannello3.webp');
+    } else if (cardNum === 4) {
+      // Synchronize modal view with Card 4's active view
+      this.activeModalView.set(this.activeViewCard4());
+      this.openImageModal('AeroLouvre', '/assets/pannello4/pannello4.webp');
     }
   }
 }
