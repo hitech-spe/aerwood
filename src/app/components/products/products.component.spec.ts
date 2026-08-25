@@ -89,7 +89,7 @@ describe('ProductsComponent', () => {
     
     expect(component.isModalOpen()).toBe(true);
     expect(component.modalTitle()).toBe('AeroSlat');
-    expect(component.modalPanelImage()).toBe('/assets/pannello2.webp');
+    expect(component.modalPanelImage()).toBe('/assets/pannello2/pannello2.webp');
     expect(component.activeFinishCard2()).toBe('charcoal');
   });
 
@@ -137,8 +137,21 @@ describe('ProductsComponent', () => {
     expect(component.activeViewCard1()).toBe('render');
   });
 
-  it('should toggle view state inside the modal', () => {
+  it('should toggle view state for card 2', () => {
+    expect(component.activeViewCard2()).toBe('profile');
+    component.activeViewCard2.set('render');
+    expect(component.activeViewCard2()).toBe('render');
+  });
+
+  it('should toggle view state inside the modal for card 1', () => {
     component.openCardModal(1);
+    expect(component.activeModalView()).toBe('profile');
+    component.activeModalView.set('render');
+    expect(component.activeModalView()).toBe('render');
+  });
+
+  it('should toggle view state inside the modal for card 2', () => {
+    component.openCardModal(2);
     expect(component.activeModalView()).toBe('profile');
     component.activeModalView.set('render');
     expect(component.activeModalView()).toBe('render');

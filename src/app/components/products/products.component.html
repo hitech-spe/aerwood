@@ -96,35 +96,52 @@
             <div class="product-card" data-aos="fade-left" data-aos-delay="250">
                 <div class="card-visual" (click)="openCardModal(2)" style="cursor: pointer;">
 
-                    <!-- Immagine di base -->
-                    <img
-                            src="/assets/pannello2.webp"
-                            onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
-                            alt="AeroSlat Panel"
-                            class="product-img product-img-panel"
-                            [style.filter]="getFinishDetails(activeFinishCard2())!.baseFilter"
-                    />
-
-                    <!-- Overlay Colore Dinamico MASCHERATO -->
-                    <div class="panel-color-overlay"
-                         [style.background-color]="getFinishDetails(activeFinishCard2())!.hex"
-                         [style.mix-blend-mode]="getFinishDetails(activeFinishCard2())!.blendMode"
-                         [style.opacity]="getFinishDetails(activeFinishCard2())!.overlayOpacity"
-                         style="-webkit-mask-image: url('/assets/pannello2.webp'); mask-image: url('/assets/pannello2.webp');">
+                    <!-- View Toggle Tabs (Profilo vs Render) -->
+                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard2() === 'profile'"
+                            (click)="activeViewCard2.set('profile')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
+                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
+                        </button>
+                        <button 
+                            class="view-toggle-btn" 
+                            [class.active]="activeViewCard2() === 'render'"
+                            (click)="activeViewCard2.set('render')"
+                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
+                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
+                        </button>
                     </div>
 
-                    <!-- Zoom Magnifier -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
+                    @if (activeViewCard2() === 'render') {
+                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
+                        <img
+                                [src]="getCard2RenderImage(activeFinishCard2())"
+                                onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroSlat Ambient Render"
+                                class="product-img product-img-render"
+                        />
+                    } @else {
+                        <!-- Immagine di base Profilo -->
+                        <img
+                                src="/assets/pannello2/pannello2.webp"
+                                onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
+                                alt="AeroSlat Profile Panel"
+                                class="product-img product-img-panel"
+                                [style.filter]="getFinishDetails(activeFinishCard2())!.baseFilter"
+                        />
 
-                    <!-- Color Selector -->
+                        <!-- Overlay Colore Dinamico MASCHERATO -->
+                        <div class="panel-color-overlay"
+                             [style.background-color]="getFinishDetails(activeFinishCard2())!.hex"
+                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard2())!.blendMode"
+                             [style.opacity]="getFinishDetails(activeFinishCard2())!.overlayOpacity"
+                             style="-webkit-mask-image: url('/assets/pannello2/pannello2.webp'); mask-image: url('/assets/pannello2/pannello2.webp');">
+                        </div>
+                    }
+
+                    <!-- Floating interactive color selector -->
                     <div class="color-chips-overlay">
                         @for (finish of finishes; track finish.id) {
                             <button
@@ -140,6 +157,18 @@
                     <div class="card-badge badge-tinted">
                         {{ t().colors[getFinishDetails(activeFinishCard2())!.nameKey] }} • {{ getFinishDetails(activeFinishCard2())!.code }}
                     </div>
+
+                    <!-- Zoom Magnifier -->
+                    <div class="zoom-hint">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                        </svg>
+                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">{{ t().products.cladding }}</h3>
@@ -274,7 +303,7 @@
             <div class="modal-image-wrapper">
 
                 <!-- View Toggle Tabs inside Modal (Profilo vs Render) -->
-                @if (currentModalCard() === 1) {
+                @if (currentModalCard() === 1 || currentModalCard() === 2) {
                     <div class="view-toggle-tabs modal-toggle-tabs">
                         <button 
                             class="view-toggle-btn" 
@@ -293,10 +322,10 @@
                     </div>
                 }
 
-                @if (currentModalCard() === 1 && activeModalView() === 'render') {
-                    <!-- Modal Render-Finale Image (Statico, Senza filtri) -->
+                @if ((currentModalCard() === 1 || currentModalCard() === 2) && activeModalView() === 'render') {
+                    <!-- Modal Render Image (Statico, Senza filtri) -->
                     <img
-                            [src]="getCard1RenderImage(getActiveFinishInModal())"
+                            [src]="currentModalCard() === 1 ? getCard1RenderImage(getActiveFinishInModal()) : getCard2RenderImage(getActiveFinishInModal())"
                             onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
                             [alt]="modalTitle() + ' - Render'"
                             class="modal-img modal-img-render"
@@ -327,7 +356,7 @@
                 <div class="modal-caption-text">
                     <h4 class="modal-title">{{ modalTitle() }}</h4>
                     <p class="modal-subtitle">
-                        @if (currentModalCard() === 1 && activeModalView() === 'render') {
+                        @if ((currentModalCard() === 1 || currentModalCard() === 2) && activeModalView() === 'render') {
                             {{ langService.currentLanguage() === 'it' ? 'Ambientazione Realistica' : 'Realistic Environment' }}
                         } @else {
                             {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}
