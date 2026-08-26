@@ -23,9 +23,21 @@ export class HeaderComponent {
 
   toggleMenu(): void {
     this.isMenuOpen.update(open => !open);
+    this.updateBodyScroll();
   }
 
   closeMenu(): void {
     this.isMenuOpen.set(false);
+    this.updateBodyScroll();
+  }
+
+  private updateBodyScroll(): void {
+    if (typeof document !== 'undefined') {
+      if (this.isMenuOpen()) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
   }
 }

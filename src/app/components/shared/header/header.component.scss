@@ -171,6 +171,11 @@
   width: 24px;
   height: 18px;
   z-index: 1100;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  box-sizing: content-box;
   
   @media (max-width: 768px) {
     display: flex;
