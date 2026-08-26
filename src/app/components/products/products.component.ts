@@ -65,10 +65,10 @@ export class ProductsComponent {
     // If it is Card 2, boost the base brightness & contrast gently for light colors to avoid "burning" (clipping highlights)
     if (cardNum === 2) {
       if (finishId === 'white') {
-        return 'grayscale(100%) brightness(1.9) contrast(1.05)';
+        return 'grayscale(100%) brightness(2.05) contrast(1.05)';
       }
       if (finishId === 'avorico') {
-        return 'grayscale(100%) brightness(1.5) contrast(1.02)';
+        return 'grayscale(100%) brightness(1.7) contrast(1.0)';
       }
       if (finishId === 'sand') {
         return 'grayscale(100%) brightness(1.45) contrast(1.05)';
