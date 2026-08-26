@@ -60,27 +60,7 @@ export class ProductsComponent {
 
   getBaseFilterForCard(cardNum: number, finishId: string): string {
     const finish = this.getFinishDetails(finishId);
-    if (!finish) return '';
-    
-    // If it is Card 2, boost the base brightness & contrast gently for light colors to avoid "burning" (clipping highlights)
-    if (cardNum === 2) {
-      if (finishId === 'white') {
-        return 'grayscale(100%) brightness(2.05) contrast(1.05)';
-      }
-      if (finishId === 'avorico') {
-        return 'grayscale(100%) brightness(1.7) contrast(1.0)';
-      }
-      if (finishId === 'sand') {
-        return 'grayscale(100%) brightness(1.45) contrast(1.05)';
-      }
-      if (finishId === 'pearlGrey') {
-        return 'grayscale(100%) brightness(1.5) contrast(1.05)';
-      }
-      if (finishId === 'honey') {
-        return 'grayscale(100%) brightness(1.35) contrast(1.05)';
-      }
-    }
-    return finish.baseFilter || '';
+    return finish?.baseFilter || '';
   }
 
   getCardRenderImage(cardNum: number, finishId: string): string {
