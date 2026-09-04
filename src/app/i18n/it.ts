@@ -15,16 +15,16 @@ export const itTranslations: Translations = {
     technical: 'Area Tecnica'
   },
   hero: {
-    title: 'FACCIATE E RIVESTIMENTI IN WPC DI ALTISSIMA GAMMA',
-    subtitle: 'L\'eleganza naturale del legno incontra la durabilità indistruttibile del composito. Progettato per resistere all\'esterno, pensato per stupire i progettisti.',
+    title: 'Rivestimenti in WPC che ridefiniscono la facciata',
+    subtitle: 'Il calore del legno, la resistenza del composito. Pensati per durare nel tempo, progettati per lasciare il segno.',
     cta: 'Scopri la Gamma',
     ctaSecondary: 'Contattaci'
   },
   about: {
     badge: 'Eccellenza & Orgoglio',
     title: 'Chi Siamo',
-    text1: 'Airwood è sinonimo di eccellenza e innovazione nel settore dei rivestimenti in WPC premium. Dal nostro stabilimento in Italia esportiamo soluzioni di architettura sostenibile pensate per resistere al tempo e ridisegnare gli spazi del futuro.',
-    text2: 'Ogni nostro pannello rappresenta la sintesi perfetta tra maestria artigianale e precisione tecnologica industriale.',
+    text1: 'Airwood nasce dall\'esperienza industriale di Forte Srl nella lavorazione dei materiali compositi. Dal nostro stabilimento di Altamura progettiamo e produciamo rivestimenti in WPC pensati per durare, uniti a un servizio tecnico che segue il progetto dalla scelta del profilo alla posa in cantiere.',
+    text2: 'Ogni pannello Airwood nasce dall\'incontro tra know-how artigianale e precisione industriale: materiali controllati, processi certificati, risultato costante in ogni fornitura',
     stat_experience: 'Anni di Innovazione',
     stat_certified: 'Certificazioni FSC®',
     stat_quality: 'Made in Italy'
@@ -32,7 +32,7 @@ export const itTranslations: Translations = {
   products: {
     badge: 'Catalogo Profili WPC',
     title: 'Le Nostre Soluzioni',
-    intro: 'Ogni profilo Airwood è ingegnerizzato per garantire alte prestazioni, durabilità estetica e facilità di installazione per pareti e pavimentazioni esterne.',
+    intro: 'Ogni profilo Airwood nasce per rispondere a esigenze progettuali concrete: prestazioni certificate, stabilità estetica nel tempo e posa rapida, per facciate ventilate e pavimentazioni esterne che non richiedono compromessi.',
     acoustics: 'Titolo di Prova Pannello 1',
     acousticsDesc: 'Questa è una descrizione di prova per il Pannello 1. Serve come testo segnaposto temporaneo per valutare il design e l\'allineamento.',
     cladding: 'Titolo di Prova Pannello 2',
@@ -47,29 +47,29 @@ export const itTranslations: Translations = {
     badge: 'La Tecnologia del Composito',
     title: 'Perché Scegliere il WPC?',
     waterproof: 'Resistente all\'Acqua',
-    waterproofDesc: 'Nessun rigonfiamento, marciume o proliferazione di muffe. Impermeabile al 100% in qualsiasi condizione climatica.',
+    waterproofDesc: 'Il WPC non assorbe, non si gonfia e non marcisce. Un materiale impermeabile per definizione, pensato per resistere a pioggia, umidità e sbalzi climatici senza perdere forma.',
     maintenance: 'Zero Manutenzione',
-    maintenanceDesc: 'Dimentica verniciature, levigature o trattamenti annuali con oli. Si pulisce semplicemente con acqua.',
+    maintenanceDesc: 'Niente verniciature, oli o levigature stagionali. Basta un getto d\'acqua per restituirgli l\'aspetto originale, anno dopo anno.',
     woodEffect: 'Effetto Legno Naturale',
-    woodEffectDesc: 'Tutta la bellezza calda e materica del legno nobile, senza i difetti di invecchiamento o fessurazione del legno naturale.',
+    woodEffectDesc: 'Tutta la bellezza materica del legno pregiato — venature, calore, profondità — senza le sue fragilità: nessuna fessurazione, nessun imbarcamento, nessun ingrigimento irregolare.',
     eco: '100% Ecologico e Riciclabile',
-    ecoDesc: 'Prodotto in economia circolare da fibre di legno riciclate e polimeri rigenerati ad alta densità. Amico dell\'ambiente.'
+    ecoDesc: 'Nasce da fibre di legno riciclate e polimeri rigenerati ad alta densità, in un ciclo produttivo pensato per ridurre l\'impatto ambientale senza rinunciare alle prestazioni.'
   },
   ventilatedFacade: {
     badge: 'Ingegneria di Rivestimento',
     title: 'La Facciata Ventilata',
-    intro: 'La facciata ventilata è il sistema di rivestimento esterno più efficiente per risolvere l\'isolamento termico ed acustico degli edifici. Grazie all\'effetto camino naturale, rimuove l\'umidità e protegge le strutture dagli sbalzi termici.',
+    intro: 'La facciata ventilata è oggi il sistema più efficace per gestire isolamento termico e acustico degli edifici. Grazie alla camera d\'aria e al naturale effetto camino, l\'umidità viene smaltita in continuo e la struttura resta protetta dagli sbalzi termici, stagione dopo stagione.',
     layerWall: '1. Parete Portante dell\'Edificio',
     layerInsulation: '2. Strato Isolante Termico continuo',
     layerSubstructure: '3. Sottostruttura in Alluminio / Staffe',
     layerAirGap: '4. Camera d\'aria (Effetto Camino)',
     layerCladding: '5. Rivestimento Esterno WPC Airwood',
     benefit1: 'Isolamento Termico',
-    benefit1Desc: 'Eliminazione totale dei ponti termici, portando a un enorme risparmio energetico sia in estate che in inverno.',
+    benefit1Desc: 'Azzera i ponti termici e riduce sensibilmente i consumi energetici, sia d\'estate che d\'inverno.',
     benefit2: 'Smaltimento Umidità',
-    benefit2Desc: 'L\'aria ascensionale nella camera evapora costantemente la condensa e mantiene i muri asciutti e sani.',
+    benefit2Desc: 'Il flusso d\'aria ascensionale nella camera evapora costantemente la condensa, mantenendo le murature asciutte e integre.',
     benefit3: 'Protezione Acustica',
-    benefit3Desc: 'Il sistema multistrato funge da eccellente barriera fonoassorbente contro i rumori provenienti dall\'esterno.'
+    benefit3Desc: 'Il sistema multistrato agisce da barriera fonoassorbente contro i rumori esterni.'
   },
   colors: {
     badge: 'Cartella Colori Premium',

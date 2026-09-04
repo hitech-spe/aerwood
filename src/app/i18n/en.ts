@@ -15,16 +15,16 @@ export const enTranslations: Translations = {
     technical: 'Technical Area'
   },
   hero: {
-    title: 'PREMIUM WPC CLADDING & FAÇADE SYSTEMS',
-    subtitle: 'The natural elegance of wood meets the indestructible durability of composite engineering. Built to endure outdoors, designed to inspire architects.',
+    title: 'WPC CLADDING THAT REDEFINES THE FAÇADE',
+    subtitle: 'The warmth of wood, the durability of composite. Built to last, designed to make an impact.',
     cta: 'Discover the Range',
     ctaSecondary: 'Contact Us'
   },
   about: {
     badge: 'Excellence & Pride',
     title: 'About Us',
-    text1: 'Airwood stands for excellence and innovation in the premium WPC cladding sector. From our manufacturing facility in Italy, we export sustainable architectural solutions designed to withstand the test of time and redefine future spaces.',
-    text2: 'Each of our panels represents the perfect synthesis of handcrafted mastery and advanced industrial manufacturing precision.',
+    text1: 'Airwood was born from the industrial expertise of Forte Srl in processing composite materials. From our manufacturing facility in Altamura, we design and produce WPC cladding systems built to last, combined with a technical support service that guides the project from profile selection to site installation.',
+    text2: 'Every Airwood panel is born from the fusion of artisan know-how and industrial precision: strictly inspected materials, certified processes, and a consistent outcome in every supply.',
     stat_experience: 'Years of Innovation',
     stat_certified: 'FSC® Certified',
     stat_quality: 'Made in Italy'
@@ -32,7 +32,7 @@ export const enTranslations: Translations = {
   products: {
     badge: 'WPC Profile Catalog',
     title: 'Our Solutions',
-    intro: 'Each Airwood profile is engineered to guarantee high performance, long-term aesthetic durability, and easy installation for wall claddings and outdoor decking.',
+    intro: 'Every Airwood profile is created to meet concrete architectural demands: certified performance, long-term aesthetic stability, and rapid installation, for ventilated facades and outdoor decking that require no compromise.',
     acoustics: 'Test Title Panel 1',
     acousticsDesc: 'This is a test description for Panel 1. It serves as temporary placeholder text to evaluate design and alignment.',
     cladding: 'Test Title Panel 2',
@@ -47,29 +47,29 @@ export const enTranslations: Translations = {
     badge: 'Composite Technology',
     title: 'Why Choose WPC?',
     waterproof: 'Water & Weather Resistant',
-    waterproofDesc: 'No rotting, warping, swelling, or mold growth. 100% waterproof in all climatic conditions.',
+    waterproofDesc: 'WPC does not absorb water, swell, or rot. A waterproof material by definition, designed to resist rain, moisture, and temperature fluctuations without losing its shape.',
     maintenance: 'Zero Maintenance',
-    maintenanceDesc: 'Forget about annual sanding, painting, or oiling treatments. Easily cleans with simple water.',
+    maintenanceDesc: 'No seasonal painting, oiling, or sanding. A simple rinse with water is all it takes to restore its original appearance, year after year.',
     woodEffect: 'Natural Wood Look & Feel',
-    woodEffectDesc: 'All the warm, textured beauty of premium wood without natural wood\'s aging, splitting, or fading defects.',
+    woodEffectDesc: 'All the textured beauty of premium wood — grain, warmth, depth — without its vulnerabilities: no splitting, no warping, no uneven graying.',
     eco: '100% Eco-friendly & Recyclable',
-    ecoDesc: 'Made under circular economy guidelines from recycled wood fibers and clean high-density polymers. Environmentally safe.'
+    ecoDesc: 'Crafted from recycled wood fibers and regenerated high-density polymers, within a production cycle designed to reduce environmental impact without compromising on performance.'
   },
   ventilatedFacade: {
     badge: 'Facade Engineering',
     title: 'The Ventilated Facade',
-    intro: 'The ventilated facade is the most efficient external cladding system to resolve thermal and acoustic insulation in buildings. Through its natural chimney effect, it continuously removes moisture and protects structures from thermal shock.',
+    intro: 'The ventilated facade is currently the most effective system for managing building thermal and acoustic insulation. Thanks to the air cavity and natural chimney effect, moisture is continuously removed and the structure remains protected from thermal shocks, season after season.',
     layerWall: '1. Building Support Wall',
     layerInsulation: '2. Continuous Thermal Insulation Layer',
     layerSubstructure: '3. Aluminum Substructure & Brackets',
     layerAirGap: '4. Ventilated Air Cavity (Chimney Effect)',
     layerCladding: '5. External WPC Cladding Panel',
     benefit1: 'Thermal Insulation',
-    benefit1Desc: 'Complete elimination of thermal bridges, leading to massive energy savings in both summer and winter.',
+    benefit1Desc: 'Eliminates thermal bridges and significantly reduces energy consumption, both in summer and winter.',
     benefit2: 'Moisture Evaporation',
-    benefit2Desc: 'Ascending air flow in the cavity constantly dries out condensation, keeping walls healthy and dry.',
+    benefit2Desc: 'The ascending air flow in the cavity constantly evaporates condensation, keeping the walls dry and healthy.',
     benefit3: 'Acoustic Protection',
-    benefit3Desc: 'The multi-layer configuration acts as an excellent sound barrier against external environmental noises.'
+    benefit3Desc: 'The multi-layer system acts as a soundproofing barrier against external noise.'
   },
   colors: {
     badge: 'Premium Color Palette',
