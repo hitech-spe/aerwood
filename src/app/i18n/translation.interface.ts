@@ -32,12 +32,16 @@ export interface Translations {
     title: string;
     intro: string;
     acoustics: string;
+    acousticsSubtitle: string;
     acousticsDesc: string;
     cladding: string;
+    claddingSubtitle: string;
     claddingDesc: string;
     veneers: string;
+    veneersSubtitle: string;
     veneersDesc: string;
     panel4: string;
+    panel4Subtitle: string;
     panel4Desc: string;
     discover: string;
   };

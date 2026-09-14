@@ -78,7 +78,7 @@ describe('ProductsComponent', () => {
     component.openCardModal(1);
     
     expect(component.isModalOpen()).toBe(true);
-    expect(component.modalTitle()).toBe('AeroShield');
+    expect(component.modalTitle()).toBe('AIRWOOD LARGE');
     expect(component.modalPanelImage()).toBe('/assets/pannello1/pannello1.webp');
     expect(component.activeFinishCard1()).toBe('honey');
   });
@@ -88,7 +88,7 @@ describe('ProductsComponent', () => {
     component.openCardModal(2);
     
     expect(component.isModalOpen()).toBe(true);
-    expect(component.modalTitle()).toBe('AeroSlat');
+    expect(component.modalTitle()).toBe('AIRWOOD RITMO');
     expect(component.modalPanelImage()).toBe('/assets/pannello2/pannello2.webp');
     expect(component.activeFinishCard2()).toBe('charcoal');
   });
@@ -98,7 +98,7 @@ describe('ProductsComponent', () => {
     component.openCardModal(3);
     
     expect(component.isModalOpen()).toBe(true);
-    expect(component.modalTitle()).toBe('AeroDeck');
+    expect(component.modalTitle()).toBe('AIRWOOD MICRO');
     expect(component.modalPanelImage()).toBe('/assets/pannello3/pannello3.webp');
     expect(component.activeFinishCard3()).toBe('white');
   });
@@ -108,7 +108,7 @@ describe('ProductsComponent', () => {
     component.openCardModal(4);
     
     expect(component.isModalOpen()).toBe(true);
-    expect(component.modalTitle()).toBe('AeroLouvre');
+    expect(component.modalTitle()).toBe('AIRWOOD MIX');
     expect(component.modalPanelImage()).toBe('/assets/pannello4/pannello4.webp');
     expect(component.activeFinishCard4()).toBe('sand');
   });

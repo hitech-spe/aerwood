@@ -130,19 +130,19 @@ export class ProductsComponent {
     if (cardNum === 1) {
       // Synchronize modal view with Card 1's active view
       this.activeModalView.set(this.activeViewCard1());
-      this.openImageModal('AeroShield', '/assets/pannello1/pannello1.webp');
+      this.openImageModal(this.t().products.acoustics, '/assets/pannello1/pannello1.webp');
     } else if (cardNum === 2) {
       // Synchronize modal view with Card 2's active view
       this.activeModalView.set(this.activeViewCard2());
-      this.openImageModal('AeroSlat', '/assets/pannello2/pannello2.webp');
+      this.openImageModal(this.t().products.cladding, '/assets/pannello2/pannello2.webp');
     } else if (cardNum === 3) {
       // Synchronize modal view with Card 3's active view
       this.activeModalView.set(this.activeViewCard3());
-      this.openImageModal('AeroDeck', '/assets/pannello3/pannello3.webp');
+      this.openImageModal(this.t().products.veneers, '/assets/pannello3/pannello3.webp');
     } else if (cardNum === 4) {
       // Synchronize modal view with Card 4's active view
       this.activeModalView.set(this.activeViewCard4());
-      this.openImageModal('AeroLouvre', '/assets/pannello4/pannello4.webp');
+      this.openImageModal(this.t().products.panel4, '/assets/pannello4/pannello4.webp');
     }
   }
 }
