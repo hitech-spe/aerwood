@@ -2,32 +2,42 @@
   <div class="container footer-container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="/assets/logo.webp" alt="Airwood Logo" class="logo-img footer-logo">
-        <p class="footer-desc">{{ t().footer.rights }}</p>
+        <h3 class="footer-brand-title">AIRWOOD</h3>
+        <p class="footer-desc">
+          {{ t().footer.tagline }}
+        </p>
       </div>
       
-      <div class="footer-links">
-        <a routerLink="/" fragment="home">{{ t().nav.home }}</a>
-        <a routerLink="/" fragment="about">{{ t().nav.about }}</a>
-        <a routerLink="/" fragment="products">{{ t().nav.products }}</a>
+      <div class="footer-nav">
+        <a routerLink="/prodotti">{{ t().nav.products }}</a>
+        <a routerLink="/area-tecnica">{{ t().nav.technicalArea }}</a>
+        <a routerLink="/certificazioni">{{ t().nav.certifications }}</a>
+        <a routerLink="/cataloghi">{{ t().nav.catalogs }}</a>
+        <a routerLink="/progetti">{{ t().nav.projects }}</a>
+        <a routerLink="/chi-siamo">{{ t().nav.about }}</a>
+        <a routerLink="/contatti">{{ t().nav.contacts }}</a>
       </div>
     </div>
     
+    <div class="footer-middle">
+      <p class="footer-address">
+        C.da Parco del Vecchio Bovio · 70022 Altamura (BA) · T +39 080 3101237 · info&#64;fortesrl.it
+      </p>
+    </div>
+
     <hr class="footer-divider" />
     
     <div class="footer-bottom">
-      <span class="footer-copy">{{ t().footer.copyright }}</span>
+      <span class="footer-copy">© 2026 Forte Srl · Marchio AIRWOOD</span>
       
       <div class="footer-legal-links">
         <a routerLink="/privacy-policy">{{ t().footer.privacy }}</a>
-        <span class="footer-legal-divider">|</span>
+        <span class="footer-legal-divider">·</span>
         <a routerLink="/terms-conditions">{{ t().footer.terms }}</a>
       </div>
       
-      <span class="footer-vat">{{ t().footer.vat }}</span>
-
       <div class="footer-developer">
-        <span>{{ t().footer.developedBy }}</span>
+        <span>{{ t().footer.developedBy }} Hitech S.r.l.s.</span>
         <a href="https://hitechsrls.com/" target="_blank" rel="noopener noreferrer" title="Hitech S.r.l.s.">
           <img src="/assets/logo-trasp.png" alt="Hitech S.r.l.s. Logo" class="developer-logo" />
         </a>

@@ -1,0 +1,161 @@
+<div class="catalogs-page">
+  <!-- Header -->
+  <section class="catalogs-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().catalogs.badge }}</span>
+      <h1 class="page-title">{{ t().catalogs.title }}</h1>
+      <p class="page-intro">{{ t().catalogs.subtitle }}</p>
+    </div>
+  </section>
+
+  <!-- Main Catalogs Grid (Mockup Page 10) -->
+  <section class="catalogs-grid-section">
+    <div class="container">
+      <div class="catalogs-grid">
+        <!-- Card 1: Catalogo Generale -->
+        <div class="catalog-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="catalog-card-header">
+            <span class="card-badge">{{ t().catalogs.generalCatalog.badge }}</span>
+            <h3 class="card-title">{{ t().catalogs.generalCatalog.title }}</h3>
+            <p class="card-desc">{{ t().catalogs.generalCatalog.desc }}</p>
+          </div>
+          <div class="catalog-card-footer">
+            <span class="specs-info">{{ t().catalogs.generalCatalog.specs }}</span>
+            <button type="button" class="btn btn-primary download-trigger" (click)="openDownloadModal('catalogo_generale_2026')">
+              {{ t().catalogs.generalCatalog.btn }} ↓
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Cartella Colori -->
+        <div class="catalog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="catalog-card-header">
+            <span class="card-badge">{{ t().catalogs.colorFolder.badge }}</span>
+            <h3 class="card-title">{{ t().catalogs.colorFolder.title }}</h3>
+            <p class="card-desc">{{ t().catalogs.colorFolder.desc }}</p>
+          </div>
+          <div class="catalog-card-footer">
+            <span class="specs-info">{{ t().catalogs.colorFolder.specs }}</span>
+            <div class="action-buttons-row">
+              <button type="button" class="btn btn-secondary download-trigger" (click)="openDownloadModal('cartella_colori')">
+                {{ t().catalogs.colorFolder.btn }} ↓
+              </button>
+              <a routerLink="/contatti" class="btn btn-outline-dark">
+                {{ t().catalogs.colorFolder.sampleBtn }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Documentation Locked Grid -->
+  <section class="locked-tech-section">
+    <div class="container">
+      <div class="section-title-wrap" data-aos="fade-up">
+        <h3 class="tech-sec-title">{{ t().catalogs.technicalSection.title }}</h3>
+        <p class="tech-sec-subtitle">{{ t().catalogs.technicalSection.subtitle }}</p>
+      </div>
+
+      <div class="locked-cards-grid">
+        @for (item of t().catalogs.technicalSection.items; track item.title; let idx = $index) {
+          <a routerLink="/area-tecnica" class="locked-card" data-aos="fade-up" [attr.data-aos-delay]="idx * 80">
+            <span class="lock-icon">🔒</span>
+            <h4 class="locked-card-title">{{ item.title }}</h4>
+            <p class="locked-card-desc">{{ item.desc }}</p>
+            <span class="locked-card-cta">{{ item.cta }}</span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Index Section (Nel Catalogo: Cosa contiene il catalogo 2026) -->
+  <section class="catalog-index-section">
+    <div class="container">
+      <div class="index-box" data-aos="fade-up">
+        <span class="section-badge">NEL CATALOGO</span>
+        <h3 class="index-title">{{ t().catalogs.indexTitle }}</h3>
+
+        <div class="index-table">
+          @for (row of t().catalogs.indexItems; track row.title) {
+            <div class="index-row">
+              <span class="index-row-title">{{ row.title }}</span>
+              <span class="index-row-page">{{ row.page }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Box CTA -->
+  <section class="sample-cta-section">
+    <div class="container">
+      <div class="sample-cta-card" data-aos="fade-up">
+        <div class="cta-text">
+          <h2 class="cta-title">{{ t().catalogs.sampleBox.title }}</h2>
+          <p class="cta-desc">{{ t().catalogs.sampleBox.desc }}</p>
+        </div>
+        <div class="cta-button-wrap">
+          <a routerLink="/contatti" class="btn btn-primary">{{ t().catalogs.sampleBox.btn }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gated Download Lead Modal -->
+  @if (isModalOpen()) {
+    <div class="modal-backdrop" (click)="closeModal()">
+      <div class="modal-dialog" (click)="$event.stopPropagation()">
+        <h3 class="modal-title">{{ t().catalogs.modal.title }}</h3>
+        <p class="modal-desc">{{ t().catalogs.modal.desc }}</p>
+
+        @if (isSuccess()) {
+          <div class="modal-alert success">
+            {{ t().catalogs.modal.success }}
+          </div>
+        } @else {
+          <form (ngSubmit)="onSubmitLead()" #leadF="ngForm">
+            <div class="form-group">
+              <label>{{ t().catalogs.modal.emailLabel }}</label>
+              <input 
+                type="email" 
+                [(ngModel)]="leadForm.email" 
+                name="leadEmail" 
+                required 
+                [placeholder]="t().catalogs.modal.emailPlaceholder"
+                class="form-control" 
+              />
+            </div>
+
+            <div class="form-privacy">
+              <label class="checkbox-label">
+                <input type="checkbox" [(ngModel)]="leadForm.privacyConsent" name="leadPrivacy" required />
+                <span>{{ t().catalogs.modal.privacyText }}</span>
+              </label>
+            </div>
+
+            <div class="modal-actions">
+              <button type="button" class="btn btn-outline-dark" (click)="closeModal()">
+                {{ t().catalogs.modal.cancelBtn }}
+              </button>
+              <button 
+                type="submit" 
+                [disabled]="!leadForm.email || !leadForm.privacyConsent || isSubmitting()" 
+                class="btn btn-primary"
+              >
+                @if (isSubmitting()) {
+                  Salvataggio...
+                } @else {
+                  {{ t().catalogs.modal.submitBtn }}
+                }
+              </button>
+            </div>
+          </form>
+        }
+      </div>
+    </div>
+  }
+</div>

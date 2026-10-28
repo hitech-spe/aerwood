@@ -1,78 +1,66 @@
 import { Component, signal, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
+import { LeadService, ContactLead } from '../../services/lead.service';
 
 @Component({
-    selector: 'app-contacts',
-    imports: [],
-    templateUrl: './contacts.component.html',
-    standalone: true,
-    styleUrl: './contacts.component.scss'
+  selector: 'app-contacts',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './contacts.component.html',
+  styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
   readonly langService = inject(LanguageService);
+  private leadService = inject(LeadService);
   readonly t = this.langService.t;
 
-  // Encapsulated state for contact form
-  readonly contactName = signal('');
-  readonly contactEmail = signal('');
-  readonly contactMessage = signal('');
-  readonly contactBotField = signal('');
-  readonly contactStatus = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
+  formModel: ContactLead = {
+    fullName: '',
+    company: '',
+    email: '',
+    role: 'progettista',
+    message: '',
+    privacyConsent: false,
+    honeypot: ''
+  };
 
-  onFieldChange(field: 'name' | 'email' | 'message' | 'bot-field', event: Event): void {
-    const input = event.target as HTMLInputElement | HTMLTextAreaElement;
-    if (field === 'name') this.contactName.set(input.value);
-    if (field === 'email') this.contactEmail.set(input.value);
-    if (field === 'message') this.contactMessage.set(input.value);
-    if (field === 'bot-field') this.contactBotField.set(input.value);
-  }
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
+  submitError = signal(false);
 
-  submitContactForm(event: Event): void {
-    event.preventDefault();
-    
-    const name = this.contactName().trim();
-    const email = this.contactEmail().trim();
-    const message = this.contactMessage().trim();
-
-    if (!name || !email || !message) {
-      this.contactStatus.set('error');
+  async onSubmit(): Promise<void> {
+    if (!this.formModel.fullName || !this.formModel.email || !this.formModel.privacyConsent) {
       return;
     }
 
-    this.contactStatus.set('sending');
+    // Anti-spam honeypot check: silently drop if filled
+    if (this.formModel.honeypot) {
+      this.submitSuccess.set(true);
+      return;
+    }
 
-    const body = new URLSearchParams({
-      'form-name': 'contact',
-      'name': name,
-      'email': email,
-      'message': message,
-      'bot-field': this.contactBotField()
-    });
+    this.isSubmitting.set(true);
+    this.submitSuccess.set(false);
+    this.submitError.set(false);
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Netlify form submission failed');
-      }
-      this.contactStatus.set('success');
-      // Reset fields
-      this.contactName.set('');
-      this.contactEmail.set('');
-      this.contactMessage.set('');
-      this.contactBotField.set('');
-      
-      // Reset feedback status after a few seconds
-      setTimeout(() => {
-        this.contactStatus.set('idle');
-      }, 5000);
-    })
-    .catch(error => {
-      console.error('Netlify Form Submission Error:', error);
-      this.contactStatus.set('error');
-    });
+    try {
+      await this.leadService.saveContactRequest({ ...this.formModel });
+      this.submitSuccess.set(true);
+      this.formModel = {
+        fullName: '',
+        company: '',
+        email: '',
+        role: 'progettista',
+        message: '',
+        privacyConsent: false,
+        honeypot: ''
+      };
+    } catch (e) {
+      console.error('Contact submission error:', e);
+      this.submitError.set(true);
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 }

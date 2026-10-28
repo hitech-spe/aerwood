@@ -1,441 +1,213 @@
-<section id="products" class="section section-dark">
+<div class="products-page">
+  <!-- Page Header -->
+  <section class="products-header-section">
     <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <span class="badge badge-wood">{{ t().products.badge }}</span>
-            <h2 class="section-title">{{ t().products.title }}</h2>
-            <p class="section-intro">{{ t().products.intro }}</p>
-        </div>
-
-        <div class="grid-four">
-            <!-- Collection 1: AeroShield -->
-            <div class="product-card" data-aos="fade-right" data-aos-delay="100">
-                <div class="card-visual" (click)="openCardModal(1)" style="cursor: pointer;">
-
-                    <!-- View Toggle Tabs (Profilo vs Render) -->
-                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard1() === 'profile'"
-                            (click)="activeViewCard1.set('profile')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                        </button>
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard1() === 'render'"
-                            (click)="activeViewCard1.set('render')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                        </button>
-                    </div>
-
-                    @if (activeViewCard1() === 'render') {
-                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
-                        <img
-                                [src]="getCardRenderImage(1, activeFinishCard1())"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroShield Ambient Render"
-                                class="product-img product-img-render"
-                        />
-                    } @else {
-                        <!-- Immagine di base Profilo -->
-                        <img
-                                src="/assets/pannello1/pannello1.webp"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroShield Profile Panel"
-                                class="product-img product-img-panel"
-                                [style.filter]="getFinishDetails(activeFinishCard1())!.baseFilter"
-                        />
-
-                        <!-- Overlay Colore Dinamico MASCHERATO -->
-                        <div class="panel-color-overlay"
-                             [style.background-color]="getFinishDetails(activeFinishCard1())!.hex"
-                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard1())!.blendMode"
-                             [style.opacity]="getFinishDetails(activeFinishCard1())!.overlayOpacity"
-                             style="-webkit-mask-image: url('/assets/pannello1/pannello1.webp'); mask-image: url('/assets/pannello1/pannello1.webp');">
-                        </div>
-                    }
-
-                    <!-- Floating interactive color selector -->
-                    <div class="color-chips-overlay">
-                        @for (finish of finishes; track finish.id) {
-                            <button
-                                    class="color-chip"
-                                    [class.active]="activeFinishCard1() === finish.id"
-                                    [style.background-color]="finish.hex"
-                                    (click)="selectFinish(1, finish.id); $event.stopPropagation()"
-                                    [title]="t().colors[finish.nameKey]">
-                            </button>
-                        }
-                    </div>
-
-                    <div class="card-badge badge-tinted">
-                        {{ t().colors[getFinishDetails(activeFinishCard1())!.nameKey] }} • {{ getFinishDetails(activeFinishCard1())!.code }}
-                    </div>
-
-                    <!-- Zoom Magnifier Overlay on Hover -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ t().products.acoustics }}</h3>
-                    <p class="card-subtitle">{{ t().products.acousticsSubtitle }}</p>
-                    <p class="card-text">{{ t().products.acousticsDesc }}</p>
-                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-                </div>
-            </div>
-
-            <!-- Collection 2: AeroSlat -->
-            <div class="product-card" data-aos="fade-left" data-aos-delay="250">
-                <div class="card-visual" (click)="openCardModal(2)" style="cursor: pointer;">
-
-                    <!-- View Toggle Tabs (Profilo vs Render) -->
-                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard2() === 'profile'"
-                            (click)="activeViewCard2.set('profile')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                        </button>
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard2() === 'render'"
-                            (click)="activeViewCard2.set('render')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                        </button>
-                    </div>
-
-                    @if (activeViewCard2() === 'render') {
-                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
-                        <img
-                                [src]="getCardRenderImage(2, activeFinishCard2())"
-                                onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroSlat Ambient Render"
-                                class="product-img product-img-render"
-                        />
-                    } @else {
-                        <!-- Immagine di base Profilo -->
-                        <img
-                                src="/assets/pannello2/pannello2.webp"
-                                onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroSlat Profile Panel"
-                                class="product-img product-img-panel"
-                                [style.filter]="getBaseFilterForCard(2, activeFinishCard2())"
-                        />
-
-                        <!-- Overlay Colore Dinamico MASCHERATO -->
-                        <div class="panel-color-overlay"
-                             [style.background-color]="getFinishDetails(activeFinishCard2())!.hex"
-                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard2())!.blendMode"
-                             [style.opacity]="getFinishDetails(activeFinishCard2())!.overlayOpacity"
-                             style="-webkit-mask-image: url('/assets/pannello2/pannello2.webp'); mask-image: url('/assets/pannello2/pannello2.webp');">
-                        </div>
-                    }
-
-                    <!-- Floating interactive color selector -->
-                    <div class="color-chips-overlay">
-                        @for (finish of finishes; track finish.id) {
-                            <button
-                                    class="color-chip"
-                                    [class.active]="activeFinishCard2() === finish.id"
-                                    [style.background-color]="finish.hex"
-                                    (click)="selectFinish(2, finish.id); $event.stopPropagation()"
-                                    [title]="t().colors[finish.nameKey]">
-                            </button>
-                        }
-                    </div>
-
-                    <div class="card-badge badge-tinted">
-                        {{ t().colors[getFinishDetails(activeFinishCard2())!.nameKey] }} • {{ getFinishDetails(activeFinishCard2())!.code }}
-                    </div>
-
-                    <!-- Zoom Magnifier -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ t().products.cladding }}</h3>
-                    <p class="card-subtitle">{{ t().products.claddingSubtitle }}</p>
-                    <p class="card-text">{{ t().products.claddingDesc }}</p>
-                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-                </div>
-            </div>
-
-            <!-- Collection 3: AeroDeck -->
-            <div class="product-card" data-aos="fade-left" data-aos-delay="400">
-                <div class="card-visual" (click)="openCardModal(3)" style="cursor: pointer;">
-
-                    <!-- View Toggle Tabs (Profilo vs Render) -->
-                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard3() === 'profile'"
-                            (click)="activeViewCard3.set('profile')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                        </button>
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard3() === 'render'"
-                            (click)="activeViewCard3.set('render')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                        </button>
-                    </div>
-
-                    @if (activeViewCard3() === 'render') {
-                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
-                        <img
-                                [src]="getCardRenderImage(3, activeFinishCard3())"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroDeck Ambient Render"
-                                class="product-img product-img-render"
-                        />
-                    } @else {
-                        <!-- Immagine di base Profilo -->
-                        <img
-                                src="/assets/pannello3/pannello3.webp"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroDeck Profile Panel"
-                                class="product-img product-img-panel"
-                                [style.filter]="getFinishDetails(activeFinishCard3())!.baseFilter"
-                        />
-
-                        <!-- Overlay Colore Dinamico MASCHERATO -->
-                        <div class="panel-color-overlay"
-                             [style.background-color]="getFinishDetails(activeFinishCard3())!.hex"
-                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard3())!.blendMode"
-                             [style.opacity]="getFinishDetails(activeFinishCard3())!.overlayOpacity"
-                             style="-webkit-mask-image: url('/assets/pannello3/pannello3.webp'); mask-image: url('/assets/pannello3/pannello3.webp');">
-                        </div>
-                    }
-
-                    <!-- Floating interactive color selector -->
-                    <div class="color-chips-overlay">
-                        @for (finish of finishes; track finish.id) {
-                            <button
-                                    class="color-chip"
-                                    [class.active]="activeFinishCard3() === finish.id"
-                                    [style.background-color]="finish.hex"
-                                    (click)="selectFinish(3, finish.id); $event.stopPropagation()"
-                                    [title]="t().colors[finish.nameKey]">
-                            </button>
-                        }
-                    </div>
-
-                    <div class="card-badge badge-tinted">
-                        {{ t().colors[getFinishDetails(activeFinishCard3())!.nameKey] }} • {{ getFinishDetails(activeFinishCard3())!.code }}
-                    </div>
-
-                    <!-- Zoom Magnifier -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ t().products.veneers }}</h3>
-                    <p class="card-subtitle">{{ t().products.veneersSubtitle }}</p>
-                    <p class="card-text">{{ t().products.veneersDesc }}</p>
-                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-                </div>
-            </div>
-
-            <!-- Collection 4: AeroLouvre -->
-            <div class="product-card" data-aos="fade-left" data-aos-delay="550">
-                <div class="card-visual" (click)="openCardModal(4)" style="cursor: pointer;">
-
-                    <!-- View Toggle Tabs (Profilo vs Render) -->
-                    <div class="view-toggle-tabs" (click)="$event.stopPropagation()">
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard4() === 'profile'"
-                            (click)="activeViewCard4.set('profile')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                            {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                        </button>
-                        <button 
-                            class="view-toggle-btn" 
-                            [class.active]="activeViewCard4() === 'render'"
-                            (click)="activeViewCard4.set('render')"
-                            [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                            {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                        </button>
-                    </div>
-
-                    @if (activeViewCard4() === 'render') {
-                        <!-- Immagine Render Finale (Statico, Senza filtri) -->
-                        <img
-                                [src]="getCardRenderImage(4, activeFinishCard4())"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroLouvre Ambient Render"
-                                class="product-img product-img-render"
-                        />
-                    } @else {
-                        <!-- Immagine di base Profilo -->
-                        <img
-                                src="/assets/pannello4/pannello4.webp"
-                                onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'"
-                                alt="AeroLouvre Profile Panel"
-                                class="product-img product-img-panel"
-                                [style.filter]="getFinishDetails(activeFinishCard4())!.baseFilter"
-                        />
-
-                        <!-- Overlay Colore Dinamico MASCHERATO -->
-                        <div class="panel-color-overlay"
-                             [style.background-color]="getFinishDetails(activeFinishCard4())!.hex"
-                             [style.mix-blend-mode]="getFinishDetails(activeFinishCard4())!.blendMode"
-                             [style.opacity]="getFinishDetails(activeFinishCard4())!.overlayOpacity"
-                             style="-webkit-mask-image: url('/assets/pannello4/pannello4.webp'); mask-image: url('/assets/pannello4/pannello4.webp');">
-                        </div>
-                    }
-
-                    <!-- Floating interactive color selector -->
-                    <div class="color-chips-overlay">
-                        @for (finish of finishes; track finish.id) {
-                            <button
-                                    class="color-chip"
-                                    [class.active]="activeFinishCard4() === finish.id"
-                                    [style.background-color]="finish.hex"
-                                    (click)="selectFinish(4, finish.id); $event.stopPropagation()"
-                                    [title]="t().colors[finish.nameKey]">
-                            </button>
-                        }
-                    </div>
-
-                    <div class="card-badge badge-tinted">
-                        {{ t().colors[getFinishDetails(activeFinishCard4())!.nameKey] }} • {{ getFinishDetails(activeFinishCard4())!.code }}
-                    </div>
-
-                    <!-- Zoom Magnifier -->
-                    <div class="zoom-hint">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="zoom-icon">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                        <span>{{ langService.currentLanguage() === 'it' ? 'Clicca per ingrandire' : 'Click to zoom' }}</span>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">{{ t().products.panel4 }}</h3>
-                    <p class="card-subtitle">{{ t().products.panel4Subtitle }}</p>
-                    <p class="card-text">{{ t().products.panel4Desc }}</p>
-                    <a href="#contacts" class="btn btn-outline card-cta">{{ t().products.discover }}</a>
-                </div>
-            </div>
-        </div>
+      <span class="section-badge">{{ t().products.badge }}</span>
+      <h1 class="page-title">{{ t().products.title }}</h1>
+      <p class="page-intro">{{ t().products.intro }}</p>
     </div>
-</section>
+  </section>
 
-<!-- Lightbox Modal -->
-@if (isModalOpen()) {
-    <div class="modal-backdrop" (click)="closeImageModal()">
-        <button class="modal-close-btn" (click)="closeImageModal()" aria-label="Chiudi">
-            <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- Profiles Comparison Table -->
+  <section class="comparison-section">
+    <div class="container">
+      <h2 class="section-subtitle">{{ t().products.compareTitle }}</h2>
+      
+      <div class="table-responsive">
+        <table class="specs-table">
+          <thead>
+            <tr>
+              <th>{{ t().products.headers.feature }}</th>
+              <th>{{ t().products.headers.p25_4 }}</th>
+              <th>{{ t().products.headers.p25_7 }}</th>
+              <th>{{ t().products.headers.p25_10 }}</th>
+              <th>{{ t().products.headers.p25_mix }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-label">{{ t().products.features.design }}</td>
+              <td>4 doghe ampie</td>
+              <td>7 doghe, gole profonde</td>
+              <td>10 doghe strette</td>
+              <td>Liscio + rigato</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.thickness }}</td>
+              <td>25 mm</td>
+              <td>25 mm</td>
+              <td>25 mm</td>
+              <td>19 mm</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.usefulWidth }}</td>
+              <td>250 mm</td>
+              <td>250 mm</td>
+              <td>250 mm</td>
+              <td>250 mm</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.standardLength }}</td>
+              <td>3000 mm</td>
+              <td>3000 mm</td>
+              <td>3000 mm</td>
+              <td>3000 mm</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.yieldPerPanel }}</td>
+              <td>0,75 m²</td>
+              <td>0,75 m²</td>
+              <td>0,75 m²</td>
+              <td>0,75 m²</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.linearWeight }}</td>
+              <td>2,00 kg/m</td>
+              <td>2,60 kg/m</td>
+              <td>2,50 kg/m</td>
+              <td>1,75 kg/m</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.sqmWeight }}</td>
+              <td><strong>8,00 kg/m²</strong></td>
+              <td><strong>10,40 kg/m²</strong></td>
+              <td><strong>10,00 kg/m²</strong></td>
+              <td><strong>7,00 kg/m²</strong></td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.uValue }}</td>
+              <td><strong>2,72 W/m²K</strong></td>
+              <td><strong>2,76 W/m²K</strong></td>
+              <td><strong>2,87 W/m²K</strong></td>
+              <td><strong>2,82 W/m²K</strong></td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.fireReaction }}</td>
+              <td>B-s2,d0</td>
+              <td>B-s2,d0</td>
+              <td>B-s2,d0</td>
+              <td>B-s2,d0</td>
+            </tr>
+            <tr>
+              <td class="feature-label">{{ t().products.features.finishes }}</td>
+              <td>7 co-estruse + pellicolati RENOLIT</td>
+              <td>7 co-estruse</td>
+              <td>7 co-estruse</td>
+              <td>7 co-estruse</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-        <div class="modal-content" (click)="$event.stopPropagation()">
-            <div class="modal-image-wrapper" [class.render-view-active]="activeModalView() === 'render'">
-
-                <!-- View Toggle Tabs inside Modal (Profilo vs Render) -->
-                <div class="view-toggle-tabs modal-toggle-tabs">
-                    <button 
-                        class="view-toggle-btn" 
-                        [class.active]="activeModalView() === 'profile'"
-                        (click)="activeModalView.set('profile')"
-                        [title]="langService.currentLanguage() === 'it' ? 'Mostra disegno profilo' : 'Show profile drawing'">
-                        {{ langService.currentLanguage() === 'it' ? 'Profilo' : 'Profile' }}
-                    </button>
-                    <button 
-                        class="view-toggle-btn" 
-                        [class.active]="activeModalView() === 'render'"
-                        (click)="activeModalView.set('render')"
-                        [title]="langService.currentLanguage() === 'it' ? 'Mostra ambientazione' : 'Show rendering'">
-                        {{ langService.currentLanguage() === 'it' ? 'Render' : 'Ambient' }}
-                    </button>
+  <!-- Profiles Detailed Sections -->
+  <section class="profiles-detail-section">
+    <div class="container">
+      @for (profile of t().products.profiles; track profile.id; let idx = $index) {
+        <div class="profile-detail-card" [class.reverse]="idx % 2 === 1" data-aos="fade-up">
+          <div class="profile-media">
+            <div class="profile-media-stack">
+              <div class="slat-render-box">
+                <span class="media-badge">Sezione Profilo</span>
+                <img [src]="profile.image" [alt]="profile.name" class="profile-hero-img" />
+              </div>
+              @if (profile.ambientImage) {
+                <div class="ambient-render-box">
+                  <span class="media-badge">Resa in Opera</span>
+                  <img [src]="profile.ambientImage" [alt]="profile.name + ' resa in opera'" class="profile-ambient-img" />
                 </div>
+              }
+            </div>
+          </div>
 
-                @if (activeModalView() === 'render') {
-                    <!-- Modal Render Image (Statico, Senza filtri) -->
-                    <img
-                            [src]="getCardRenderImage(currentModalCard()!, getActiveFinishInModal())"
-                            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
-                            [alt]="modalTitle() + ' - Render'"
-                            class="modal-img modal-img-render"
-                    />
-                } @else {
-                    <!-- Modal Panel Image -->
-                    <img
-                            [src]="modalPanelImage()"
-                            onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'"
-                            [alt]="modalTitle() + ' - Panel'"
-                            class="modal-img modal-img-panel"
-                            [style.filter]="getBaseFilterForCard(currentModalCard()!, getActiveFinishInModal())"
-                    />
+          <div class="profile-info">
+            <span class="profile-badge">{{ profile.badge }}</span>
+            <h2 class="profile-title">{{ profile.name }}</h2>
+            <p class="profile-description">{{ profile.desc }}</p>
 
-                    <!-- Modal Overlay Colore Dinamico MASCHERATO -->
-                    <div class="panel-color-overlay modal-overlay"
-                         [style.background-color]="getFinishDetails(getActiveFinishInModal())!.hex"
-                         [style.mix-blend-mode]="getFinishDetails(getActiveFinishInModal())!.blendMode"
-                         [style.opacity]="getFinishDetails(getActiveFinishInModal())!.overlayOpacity"
-                         [style.-webkit-mask-image]="'url(' + modalPanelImage() + ')'"
-                         [style.mask-image]="'url(' + modalPanelImage() + ')'">
-                    </div>
+            <div class="profile-key-specs">
+              <span class="spec-pill">{{ profile.thickness }}</span>
+              <span class="spec-pill">{{ profile.uValue }}</span>
+              <span class="spec-pill">{{ profile.sqmWeight }}</span>
+              <span class="spec-pill">{{ profile.fire }}</span>
+            </div>
+
+            <p class="profile-applications">{{ profile.applications }}</p>
+
+            <!-- Finish Selector -->
+            <div class="finish-selector-group">
+              <span class="selector-label">Finiture disponibili:</span>
+              <div class="swatches-mini-row">
+                @for (swatch of standardFinishes; track swatch.code) {
+                  <button 
+                    type="button"
+                    class="swatch-btn" 
+                    [style.background-color]="swatch.hex" 
+                    [class.selected]="activeFinish()[profile.id] === swatch.code"
+                    (click)="setFinish(profile.id, swatch.code)"
+                    [title]="swatch.name + ' (COD. ' + swatch.code + ')'">
+                  </button>
                 }
-
+              </div>
             </div>
 
-            <div class="modal-caption">
-                <div class="modal-caption-text">
-                    <h4 class="modal-title">{{ modalTitle() }}</h4>
-                    <p class="modal-subtitle">
-                        @if (activeModalView() === 'render') {
-                            {{ langService.currentLanguage() === 'it' ? 'Ambientazione Realistica' : 'Realistic Environment' }}
-                        } @else {
-                            {{ t().colors[getFinishDetails(getActiveFinishInModal())!.nameKey] }} • {{ getFinishDetails(getActiveFinishInModal())!.code }}
-                        }
-                    </p>
-                </div>
-
-                <div class="modal-color-selector">
-                    @for (finish of finishes; track finish.id) {
-                        <button
-                                class="color-chip"
-                                [class.active]="activeModalView() === 'profile' && getActiveFinishInModal() === finish.id"
-                                [style.background-color]="finish.hex"
-                                (click)="selectFinishInModal(finish.id)"
-                                [title]="t().colors[finish.nameKey]">
-                        </button>
-                    }
-                </div>
+            <div class="profile-actions">
+              <a routerLink="/area-tecnica" class="btn btn-primary">{{ profile.ctaTech }}</a>
+              <a routerLink="/cataloghi" class="btn btn-outline-dark">{{ profile.ctaCatalog }}</a>
             </div>
+          </div>
         </div>
+      }
     </div>
-}
+  </section>
+
+  <!-- System Accessories Section -->
+  <section class="accessories-section">
+    <div class="container">
+      <div class="accessories-header" data-aos="fade-up">
+        <span class="section-badge">ACCESSORI DI SISTEMA</span>
+        <h2 class="section-title">{{ t().products.accessoriesTitle }}</h2>
+        <p class="section-intro">{{ t().products.accessoriesSubtitle }}</p>
+      </div>
+
+      <div class="table-responsive" data-aos="fade-up">
+        <table class="accessories-table">
+          <thead>
+            <tr>
+              <th>Codice</th>
+              <th>Elemento</th>
+              <th>Impiego</th>
+              <th>Formato</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (acc of t().products.accessories; track acc.code) {
+              <tr>
+                <td class="acc-code"><code>{{ acc.code }}</code></td>
+                <td class="acc-element"><strong>{{ acc.element }}</strong></td>
+                <td class="acc-usage">{{ acc.usage }}</td>
+                <td class="acc-format">{{ acc.format }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical CTA Banner -->
+  <section class="products-cta-section">
+    <div class="container">
+      <div class="products-cta-card" data-aos="fade-up">
+        <div class="cta-text">
+          <h2 class="cta-title">{{ t().products.ctaBox.title }}</h2>
+          <p class="cta-desc">{{ t().products.ctaBox.desc }}</p>
+        </div>
+        <div class="cta-button-wrap">
+          <a routerLink="/area-tecnica" class="btn btn-primary">{{ t().products.ctaBox.btn }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,89 +1,413 @@
-<section id="technical" class="section technical-section">
-  <div class="container">
-    <div class="section-header text-center" data-aos="fade-up">
-      <span class="badge badge-wood">{{ t().technical.badge }}</span>
-      <h2 class="section-title">{{ t().technical.title }}</h2>
-      <p class="section-intro">{{ t().technical.intro }}</p>
+<div class="technical-page">
+  <!-- Page Header -->
+  <section class="tech-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().technicalArea.badge }}</span>
+      <h1 class="page-title">{{ t().technicalArea.title }}</h1>
+      <p class="page-intro">{{ t().technicalArea.subtitle }}</p>
     </div>
-    
-    <div class="grid-four documents-grid">
-      <!-- Doc 1: Catalog -->
-      <div class="doc-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="doc-icon-wrapper pdf-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="doc-svg">
-            <path d="M10 4 H28 L38 14 V44 H10 Z" stroke="var(--primary-wood)" stroke-width="2" fill="rgba(194, 155, 56, 0.05)"/>
-            <path d="M28 4 V14 H38" stroke="var(--primary-wood)" stroke-width="2"/>
-            <rect x="16" y="24" width="16" height="4" rx="2" fill="var(--primary-wood)"/>
-            <rect x="16" y="32" width="12" height="4" rx="2" fill="var(--primary-wood)"/>
-          </svg>
+  </section>
+
+  <!-- If User is NOT Logged In -->
+  @if (!authService.isLoggedIn()) {
+    <section class="auth-forms-section">
+      <div class="container">
+        <div class="auth-grid">
+          <!-- Card 1: Accedi -->
+          <div class="auth-card" data-aos="fade-up" data-aos-delay="0">
+            <h3 class="auth-card-title">{{ t().technicalArea.loginTitle }}</h3>
+            <p class="auth-card-desc">{{ t().technicalArea.loginDesc }}</p>
+
+            @if (loginError()) {
+              <div class="auth-alert error">{{ loginError() }}</div>
+            }
+
+            <form (ngSubmit)="onLogin()" #fLogin="ngForm" class="auth-form">
+              <div class="form-group">
+                <label>{{ t().technicalArea.emailLabel }}</label>
+                <input 
+                  type="email" 
+                  [(ngModel)]="loginForm.email" 
+                  name="loginEmail" 
+                  required 
+                  class="form-control" 
+                  placeholder="architetto@studio.it" 
+                />
+              </div>
+
+              <div class="form-group">
+                <label>{{ t().technicalArea.passwordLabel }}</label>
+                <input 
+                  type="password" 
+                  [(ngModel)]="loginForm.password" 
+                  name="loginPass" 
+                  required 
+                  class="form-control" 
+                  placeholder="••••••••" 
+                />
+              </div>
+
+              <div class="form-actions-row">
+                <button 
+                  type="submit" 
+                  [disabled]="!loginForm.email || !loginForm.password || isLoggingIn()" 
+                  class="btn btn-primary login-btn"
+                >
+                  @if (isLoggingIn()) {
+                    Accesso in corso...
+                  } @else {
+                    {{ t().technicalArea.loginBtn }}
+                  }
+                </button>
+
+                <button type="button" class="btn-link" (click)="openForgotModal()">
+                  {{ t().technicalArea.forgotPasswordBtn }}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Card 2: Richiedi l'accesso -->
+          <div class="auth-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="auth-card-title">{{ t().technicalArea.registerTitle }}</h3>
+            <p class="auth-card-desc">{{ t().technicalArea.registerDesc }}</p>
+
+            @if (registerSuccess()) {
+              <div class="auth-alert success">{{ registerSuccess() }}</div>
+            }
+            @if (registerError()) {
+              <div class="auth-alert error">{{ registerError() }}</div>
+            }
+
+            <form (ngSubmit)="onRegister()" #fReg="ngForm" class="auth-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>{{ t().technicalArea.fullNameLabel }}</label>
+                  <input 
+                    type="text" 
+                    [(ngModel)]="registerForm.fullName" 
+                    name="regName" 
+                    required 
+                    class="form-control" 
+                    placeholder="Arch. Mario Rossi" 
+                  />
+                </div>
+                <div class="form-group">
+                  <label>{{ t().technicalArea.companyLabel }}</label>
+                  <input 
+                    type="text" 
+                    [(ngModel)]="registerForm.company" 
+                    name="regCompany" 
+                    class="form-control" 
+                    placeholder="Studio Associato" 
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>{{ t().technicalArea.emailLabel }}</label>
+                  <input 
+                    type="email" 
+                    [(ngModel)]="registerForm.email" 
+                    name="regEmail" 
+                    required 
+                    class="form-control" 
+                    placeholder="mario@studio.it" 
+                  />
+                </div>
+                <div class="form-group">
+                  <label>{{ t().technicalArea.roleLabel }}</label>
+                  <select [(ngModel)]="registerForm.role" name="regRole" class="form-control">
+                    <option value="progettista">{{ t().technicalArea.roles.architect }}</option>
+                    <option value="posatore">{{ t().technicalArea.roles.installer }}</option>
+                    <option value="rivenditore">{{ t().technicalArea.roles.dealer }}</option>
+                    <option value="impresa">{{ t().technicalArea.roles.contractor }}</option>
+                    <option value="altro">{{ t().technicalArea.roles.other }}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>{{ t().technicalArea.passwordLabel }}</label>
+                <input 
+                  type="password" 
+                  [(ngModel)]="registerForm.password" 
+                  name="regPass" 
+                  required 
+                  minlength="6"
+                  class="form-control" 
+                  placeholder="Minimo 6 caratteri" 
+                />
+              </div>
+
+              <button 
+                type="submit" 
+                [disabled]="!registerForm.email || !registerForm.password || !registerForm.fullName || isRegistering()" 
+                class="btn btn-secondary register-btn"
+              >
+                @if (isRegistering()) {
+                  Registrazione in corso...
+                } @else {
+                  {{ t().technicalArea.registerBtn }}
+                }
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="doc-details">
-          <h3 class="doc-title">{{ t().technical.catalog }}</h3>
-          <span class="doc-size">{{ t().technical.catalogSize }}</span>
-        </div>
-        <a href="#" class="btn btn-outline doc-download-btn" (click)="$event.preventDefault()">
-          <span class="btn-text">{{ t().technical.download }}</span>
-          <span class="btn-icon">↓</span>
-        </a>
       </div>
-      
-      <!-- Doc 2: Specs -->
-      <div class="doc-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="doc-icon-wrapper docx-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="doc-svg">
-            <path d="M10 4 H28 L38 14 V44 H10 Z" stroke="var(--primary-accent)" stroke-width="2" fill="rgba(138, 101, 70, 0.05)"/>
-            <path d="M28 4 V14 H38" stroke="var(--primary-accent)" stroke-width="2"/>
-            <path d="M16 22 H32 M16 28 H32 M16 34 H24" stroke="var(--primary-accent)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+    </section>
+
+    <!-- Overview Section (Mockup Page 7) -->
+    <section class="tech-overview-section">
+      <div class="container">
+        <h3 class="overview-title" data-aos="fade-up">{{ t().technicalArea.overviewTitle }}</h3>
+        
+        <div class="overview-grid">
+          @for (item of t().technicalArea.overviewItems; track item.title; let idx = $index) {
+            <div class="overview-card" data-aos="fade-up" [attr.data-aos-delay]="idx * 80">
+              <span class="overview-icon">📄</span>
+              <h4 class="item-title">{{ item.title }}</h4>
+              <p class="item-desc">{{ item.desc }}</p>
+            </div>
+          }
         </div>
-        <div class="doc-details">
-          <h3 class="doc-title">{{ t().technical.specs }}</h3>
-          <span class="doc-size">{{ t().technical.specsSize }}</span>
-        </div>
-        <a href="#" class="btn btn-outline doc-download-btn" (click)="$event.preventDefault()">
-          <span class="btn-text">{{ t().technical.download }}</span>
-          <span class="btn-icon">↓</span>
-        </a>
       </div>
-      
-      <!-- Doc 3: Installation Guide -->
-      <div class="doc-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="doc-icon-wrapper pdf-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="doc-svg">
-            <path d="M10 4 H28 L38 14 V44 H10 Z" stroke="var(--primary-wood)" stroke-width="2" fill="rgba(194, 155, 56, 0.05)"/>
-            <path d="M28 4 V14 H38" stroke="var(--primary-wood)" stroke-width="2"/>
-            <path d="M18 24 L24 30 L32 20" stroke="var(--primary-wood)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    </section>
+  }
+
+  <!-- If User is Authenticated -->
+  @if (authService.isLoggedIn()) {
+    <section class="dashboard-section">
+      <div class="container">
+        <!-- User Status Bar -->
+        <div class="user-status-bar" data-aos="fade-up">
+          <div class="user-meta">
+            @if (authService.isApproved()) {
+              <span class="status-badge verified">✓ Professionista Abilitato</span>
+            } @else {
+              <span class="status-badge pending">⏳ In attesa di approvazione manuale Forte Srl</span>
+            }
+            <h3 class="user-welcome">{{ t().technicalArea.dashboard.welcome }}</h3>
+            <p class="user-email-label">
+              Collegato come: <strong>{{ authService.currentUser()?.email }}</strong>
+              @if (authService.userProfile()?.company) {
+                · Studio/Azienda: <strong>{{ authService.userProfile()?.company }}</strong>
+              }
+              @if (authService.userProfile()?.role) {
+                · Ruolo: <span class="role-tag">{{ authService.userProfile()?.role }}</span>
+              }
+            </p>
+          </div>
+          <button type="button" class="btn btn-outline-dark logout-btn" (click)="onLogout()">
+            {{ t().technicalArea.dashboard.logoutBtn }}
+          </button>
         </div>
-        <div class="doc-details">
-          <h3 class="doc-title">{{ t().technical.guide }}</h3>
-          <span class="doc-size">{{ t().technical.guideSize }}</span>
+
+        @if (!authService.isApproved()) {
+          <div class="approval-notice-card" data-aos="fade-up">
+            <div class="notice-icon">📋</div>
+            <div class="notice-body">
+              <h4>Account in attesa di approvazione da parte di Forte Srl</h4>
+              <p>Per proteggere la documentazione tecnica riservata e i dettagli di posa, ogni profilo professionale viene convalidato manualmente dal nostro ufficio tecnico. Riceverai una notifica via email all'indirizzo registrato non appena l'accesso completo sarà abilitato.</p>
+            </div>
+          </div>
+        }
+
+        <!-- Filters Bar -->
+        <div class="filters-card" data-aos="fade-up">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              [placeholder]="t().technicalArea.dashboard.searchPlaceholder"
+              [(ngModel)]="searchQuery" 
+              class="search-field"
+            />
+          </div>
+
+          <div class="filters-row">
+            <!-- Profile Filter -->
+            <div class="filter-group">
+              <span class="filter-label">{{ t().technicalArea.dashboard.filterProfile }}:</span>
+              <div class="filter-pills">
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="profileFilter() === 'all'" 
+                  (click)="profileFilter.set('all')">
+                  Tutti
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="profileFilter() === '25-4'" 
+                  (click)="profileFilter.set('25-4')">
+                  25-4
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="profileFilter() === '25-7'" 
+                  (click)="profileFilter.set('25-7')">
+                  25-7
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="profileFilter() === '25-10'" 
+                  (click)="profileFilter.set('25-10')">
+                  25-10
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="profileFilter() === '25-MIX'" 
+                  (click)="profileFilter.set('25-MIX')">
+                  25-MIX
+                </button>
+              </div>
+            </div>
+
+            <!-- Type Filter -->
+            <div class="filter-group">
+              <span class="filter-label">{{ t().technicalArea.dashboard.filterType }}:</span>
+              <div class="filter-pills">
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'all'" 
+                  (click)="typeFilter.set('all')">
+                  Tutte
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'datasheet'" 
+                  (click)="typeFilter.set('datasheet')">
+                  Schede Tecniche
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'installation'" 
+                  (click)="typeFilter.set('installation')">
+                  Istruzioni di Posa
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'specs'" 
+                  (click)="typeFilter.set('specs')">
+                  Capitolati
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'declaration'" 
+                  (click)="typeFilter.set('declaration')">
+                  Dichiarazioni
+                </button>
+                <button 
+                  type="button" 
+                  class="filter-pill" 
+                  [class.active]="typeFilter() === 'cad'" 
+                  (click)="typeFilter.set('cad')">
+                  Disegni CAD
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <a href="#" class="btn btn-outline doc-download-btn" (click)="$event.preventDefault()">
-          <span class="btn-text">{{ t().technical.download }}</span>
-          <span class="btn-icon">↓</span>
-        </a>
+
+        <!-- Documents Table / Grid -->
+        <div class="documents-library-grid">
+          @if (filteredDocuments().length === 0) {
+            <div class="empty-docs-box">
+              <p>{{ t().technicalArea.dashboard.noResults }}</p>
+            </div>
+          }
+
+          @for (doc of filteredDocuments(); track doc.id) {
+            <div class="document-item-card" data-aos="fade-up">
+              <div class="doc-item-main">
+                <div class="doc-tags">
+                  <span class="category-pill">{{ doc.categoryLabel }}</span>
+                  @if (doc.profile !== 'all') {
+                    <span class="profile-pill">AIRWOOD {{ doc.profile }}</span>
+                  } @else {
+                    <span class="profile-pill">Tutti i profili</span>
+                  }
+                  <span class="format-pill">{{ doc.format }}</span>
+                </div>
+
+                <h4 class="doc-title">{{ doc.title }}</h4>
+                <p class="doc-meta">
+                  <span>{{ doc.revision }}</span>
+                  <span class="sep">·</span>
+                  <span>{{ doc.date }}</span>
+                  @if (doc.size) {
+                    <span class="sep">·</span>
+                    <span>{{ doc.size }}</span>
+                  }
+                </p>
+              </div>
+
+              <div class="doc-item-action">
+                @if (doc.status === 'available' && doc.url) {
+                  @if (authService.isApproved()) {
+                    <a [href]="doc.url" download class="btn btn-primary download-btn">
+                      Scarica {{ doc.format }} ↓
+                    </a>
+                  } @else {
+                    <span class="status-box pending-btn" title="Download abilitato dopo approvazione manuale Forte Srl">
+                      <span class="status-indicator"></span>
+                      <span>Accesso Riservato 🔒</span>
+                    </span>
+                  }
+                } @else if (doc.status === 'draft') {
+                  <div class="status-box draft" title="Bozza provvisoria in revisione">
+                    <span class="status-indicator"></span>
+                    <span>Bozza in revisione</span>
+                  </div>
+                } @else {
+                  <div class="status-box coming-soon">
+                    <span class="status-indicator"></span>
+                    <span>In arrivo</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
       </div>
-      
-      <!-- Doc 4: Datasheets -->
-      <div class="doc-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="doc-icon-wrapper pdf-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="doc-svg">
-            <path d="M10 4 H28 L38 14 V44 H10 Z" stroke="var(--primary-wood)" stroke-width="2" fill="rgba(194, 155, 56, 0.05)"/>
-            <path d="M28 4 V14 H38" stroke="var(--primary-wood)" stroke-width="2"/>
-            <circle cx="24" cy="28" r="6" stroke="var(--primary-wood)" stroke-width="2"/>
-            <path d="M24 22 V28 H28" stroke="var(--primary-wood)" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
+    </section>
+  }
+
+  <!-- Password Reset Modal -->
+  @if (isForgotOpen()) {
+    <div class="modal-backdrop" (click)="closeForgotModal()">
+      <div class="modal-dialog" (click)="$event.stopPropagation()">
+        <h3 class="modal-title">Recupera Password</h3>
+        <p class="modal-desc">Inserisci la tua email registrata per ricevere il link di reset della password.</p>
+
+        @if (forgotMsg()) {
+          <div class="auth-alert success">{{ forgotMsg() }}</div>
+        }
+        @if (forgotError()) {
+          <div class="auth-alert error">{{ forgotError() }}</div>
+        }
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="forgotEmail" class="form-control" placeholder="nome@studio.it" />
         </div>
-        <div class="doc-details">
-          <h3 class="doc-title">{{ t().technical.datasheets }}</h3>
-          <span class="doc-size">{{ t().technical.datasheetsSize }}</span>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline-dark" (click)="closeForgotModal()">Chiudi</button>
+          <button type="button" class="btn btn-primary" (click)="sendReset()">Invia link</button>
         </div>
-        <a href="#" class="btn btn-outline doc-download-btn" (click)="$event.preventDefault()">
-          <span class="btn-text">{{ t().technical.download }}</span>
-          <span class="btn-icon">↓</span>
-        </a>
       </div>
     </div>
-  </div>
-</section>
+  }
+</div>

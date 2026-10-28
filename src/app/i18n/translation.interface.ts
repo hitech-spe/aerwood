@@ -1,182 +1,337 @@
 export interface Translations {
   nav: {
     home: string;
-    about: string;
     products: string;
-    gallery: string;
-    sustainability: string;
-    contacts: string;
-    whyWpc: string;
-    ventilatedFacade: string;
-    colors: string;
+    technicalArea: string;
+    certifications: string;
+    catalogs: string;
     projects: string;
-    technical: string;
+    about: string;
+    contacts: string;
+    quoteCta: string;
   };
-  hero: {
-    title: string;
-    subtitle: string;
-    cta: string;
-    ctaSecondary: string;
-  };
-  about: {
+  home: {
     badge: string;
     title: string;
-    text1: string;
-    text2: string;
-    stat_experience: string;
-    stat_certified: string;
-    stat_quality: string;
+    subtitle: string;
+    ctaProfiles: string;
+    ctaTechnical: string;
+    quickLinks: {
+      technical: { title: string; desc: string; cta: string };
+      certifications: { title: string; desc: string; cta: string };
+      catalogs: { title: string; desc: string; cta: string };
+      products: { title: string; desc: string; cta: string };
+    };
+    profilesHeader: {
+      badge: string;
+      title: string;
+      subtitle: string;
+    };
+    technology: {
+      badge: string;
+      title: string;
+      statWeight: string;
+      statWeightLabel: string;
+      statWeightDesc: string;
+      statU: string;
+      statULabel: string;
+      statUDesc: string;
+      statFire: string;
+      statFireLabel: string;
+      statFireDesc: string;
+      statPatent: string;
+      statPatentLabel: string;
+      statPatentDesc: string;
+    };
+    applications: {
+      badge: string;
+      title: string;
+      interior: string;
+      exterior: string;
+      ceilings: string;
+      ventilatedFacades: string;
+    };
+    finishes: {
+      badge: string;
+      title: string;
+      catalogBtn: string;
+      disclaimer: string;
+      colors: { name: string; code: string }[];
+    };
+    projectsBanner: {
+      badge: string;
+      title: string;
+    };
+    technicalBanner: {
+      badge: string;
+      title: string;
+      desc: string;
+      loginBtn: string;
+      registerBtn: string;
+    };
+    contactsPreview: {
+      badge: string;
+      title: string;
+      desc: string;
+    };
   };
   products: {
     badge: string;
     title: string;
     intro: string;
-    acoustics: string;
-    acousticsSubtitle: string;
-    acousticsDesc: string;
-    cladding: string;
-    claddingSubtitle: string;
-    claddingDesc: string;
-    veneers: string;
-    veneersSubtitle: string;
-    veneersDesc: string;
-    panel4: string;
-    panel4Subtitle: string;
-    panel4Desc: string;
-    discover: string;
-  };
-  whyWpc: {
-    badge: string;
-    title: string;
-    waterproof: string;
-    waterproofDesc: string;
-    maintenance: string;
-    maintenanceDesc: string;
-    woodEffect: string;
-    woodEffectDesc: string;
-    eco: string;
-    ecoDesc: string;
-  };
-  ventilatedFacade: {
-    badge: string;
-    title: string;
-    intro: string;
-    layerWall: string;
-    layerInsulation: string;
-    layerSubstructure: string;
-    layerAirGap: string;
-    layerCladding: string;
-    benefit1: string;
-    benefit1Desc: string;
-    benefit2: string;
-    benefit2Desc: string;
-    benefit3: string;
-    benefit3Desc: string;
-  };
-  colors: {
-    badge: string;
-    title: string;
-    intro: string;
-    white: string;
-    whiteDesc: string;
-    sand: string;
-    sandDesc: string;
-    pearlGrey: string;
-    pearlGreyDesc: string;
-    honey: string;
-    honeyDesc: string;
-    avorio: string;
-    avoricoDesc: string;
-    charcoal: string;
-    charcoalDesc: string;
-    coffee: string;
-    coffeeDesc: string;
-  };
-  gallery: {
-    badge: string;
-    title: string;
-    intro: string;
-    instructions: string;
-    style: string;
-    walnut: string;
-    oak: string;
-    charcoal: string;
-    room: string;
-    living: string;
-    office: string;
-    hotel: string;
+    compareTitle: string;
+    headers: {
+      feature: string;
+      p25_4: string;
+      p25_7: string;
+      p25_10: string;
+      p25_mix: string;
+    };
     features: {
-      texture: string;
-      rendering: string;
-      hd: string;
+      design: string;
+      thickness: string;
+      usefulWidth: string;
+      standardLength: string;
+      yieldPerPanel: string;
+      linearWeight: string;
+      sqmWeight: string;
+      uValue: string;
+      fireReaction: string;
+      finishes: string;
+    };
+    profiles: {
+      id: string;
+      badge: string;
+      name: string;
+      desc: string;
+      thickness: string;
+      uValue: string;
+      sqmWeight: string;
+      fire: string;
+      applications: string;
+      ctaTech: string;
+      ctaCatalog: string;
+      image: string;
+      ambientImage?: string;
+    }[];
+    accessoriesTitle: string;
+    accessoriesSubtitle: string;
+    accessories: {
+      code: string;
+      element: string;
+      usage: string;
+      format: string;
+    }[];
+    ctaBox: {
+      title: string;
+      desc: string;
+      btn: string;
+    };
+  };
+  technicalArea: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    loginTitle: string;
+    loginDesc: string;
+    emailLabel: string;
+    passwordLabel: string;
+    loginBtn: string;
+    forgotPasswordBtn: string;
+    registerTitle: string;
+    registerDesc: string;
+    fullNameLabel: string;
+    companyLabel: string;
+    roleLabel: string;
+    registerBtn: string;
+    roles: {
+      architect: string;
+      installer: string;
+      dealer: string;
+      contractor: string;
+      other: string;
+    };
+    overviewTitle: string;
+    overviewItems: {
+      title: string;
+      desc: string;
+    }[];
+    dashboard: {
+      welcome: string;
+      profileInfo: string;
+      logoutBtn: string;
+      searchPlaceholder: string;
+      filterAll: string;
+      filterProfile: string;
+      filterType: string;
+      types: {
+        datasheet: string;
+        installation: string;
+        specs: string;
+        declaration: string;
+        cad: string;
+      };
+      statusDraft: string;
+      statusAvailable: string;
+      statusComingSoon: string;
+      downloadBtn: string;
+      noResults: string;
+    };
+  };
+  certifications: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    cards: {
+      fire: { code: string; title: string; desc: string };
+      ce: { code: string; title: string; desc: string };
+      iso: { code: string; title: string; desc: string };
+    };
+    tableTitle: string;
+    tableHeaders: {
+      char: string;
+      norm: string;
+      val: string;
+    };
+    tableRows: {
+      char: string;
+      norm: string;
+      val: string;
+    }[];
+    footnote: string;
+    documentsTitle: string;
+    documents: {
+      title: string;
+      subtitle: string;
+      status: string;
+      url?: string;
+    }[];
+    disclaimer: string;
+    ctaTitle: string;
+    ctaDesc: string;
+    ctaBtn: string;
+  };
+  catalogs: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    generalCatalog: {
+      badge: string;
+      title: string;
+      desc: string;
+      specs: string;
+      btn: string;
+    };
+    colorFolder: {
+      badge: string;
+      title: string;
+      desc: string;
+      specs: string;
+      btn: string;
+      sampleBtn: string;
+    };
+    technicalSection: {
+      title: string;
+      subtitle: string;
+      items: {
+        title: string;
+        desc: string;
+        cta: string;
+      }[];
+    };
+    indexTitle: string;
+    indexItems: {
+      title: string;
+      page: string;
+    }[];
+    sampleBox: {
+      title: string;
+      desc: string;
+      btn: string;
+    };
+    modal: {
+      title: string;
+      desc: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      privacyText: string;
+      submitBtn: string;
+      cancelBtn: string;
+      success: string;
     };
   };
   projects: {
     badge: string;
     title: string;
-    intro: string;
-    project1Title: string;
-    project1Desc: string;
-    project2Title: string;
-    project2Desc: string;
-    project3Title: string;
-    project3Desc: string;
-    project4Title: string;
-    project4Desc: string;
+    subtitle: string;
+    items: {
+      name: string;
+      location: string;
+      profile: string;
+      color: string;
+      image: string;
+      desc: string;
+    }[];
+    ctaTitle: string;
+    ctaDesc: string;
+    ctaBtn: string;
   };
-  technical: {
+  about: {
     badge: string;
     title: string;
-    intro: string;
-    catalog: string;
-    catalogSize: string;
-    specs: string;
-    specsSize: string;
-    guide: string;
-    guideSize: string;
-    datasheets: string;
-    datasheetsSize: string;
-    download: string;
-  };
-  sustainability: {
-    badge: string;
-    title: string;
-    text: string;
-    fscTitle: string;
-    fscDesc: string;
-    energyTitle: string;
-    energyDesc: string;
-    circularTitle: string;
-    circularDesc: string;
+    lead: string;
+    storyTitle: string;
+    storyP1: string;
+    storyP2: string;
+    facilityTitle: string;
+    facilityP1: string;
+    facilityP2: string;
+    stats: {
+      experience: { value: string; label: string };
+      facility: { value: string; label: string };
+      profiles: { value: string; label: string };
+      patents: { value: string; label: string };
+    };
+    valuesTitle: string;
+    values: {
+      title: string;
+      desc: string;
+    }[];
   };
   contacts: {
     badge: string;
     title: string;
-    intro: string;
-    name: string;
-    email: string;
-    message: string;
-    send: string;
-    sending: string;
-    success: string;
-    error: string;
-    phone: string;
-    phoneVal: string;
-    address: string;
-    addressVal: string;
-    emailLabel: string;
-    emailVal: string;
-    hoursLabel: string;
-    hoursVal: string;
-  };
-  map: {
-    badge: string;
-    title: string;
-    viewLarge: string;
+    subtitle: string;
+    form: {
+      nameLabel: string;
+      companyLabel: string;
+      emailLabel: string;
+      roleLabel: string;
+      messageLabel: string;
+      privacyText: string;
+      submitBtn: string;
+      submitting: string;
+      success: string;
+      error: string;
+    };
+    info: {
+      companyName: string;
+      addressTitle: string;
+      addressVal: string;
+      phoneTitle: string;
+      phoneVal: string;
+      emailTitle: string;
+      emailVal: string;
+      hoursTitle: string;
+      hoursVal: string;
+    };
   };
   footer: {
-    copyright: string;
-    rights: string;
+    tagline: string;
+    linksTitle: string;
+    techTitle: string;
+    contactsTitle: string;
+    allRights: string;
     vat: string;
     privacy: string;
     terms: string;

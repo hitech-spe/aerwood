@@ -1,11 +1,11 @@
 import { Component, signal, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -14,7 +14,6 @@ export class HeaderComponent {
   readonly t = this.langService.t;
   readonly currentLang = this.langService.currentLanguage;
 
-  // Track state of the mobile menu
   readonly isMenuOpen = signal(false);
 
   setLanguage(lang: 'it' | 'en'): void {

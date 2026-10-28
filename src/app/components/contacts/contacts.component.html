@@ -1,134 +1,192 @@
-<section id="contacts" class="section">
-  <div class="container">
-    <div class="grid-split">
-      <div class="contacts-info">
-        <span class="badge badge-wood">{{ t().contacts.badge }}</span>
-        <h2 class="section-title">{{ t().contacts.title }}</h2>
-        <p class="lead-text">{{ t().contacts.intro }}</p>
-        
-        <div class="contact-details">
-          <!-- Phone -->
-          <div class="detail-item">
-            <span class="detail-icon">📞</span>
-            <div class="detail-text">
-              <span class="detail-label">{{ t().contacts.phone }}</span>
-              <a [href]="'tel:' + t().contacts.phoneVal.replace(' ', '')" class="detail-value">{{ t().contacts.phoneVal }}</a>
-            </div>
-          </div>
-          
-          <!-- Address -->
-          <div class="detail-item">
-            <span class="detail-icon">📍</span>
-            <div class="detail-text">
-              <span class="detail-label">{{ t().contacts.address }}</span>
-              <span class="detail-value">{{ t().contacts.addressVal }}</span>
-            </div>
-          </div>
-          
-          <!-- Email -->
-          <div class="detail-item">
-            <span class="detail-icon">✉️</span>
-            <div class="detail-text">
-              <span class="detail-label">{{ t().contacts.emailLabel }}</span>
-              <a [href]="'mailto:' + t().contacts.emailVal" class="detail-value">{{ t().contacts.emailVal }}</a>
-            </div>
+<div class="contacts-page">
+  <!-- Header -->
+  <section class="contacts-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().contacts.badge }}</span>
+      <h1 class="page-title">{{ t().contacts.title }}</h1>
+      <p class="page-intro">{{ t().contacts.subtitle }}</p>
+    </div>
+  </section>
+
+  <!-- Contacts & Form Main Section -->
+  <section class="contacts-main-section">
+    <div class="container">
+      <div class="contacts-grid">
+        <!-- Info Column -->
+        <div class="contact-info-col" data-aos="fade-up">
+          <div class="info-block">
+            <h3 class="company-name">{{ t().contacts.info.companyName }}</h3>
+            <p class="company-sub">Sistemi di Rivestimento per Facciate Ventilate · FOAM WPC</p>
           </div>
 
-          <!-- Working Hours -->
-          <div class="detail-item">
-            <span class="detail-icon">🕒</span>
-            <div class="detail-text">
-              <span class="detail-label">{{ t().contacts.hoursLabel }}</span>
-              <span class="detail-value hours-value">{{ t().contacts.hoursVal }}</span>
+          <div class="info-cards-list">
+            <div class="info-card">
+              <span class="info-icon">📍</span>
+              <div>
+                <h4 class="info-title">{{ t().contacts.info.addressTitle }}</h4>
+                <p class="info-val">{{ t().contacts.info.addressVal }}</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <span class="info-icon">📞</span>
+              <div>
+                <h4 class="info-title">{{ t().contacts.info.phoneTitle }}</h4>
+                <p class="info-val">
+                  <a [href]="'tel:' + t().contacts.info.phoneVal">{{ t().contacts.info.phoneVal }}</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <span class="info-icon">✉️</span>
+              <div>
+                <h4 class="info-title">{{ t().contacts.info.emailTitle }}</h4>
+                <p class="info-val">
+                  <a [href]="'mailto:' + t().contacts.info.emailVal">{{ t().contacts.info.emailVal }}</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <span class="info-icon">🕒</span>
+              <div>
+                <h4 class="info-title">{{ t().contacts.info.hoursTitle }}</h4>
+                <p class="info-val">{{ t().contacts.info.hoursVal }}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="contacts-form-wrapper" data-aos="fade-left" data-aos-delay="250">
-        <form 
-          class="contact-form" 
-          name="contact" 
-          data-netlify="true" 
-          netlify-honeypot="bot-field"
-          (submit)="submitContactForm($event)"
-        >
-          <!-- Hidden inputs for Netlify forms dynamic submission -->
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden-honeypot" style="display: none;">
-            <label>Don't fill this out if you're human: <input name="bot-field" [value]="contactBotField()" (input)="onFieldChange('bot-field', $event)" /></label>
-          </p>
 
-          <!-- Name -->
-          <div class="form-group">
-            <label for="form-name">{{ t().contacts.name }} *</label>
-            <input 
-              id="form-name" 
-              type="text" 
-              name="name"
-              class="form-control" 
-              required
-              [value]="contactName()" 
-              (input)="onFieldChange('name', $event)" 
-            />
-          </div>
-          
-          <!-- Email -->
-          <div class="form-group">
-            <label for="form-email">{{ t().contacts.email }} *</label>
-            <input 
-              id="form-email" 
-              type="email" 
-              name="email"
-              class="form-control" 
-              required
-              [value]="contactEmail()" 
-              (input)="onFieldChange('email', $event)" 
-            />
-          </div>
-          
-          <!-- Message -->
-          <div class="form-group">
-            <label for="form-message">{{ t().contacts.message }} *</label>
-            <textarea 
-              id="form-message" 
-              name="message"
-              rows="5" 
-              class="form-control" 
-              required
-              [value]="contactMessage()" 
-              (input)="onFieldChange('message', $event)"
-            ></textarea>
-          </div>
-          
-          <!-- Feedback Messages -->
-          @if (contactStatus() === 'success') {
-            <div class="alert alert-success">
-              {{ t().contacts.success }}
-            </div>
-          }
-          
-          @if (contactStatus() === 'error') {
-            <div class="alert alert-danger">
-              {{ t().contacts.error }}
-            </div>
-          }
-          
-          <!-- Submit Button -->
-          <button 
-            type="submit" 
-            class="btn btn-primary form-submit"
-            [disabled]="contactStatus() === 'sending'"
-          >
-            @if (contactStatus() === 'sending') {
-              {{ t().contacts.sending }}
-            } @else {
-              {{ t().contacts.send }}
+        <!-- Form Column -->
+        <div class="contact-form-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="form-container-card">
+            @if (submitSuccess()) {
+              <div class="form-alert success">
+                {{ t().contacts.form.success }}
+              </div>
             }
-          </button>
-        </form>
+
+            @if (submitError()) {
+              <div class="form-alert error">
+                {{ t().contacts.form.error }}
+              </div>
+            }
+
+            <form (ngSubmit)="onSubmit()" #contactF="ngForm" class="contact-form">
+              <!-- Anti-spam Honeypot -->
+              <div style="display:none;" aria-hidden="true">
+                <input type="text" [(ngModel)]="formModel.honeypot" name="contact_company_url" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>{{ t().contacts.form.nameLabel }} *</label>
+                  <input 
+                    type="text" 
+                    [(ngModel)]="formModel.fullName" 
+                    name="name" 
+                    required 
+                    placeholder="Mario Rossi"
+                    class="form-control" 
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>{{ t().contacts.form.companyLabel }}</label>
+                  <input 
+                    type="text" 
+                    [(ngModel)]="formModel.company" 
+                    name="company" 
+                    placeholder="Studio / Impresa"
+                    class="form-control" 
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>{{ t().contacts.form.emailLabel }} *</label>
+                  <input 
+                    type="email" 
+                    [(ngModel)]="formModel.email" 
+                    name="email" 
+                    required 
+                    placeholder="mario@studio.it"
+                    class="form-control" 
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>{{ t().contacts.form.roleLabel }}</label>
+                  <select [(ngModel)]="formModel.role" name="role" class="form-control">
+                    <option value="progettista">{{ t().technicalArea.roles.architect }}</option>
+                    <option value="posatore">{{ t().technicalArea.roles.installer }}</option>
+                    <option value="rivenditore">{{ t().technicalArea.roles.dealer }}</option>
+                    <option value="impresa">{{ t().technicalArea.roles.contractor }}</option>
+                    <option value="privato">Privato</option>
+                    <option value="altro">{{ t().technicalArea.roles.other }}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>{{ t().contacts.form.messageLabel }} *</label>
+                <textarea 
+                  [(ngModel)]="formModel.message" 
+                  name="message" 
+                  required 
+                  rows="5" 
+                  placeholder="Descrivi il progetto, superficie indicativa o campioni desiderati..."
+                  class="form-control"
+                ></textarea>
+              </div>
+
+              <div class="form-privacy">
+                <label class="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    [(ngModel)]="formModel.privacyConsent" 
+                    name="privacy" 
+                    required 
+                  />
+                  <span>{{ t().contacts.form.privacyText }}</span>
+                </label>
+              </div>
+
+              <button 
+                type="submit" 
+                [disabled]="!formModel.fullName || !formModel.email || !formModel.privacyConsent || isSubmitting()" 
+                class="btn btn-primary submit-btn"
+              >
+                @if (isSubmitting()) {
+                  {{ t().contacts.form.submitting }}
+                } @else {
+                  {{ t().contacts.form.submitBtn }}
+                }
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Interactive Map Section -->
+  <section class="map-section" data-aos="fade-up">
+    <div class="container">
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.9248239023533!2d16.5451515!3d40.8252277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347895318db9e5f%3A0xe7dcbf19f4a5ec40!2sC.da%20Parco%20del%20Vecchio%20Bovio%2C%2070022%20Altamura%20BA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" 
+          width="100%" 
+          height="420" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="AIRWOOD - Sede e Stabilimento Altamura"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</div>

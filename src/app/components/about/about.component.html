@@ -1,12 +1,84 @@
-<section id="about" class="section section-proud">
-  <div class="container text-center" data-aos="fade-up">
-    <span class="badge badge-wood">{{ t().about.badge }}</span>
-    <h2 class="about-title">{{ t().about.title }}</h2>
-    <div class="about-quote">
-      <p class="proud-text-1">“{{ t().about.text1 }}”</p>
-      <p class="proud-text-2">{{ t().about.text2 }}</p>
+<div class="about-page">
+  <!-- Header -->
+  <section class="about-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().about.badge }}</span>
+      <h1 class="page-title">{{ t().about.title }}</h1>
+      <p class="page-intro">{{ t().about.lead }}</p>
     </div>
-    
-    <div class="about-divider-line"></div>
-  </div>
-</section>
+  </section>
+
+  <!-- Stats Grid -->
+  <section class="about-stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="stat-val">{{ t().about.stats.experience.value }}</span>
+          <span class="stat-lbl">{{ t().about.stats.experience.label }}</span>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="stat-val">{{ t().about.stats.facility.value }}</span>
+          <span class="stat-lbl">{{ t().about.stats.facility.label }}</span>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="stat-val">{{ t().about.stats.profiles.value }}</span>
+          <span class="stat-lbl">{{ t().about.stats.profiles.label }}</span>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="stat-val">{{ t().about.stats.patents.value }}</span>
+          <span class="stat-lbl">{{ t().about.stats.patents.label }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Narrative Section: Story & Facility -->
+  <section class="about-story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-block" data-aos="fade-up">
+          <h2 class="story-heading">{{ t().about.storyTitle }}</h2>
+          <p class="story-p">{{ t().about.storyP1 }}</p>
+          <p class="story-p">{{ t().about.storyP2 }}</p>
+        </div>
+
+        <div class="story-block" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="story-heading">{{ t().about.facilityTitle }}</h2>
+          <p class="story-p">{{ t().about.facilityP1 }}</p>
+          <p class="story-p">{{ t().about.facilityP2 }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Pillars / Values -->
+  <section class="about-values-section">
+    <div class="container">
+      <h2 class="values-main-title" data-aos="fade-up">{{ t().about.valuesTitle }}</h2>
+
+      <div class="values-grid">
+        @for (val of t().about.values; track val.title; let idx = $index) {
+          <div class="value-card" data-aos="fade-up" [attr.data-aos-delay]="idx * 100">
+            <h3 class="value-card-title">{{ val.title }}</h3>
+            <p class="value-card-desc">{{ val.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Section -->
+  <section class="about-cta-section">
+    <div class="container">
+      <div class="about-cta-card" data-aos="fade-up">
+        <div class="cta-text">
+          <h2 class="cta-title">Vieni a trovarci o richiedi una consulenza tecnica</h2>
+          <p class="cta-desc">Il nostro team ad Altamura è a disposizione per presentarti dal vivo i profili e le soluzioni di fissaggio AIR.</p>
+        </div>
+        <div class="cta-btn-wrap">
+          <a routerLink="/contatti" class="btn btn-primary">Contattaci</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -17,18 +17,20 @@ export class LanguageService {
     // Safely hydrate from localStorage on the client side
     if (isPlatformBrowser(this.platformId)) {
       try {
-        const savedLang = localStorage.getItem('airwood_lang');
-        if (savedLang === 'it' || savedLang === 'en') {
-          this.activeLanguage.set(savedLang);
-        } else {
-          // Default to 'it' or browser language
-          const browserLang = navigator.language.slice(0, 2);
-          if (browserLang === 'en' || browserLang === 'it') {
-            this.activeLanguage.set(browserLang as 'it' | 'en');
+        if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined' && window.localStorage) {
+          const savedLang = window.localStorage.getItem('airwood_lang');
+          if (savedLang === 'it' || savedLang === 'en') {
+            this.activeLanguage.set(savedLang);
+          } else if (typeof navigator !== 'undefined' && navigator.language) {
+            // Default to 'it' or browser language
+            const browserLang = navigator.language.slice(0, 2);
+            if (browserLang === 'en' || browserLang === 'it') {
+              this.activeLanguage.set(browserLang as 'it' | 'en');
+            }
           }
         }
       } catch (e) {
-        console.warn('Could not read from localStorage', e);
+        // Safely ignore in SSR / test environments
       }
     }
   }

@@ -1,0 +1,106 @@
+<div class="certifications-page">
+  <!-- Header -->
+  <section class="cert-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().certifications.badge }}</span>
+      <h1 class="page-title">{{ t().certifications.title }}</h1>
+      <p class="page-intro">{{ t().certifications.subtitle }}</p>
+    </div>
+  </section>
+
+  <!-- 3 Highlights Cards (Fire, CE, ISO) -->
+  <section class="cert-highlights-section">
+    <div class="container">
+      <div class="highlights-grid">
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="highlight-code">{{ t().certifications.cards.fire.code }}</span>
+          <h3 class="highlight-title">{{ t().certifications.cards.fire.title }}</h3>
+          <p class="highlight-desc">{{ t().certifications.cards.fire.desc }}</p>
+        </div>
+
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="highlight-code">{{ t().certifications.cards.ce.code }}</span>
+          <h3 class="highlight-title">{{ t().certifications.cards.ce.title }}</h3>
+          <p class="highlight-desc">{{ t().certifications.cards.ce.desc }}</p>
+        </div>
+
+        <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="highlight-code">{{ t().certifications.cards.iso.code }}</span>
+          <h3 class="highlight-title">{{ t().certifications.cards.iso.title }}</h3>
+          <p class="highlight-desc">{{ t().certifications.cards.iso.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Data Table -->
+  <section class="perf-table-section">
+    <div class="container">
+      <h2 class="section-subtitle" data-aos="fade-up">{{ t().certifications.tableTitle }}</h2>
+
+      <div class="table-responsive" data-aos="fade-up">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th>{{ t().certifications.tableHeaders.char }}</th>
+              <th>{{ t().certifications.tableHeaders.norm }}</th>
+              <th>{{ t().certifications.tableHeaders.val }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of t().certifications.tableRows; track row.char) {
+              <tr>
+                <td class="char-cell"><strong>{{ row.char }}</strong></td>
+                <td class="norm-cell"><code>{{ row.norm }}</code></td>
+                <td class="val-cell"><strong>{{ row.val }}</strong></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="footnote" data-aos="fade-up">{{ t().certifications.footnote }}</p>
+    </div>
+  </section>
+
+  <!-- Documents & Test Reports -->
+  <section class="cert-docs-section">
+    <div class="container">
+      <h2 class="section-subtitle" data-aos="fade-up">{{ t().certifications.documentsTitle }}</h2>
+
+      <div class="docs-list" data-aos="fade-up">
+        @for (doc of t().certifications.documents; track doc.title) {
+          <div class="doc-row">
+            <div class="doc-row-left">
+              <span class="doc-icon">📄</span>
+              <div>
+                <h4 class="doc-row-title">{{ doc.title }}</h4>
+                <p class="doc-row-sub">{{ doc.subtitle }}</p>
+              </div>
+            </div>
+            <div class="doc-row-right">
+              <span class="status-pill coming-soon">{{ doc.status }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <p class="docs-disclaimer" data-aos="fade-up">{{ t().certifications.disclaimer }}</p>
+    </div>
+  </section>
+
+  <!-- Dark CTA Banner -->
+  <section class="cert-cta-section">
+    <div class="container">
+      <div class="cert-cta-card" data-aos="fade-up">
+        <div class="cta-text">
+          <h2 class="cta-title">{{ t().certifications.ctaTitle }}</h2>
+          <p class="cta-desc">{{ t().certifications.ctaDesc }}</p>
+        </div>
+        <div class="cta-btn-wrap">
+          <a routerLink="/contatti" class="btn btn-primary">{{ t().certifications.ctaBtn }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

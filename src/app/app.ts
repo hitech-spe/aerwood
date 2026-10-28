@@ -22,17 +22,18 @@ export class App {
   constructor() {
     afterNextRender(() => {
       AOS.init({
-        duration: 800, // standard animation duration
-        once: true,     // whether animation should happen only once - while scrolling down
-        mirror: false,   // whether elements should animate out while scrolling past them
-        offset: 50,     // offset (in px) from the original trigger point
-        easing: 'ease-out-cubic', // default easing for AOS animations
+        duration: 800,
+        once: true,
+        mirror: false,
+        offset: 50,
+        easing: 'ease-out-cubic'
       });
 
-      // Listen to navigation events to refresh AOS for newly routed views
+      // Listen to navigation events to refresh AOS and scroll to top for multi-page routing
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
       ).subscribe(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
         setTimeout(() => {
           AOS.refresh();
         }, 100);

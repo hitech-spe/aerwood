@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /area-tecnica
+Disallow: /assets/technical/
+Allow: /
+
+Sitemap: https://airwood.it/sitemap.xml

@@ -1,22 +1,55 @@
-<section id="projects" class="section projects-section">
-  <div class="container">
-    <div class="section-header text-center" data-aos="fade-up">
-      <span class="badge badge-wood">{{ t().projects.badge }}</span>
-      <h2 class="section-title">{{ t().projects.title }}</h2>
-      <p class="section-intro">{{ t().projects.intro }}</p>
+<div class="projects-page">
+  <!-- Header -->
+  <section class="projects-header-section">
+    <div class="container">
+      <span class="section-badge">{{ t().projects.badge }}</span>
+      <h1 class="page-title">{{ t().projects.title }}</h1>
+      <p class="page-intro">{{ t().projects.subtitle }}</p>
     </div>
-    
-    <div class="projects-grid">
-      <div class="project-item" data-aos="zoom-in" data-aos-delay="100">
-        <div class="project-img-wrapper">
-          <img src="/assets/progetto1.jpeg" [alt]="t().projects.project1Title" class="project-image" />
-          <div class="project-overlay">
-            <span class="project-tag">VILLA PRIVATA</span>
-            <h3 class="project-name">{{ t().projects.project1Title }}</h3>
-            <p class="project-desc">{{ t().projects.project1Desc }}</p>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-grid-section">
+    <div class="container">
+      <div class="projects-grid">
+        @for (item of t().projects.items; track item.name; let idx = $index) {
+          <div class="project-card" data-aos="fade-up" [attr.data-aos-delay]="idx * 100">
+            <div class="project-img-box">
+              <img [src]="item.image" [alt]="item.name" class="project-img" />
+              <span class="profile-chip">{{ item.profile }}</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-meta-top">
+                <span class="location-label">📍 {{ item.location }}</span>
+                <span class="color-label">{{ item.color }}</span>
+              </div>
+
+              <h3 class="project-name">{{ item.name }}</h3>
+              <p class="project-desc">{{ item.desc }}</p>
+
+              <div class="project-footer">
+                <a routerLink="/prodotti" class="project-link">Scopri il profilo {{ item.profile }} →</a>
+              </div>
+            </div>
           </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="projects-cta-section">
+    <div class="container">
+      <div class="projects-cta-card" data-aos="fade-up">
+        <div class="cta-text">
+          <h2 class="cta-title">{{ t().projects.ctaTitle }}</h2>
+          <p class="cta-desc">{{ t().projects.ctaDesc }}</p>
+        </div>
+        <div class="cta-btn-wrap">
+          <a routerLink="/contatti" class="btn btn-primary">{{ t().projects.ctaBtn }}</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

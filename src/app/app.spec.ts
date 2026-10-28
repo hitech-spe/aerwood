@@ -35,7 +35,7 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     
     // Default language is IT, so title should match the Italian version
-    const expectedTitle = langService.t().hero.title;
+    const expectedTitle = langService.t().home.title;
     expect(compiled.querySelector('h1')?.textContent?.trim()).toBe(expectedTitle);
   });
 });

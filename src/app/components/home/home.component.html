@@ -1,13 +1,363 @@
-<main>
-  <app-hero></app-hero>
-  <app-products></app-products>
-  <app-why-wpc></app-why-wpc>
-  <app-ventilated-facade></app-ventilated-facade>
-  <app-colors></app-colors>
-  <!--app-gallery></app-gallery-->
-  <!--app-projects></app-projects-->
-  <app-technical></app-technical>
-  <app-about></app-about>
-  <app-contacts></app-contacts>
-  <app-map></app-map>
-</main>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content" data-aos="fade-up">
+      <span class="hero-badge">{{ t().home.badge }}</span>
+      <h1 class="hero-title">{{ t().home.title }}</h1>
+      <p class="hero-subtitle">{{ t().home.subtitle }}</p>
+      <div class="hero-cta-group">
+        <a routerLink="/prodotti" class="btn btn-primary">{{ t().home.ctaProfiles }}</a>
+        <a routerLink="/area-tecnica" class="btn btn-outline-light">{{ t().home.ctaTechnical }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Access Links (4 cards) -->
+<section class="quick-links-section">
+  <div class="container">
+    <div class="quick-links-grid">
+      <a routerLink="/area-tecnica" class="quick-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="quick-card-icon">🔒</div>
+        <h3 class="quick-card-title">{{ t().home.quickLinks.technical.title }}</h3>
+        <p class="quick-card-desc">{{ t().home.quickLinks.technical.desc }}</p>
+        <span class="quick-card-cta">{{ t().home.quickLinks.technical.cta }}</span>
+      </a>
+
+      <a routerLink="/certificazioni" class="quick-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="quick-card-icon">🛡️</div>
+        <h3 class="quick-card-title">{{ t().home.quickLinks.certifications.title }}</h3>
+        <p class="quick-card-desc">{{ t().home.quickLinks.certifications.desc }}</p>
+        <span class="quick-card-cta">{{ t().home.quickLinks.certifications.cta }}</span>
+      </a>
+
+      <a routerLink="/cataloghi" class="quick-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="quick-card-icon">📖</div>
+        <h3 class="quick-card-title">{{ t().home.quickLinks.catalogs.title }}</h3>
+        <p class="quick-card-desc">{{ t().home.quickLinks.catalogs.desc }}</p>
+        <span class="quick-card-cta">{{ t().home.quickLinks.catalogs.cta }}</span>
+      </a>
+
+      <a routerLink="/prodotti" class="quick-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="quick-card-icon">📐</div>
+        <h3 class="quick-card-title">{{ t().home.quickLinks.products.title }}</h3>
+        <p class="quick-card-desc">{{ t().home.quickLinks.products.desc }}</p>
+        <span class="quick-card-cta">{{ t().home.quickLinks.products.cta }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Profiles Overview Section -->
+<section class="home-profiles-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">{{ t().home.profilesHeader.badge }}</span>
+      <h2 class="section-title">{{ t().home.profilesHeader.title }}</h2>
+      <p class="section-subtitle">{{ t().home.profilesHeader.subtitle }}</p>
+    </div>
+
+    <div class="profiles-cards-grid">
+      <!-- 25-4 -->
+      <a routerLink="/prodotti" class="home-profile-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="profile-card-img-wrap">
+          <img src="/assets/images/profiles/AIRWOOD_25-4_1.png" alt="AIRWOOD 25-4" class="profile-card-img" />
+        </div>
+        <div class="profile-card-header">
+          <span class="profile-slat-label">4 DOGHE AMPIE</span>
+          <h3 class="profile-name">AIRWOOD 25-4</h3>
+        </div>
+        <p class="profile-desc">Superficie distesa, giunto quasi invisibile. Per progetti minimali e grandi superfici.</p>
+        <div class="profile-specs-row">
+          <span class="spec-pill">25 mm</span>
+          <span class="spec-pill">2,72 W/m²K</span>
+          <span class="spec-pill">8,0 kg/m²</span>
+        </div>
+      </a>
+
+      <!-- 25-7 -->
+      <a routerLink="/prodotti" class="home-profile-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="profile-card-img-wrap">
+          <img src="/assets/images/profiles/AIRWOOD_25-7_1.png" alt="AIRWOOD 25-7" class="profile-card-img" />
+        </div>
+        <div class="profile-card-header">
+          <span class="profile-slat-label">7 DOGHE</span>
+          <h3 class="profile-name">AIRWOOD 25-7</h3>
+        </div>
+        <p class="profile-desc">Ritmo bilanciato tra pieno e vuoto, massimo contrasto di chiaroscuro.</p>
+        <div class="profile-specs-row">
+          <span class="spec-pill">25 mm</span>
+          <span class="spec-pill">2,76 W/m²K</span>
+          <span class="spec-pill">10,4 kg/m²</span>
+        </div>
+      </a>
+
+      <!-- 25-10 -->
+      <a routerLink="/prodotti" class="home-profile-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="profile-card-img-wrap">
+          <img src="/assets/images/profiles/AIRWOOD_25-10_1.png" alt="AIRWOOD 25-10" class="profile-card-img" />
+        </div>
+        <div class="profile-card-header">
+          <span class="profile-slat-label">10 DOGHE STRETTE</span>
+          <h3 class="profile-name">AIRWOOD 25-10</h3>
+        </div>
+        <p class="profile-desc">Rigatura fitta, lettura tessile: ideale per volumi compatti visti da vicino.</p>
+        <div class="profile-specs-row">
+          <span class="spec-pill">25 mm</span>
+          <span class="spec-pill">2,87 W/m²K</span>
+          <span class="spec-pill">10,0 kg/m²</span>
+        </div>
+      </a>
+
+      <!-- 25-MIX -->
+      <a routerLink="/prodotti" class="home-profile-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="profile-card-img-wrap">
+          <img src="/assets/images/profiles/AIRWOOD_25-MIX_1.png" alt="AIRWOOD 25-MIX" class="profile-card-img" />
+        </div>
+        <div class="profile-card-header">
+          <span class="profile-slat-label">LISCIO + RIGATO</span>
+          <h3 class="profile-name">AIRWOOD 25-MIX</h3>
+        </div>
+        <p class="profile-desc">Alternanza di campi lisci e rigati: un ritmo irregolare controllato.</p>
+        <div class="profile-specs-row">
+          <span class="spec-pill">19 mm</span>
+          <span class="spec-pill">2,82 W/m²K</span>
+          <span class="spec-pill">7,0 kg/m²</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Technology FOAM WPC Section (Dark Block) -->
+<section class="technology-dark-section">
+  <div class="container">
+    <div class="tech-header" data-aos="fade-up">
+      <span class="tech-badge">{{ t().home.technology.badge }}</span>
+      <h2 class="tech-title">{{ t().home.technology.title }}</h2>
+    </div>
+
+    <div class="tech-stats-grid">
+      <div class="tech-stat-card" data-aos="fade-up" data-aos-delay="0">
+        <span class="stat-number">{{ t().home.technology.statWeight }}</span>
+        <h4 class="stat-label">{{ t().home.technology.statWeightLabel }}</h4>
+        <p class="stat-desc">{{ t().home.technology.statWeightDesc }}</p>
+      </div>
+
+      <div class="tech-stat-card" data-aos="fade-up" data-aos-delay="100">
+        <span class="stat-number">{{ t().home.technology.statU }}</span>
+        <h4 class="stat-label">{{ t().home.technology.statULabel }}</h4>
+        <p class="stat-desc">{{ t().home.technology.statUDesc }}</p>
+      </div>
+
+      <div class="tech-stat-card" data-aos="fade-up" data-aos-delay="200">
+        <span class="stat-number">{{ t().home.technology.statFire }}</span>
+        <h4 class="stat-label">{{ t().home.technology.statFireLabel }}</h4>
+        <p class="stat-desc">{{ t().home.technology.statFireDesc }}</p>
+      </div>
+
+      <div class="tech-stat-card" data-aos="fade-up" data-aos-delay="300">
+        <span class="stat-number">{{ t().home.technology.statPatent }}</span>
+        <h4 class="stat-label">{{ t().home.technology.statPatentLabel }}</h4>
+        <p class="stat-desc">{{ t().home.technology.statPatentDesc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Applications Section -->
+<section class="applications-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">{{ t().home.applications.badge }}</span>
+      <h2 class="section-title">{{ t().home.applications.title }}</h2>
+    </div>
+
+    <div class="applications-grid">
+      <div class="app-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="app-card-overlay">
+          <h3>{{ t().home.applications.interior }}</h3>
+        </div>
+      </div>
+      <div class="app-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="app-card-overlay">
+          <h3>{{ t().home.applications.exterior }}</h3>
+        </div>
+      </div>
+      <div class="app-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="app-card-overlay">
+          <h3>{{ t().home.applications.ceilings }}</h3>
+        </div>
+      </div>
+      <div class="app-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="app-card-overlay">
+          <h3>{{ t().home.applications.ventilatedFacades }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Finishes Section -->
+<section class="finishes-section">
+  <div class="container">
+    <div class="finishes-header-row" data-aos="fade-up">
+      <div>
+        <span class="section-badge">{{ t().home.finishes.badge }}</span>
+        <h2 class="section-title">{{ t().home.finishes.title }}</h2>
+      </div>
+      <a routerLink="/cataloghi" class="btn btn-secondary">{{ t().home.finishes.catalogBtn }}</a>
+    </div>
+
+    <div class="finishes-palette-grid" data-aos="fade-up">
+      @for (c of t().home.finishes.colors; track c.code; let idx = $index) {
+        <div 
+          class="finish-swatch-card" 
+          [class.active]="selectedFinish() === idx"
+          (click)="selectFinish(idx)"
+        >
+          <div class="swatch-color-box swatch-color-{{ idx }}"></div>
+          <h4 class="swatch-name">{{ c.name }}</h4>
+          <span class="swatch-code">{{ c.code }}</span>
+        </div>
+      }
+    </div>
+
+    <p class="finishes-disclaimer" data-aos="fade-up">
+      {{ t().home.finishes.disclaimer }}
+    </p>
+  </div>
+</section>
+
+<!-- Projects / Realizzazioni Preview Banner -->
+<section class="projects-preview-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">{{ t().home.projectsBanner.badge }}</span>
+      <h2 class="section-title">{{ t().home.projectsBanner.title }}</h2>
+    </div>
+
+    <div class="projects-preview-grid">
+      <a routerLink="/progetti" class="project-preview-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="project-preview-img-wrap">
+          <img src="/assets/images/ambient/Esterno_villa_due_piani.jpg" alt="Villa Due Piani Miele" class="project-preview-img" />
+        </div>
+        <div class="project-preview-meta">
+          <h4>Villa Unifamiliare Privata · Bari</h4>
+          <p>AIRWOOD 25-4 · Miele COD. 402</p>
+        </div>
+      </a>
+
+      <a routerLink="/progetti" class="project-preview-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-preview-img-wrap">
+          <img src="/assets/images/ambient/Esterno_villa_notte.png" alt="Residenza Notturna" class="project-preview-img" />
+        </div>
+        <div class="project-preview-meta">
+          <h4>Residenza Contemporanea Notturna · Lecce</h4>
+          <p>AIRWOOD 25-10 · Facciata Ventilata</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Area CTA Banner (Dark Architectural Block) -->
+<section class="technical-banner-section">
+  <div class="container">
+    <div class="tech-banner-card" data-aos="fade-up">
+      <div class="tech-banner-content">
+        <span class="tech-banner-badge">{{ t().home.technicalBanner.badge }}</span>
+        <h2 class="tech-banner-title">{{ t().home.technicalBanner.title }}</h2>
+        <p class="tech-banner-desc">{{ t().home.technicalBanner.desc }}</p>
+      </div>
+      <div class="tech-banner-actions">
+        <a routerLink="/area-tecnica" class="btn btn-primary">{{ t().home.technicalBanner.loginBtn }}</a>
+        <a routerLink="/area-tecnica" class="btn btn-outline-light">{{ t().home.technicalBanner.registerBtn }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacts and Inquiries Preview -->
+<section class="home-contacts-section">
+  <div class="container">
+    <div class="contacts-wrapper">
+      <div class="contacts-info" data-aos="fade-up">
+        <span class="section-badge">{{ t().home.contactsPreview.badge }}</span>
+        <h2 class="section-title">{{ t().home.contactsPreview.title }}</h2>
+        <p class="contacts-desc">{{ t().home.contactsPreview.desc }}</p>
+
+        <div class="contacts-details-box">
+          <h4 class="company-heading">Forte Srl · Marchio AIRWOOD</h4>
+          <p class="address-text">C.da Parco del Vecchio Bovio · 70022 Altamura (BA)</p>
+          <p class="phone-text">T +39 080 3101237</p>
+          <p class="email-text"><a href="mailto:info@fortesrl.it">info&#64;fortesrl.it</a></p>
+        </div>
+      </div>
+
+      <div class="contacts-form-box" data-aos="fade-up" data-aos-delay="100">
+        @if (submitSuccess()) {
+          <div class="alert alert-success">
+            {{ t().contacts.form.success }}
+          </div>
+        } @else {
+          <form (ngSubmit)="onSubmitContact()" #f="ngForm" class="inquiry-form">
+            <!-- Anti-spam Honeypot -->
+            <div style="display:none;" aria-hidden="true">
+              <input type="text" [(ngModel)]="contactForm.honeypot" name="company_website_url" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>{{ t().contacts.form.nameLabel }}</label>
+                <input type="text" [(ngModel)]="contactForm.fullName" name="fullName" required placeholder="Mario Rossi" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label>{{ t().contacts.form.companyLabel }}</label>
+                <input type="text" [(ngModel)]="contactForm.company" name="company" placeholder="Studio Architettura" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>{{ t().contacts.form.emailLabel }}</label>
+                <input type="email" [(ngModel)]="contactForm.email" name="email" required placeholder="mario@studio.it" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label>{{ t().contacts.form.roleLabel }}</label>
+                <select [(ngModel)]="contactForm.role" name="role" class="form-control">
+                  <option value="progettista">{{ t().technicalArea.roles.architect }}</option>
+                  <option value="posatore">{{ t().technicalArea.roles.installer }}</option>
+                  <option value="rivenditore">{{ t().technicalArea.roles.dealer }}</option>
+                  <option value="impresa">{{ t().technicalArea.roles.contractor }}</option>
+                  <option value="privato">Privato</option>
+                  <option value="altro">{{ t().technicalArea.roles.other }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>{{ t().contacts.form.messageLabel }}</label>
+              <textarea [(ngModel)]="contactForm.message" name="message" rows="4" placeholder="Dettagli del progetto..." class="form-control"></textarea>
+            </div>
+
+            <div class="form-privacy">
+              <label class="checkbox-label">
+                <input type="checkbox" [(ngModel)]="contactForm.privacyConsent" name="privacyConsent" required />
+                <span>{{ t().contacts.form.privacyText }}</span>
+              </label>
+            </div>
+
+            <button type="submit" [disabled]="!contactForm.email || !contactForm.privacyConsent || isSubmitting()" class="btn btn-primary submit-btn">
+              @if (isSubmitting()) {
+                {{ t().contacts.form.submitting }}
+              } @else {
+                {{ t().contacts.form.submitBtn }}
+              }
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

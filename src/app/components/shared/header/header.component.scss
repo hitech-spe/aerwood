@@ -21,26 +21,46 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  max-width: 1680px;
+  width: 100%;
+  padding: 0 clamp(20px, 3.5vw, 60px);
 }
 
 .logo {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 8px;
   z-index: 1100;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-img {
-  height: 48px;
+  height: 24px;
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
   
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   @media (max-width: 768px) {
-    height: 40px;
+    height: 20px;
+  }
+}
+
+.logo-byline {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-block;
+
+  @media (max-width: 480px) {
+    display: none;
   }
 }
 
@@ -58,14 +78,16 @@
 
 .nav {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 32px);
+  white-space: nowrap;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
   
-  @media (max-width: 992px) {
-    gap: 20px;
+  @media (max-width: 1200px) {
+    gap: clamp(10px, 1.2vw, 20px);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: fixed;
     top: 80px;
     left: 0;
@@ -76,7 +98,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 36px;
+    gap: 32px;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -92,16 +114,26 @@
 }
 
 .nav-link {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.75);
   position: relative;
   padding: 8px 0;
   
   &:hover {
     color: var(--primary-wood);
+  }
+
+  &.active {
+    color: var(--primary-wood);
+    font-weight: 600;
+
+    &::after {
+      width: 100%;
+    }
   }
   
   &::after {
@@ -119,7 +151,7 @@
     width: 100%;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 1.15rem;
     letter-spacing: 2px;
     font-weight: 600;
@@ -129,7 +161,8 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .lang-switcher {
@@ -177,7 +210,7 @@
   padding: 6px;
   box-sizing: content-box;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: flex;
   }
   

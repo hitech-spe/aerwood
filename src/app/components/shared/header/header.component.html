@@ -1,17 +1,19 @@
 <header class="header" [class.menu-open]="isMenuOpen()">
   <div class="container header-container">
-    <a routerLink="/" fragment="home" class="logo" (click)="closeMenu()">
-      <img src="/assets/logo.webp" alt="Airwood" class="logo-img">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <img src="/assets/logo.webp" alt="AIRWOOD" class="logo-img">
+      <span class="logo-byline">by Forte Srl</span>
     </a>
     
     <!-- Desktop and Mobile Navigation Menu -->
     <nav class="nav" [class.active]="isMenuOpen()">
-      <a routerLink="/" fragment="home" class="nav-link" (click)="closeMenu()">{{ t().nav.home }}</a>
-      <a routerLink="/" fragment="products" class="nav-link" (click)="closeMenu()">{{ t().nav.products }}</a>
-      <a routerLink="/" fragment="ventilated-facade" class="nav-link" (click)="closeMenu()">{{ t().nav.ventilatedFacade }}</a>
-      <a routerLink="/" fragment="colors" class="nav-link" (click)="closeMenu()">{{ t().nav.colors }}</a>
-      <a routerLink="/" fragment="projects" class="nav-link" (click)="closeMenu()">{{ t().nav.projects }}</a>
-      <a routerLink="/" fragment="technical" class="nav-link" (click)="closeMenu()">{{ t().nav.technical }}</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" (click)="closeMenu()">{{ t().nav.home }}</a>
+      <a routerLink="/prodotti" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.products }}</a>
+      <a routerLink="/area-tecnica" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.technicalArea }}</a>
+      <a routerLink="/certificazioni" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.certifications }}</a>
+      <a routerLink="/cataloghi" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.catalogs }}</a>
+      <a routerLink="/progetti" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.projects }}</a>
+      <a routerLink="/chi-siamo" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.about }}</a>
     </nav>
     
     <div class="header-actions">
@@ -22,7 +24,7 @@
         <button [class.active]="currentLang() === 'en'" (click)="setLanguage('en')" aria-label="English">EN</button>
       </div>
       
-      <a routerLink="/" fragment="contacts" class="btn btn-outline-light nav-cta" (click)="closeMenu()">{{ t().nav.contacts }}</a>
+      <a routerLink="/contatti" class="btn btn-primary nav-cta" (click)="closeMenu()">{{ t().nav.quoteCta }}</a>
       
       <!-- Hamburger Menu Button -->
       <button class="hamburger-btn" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Toggle menu">
