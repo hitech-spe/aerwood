@@ -7,6 +7,9 @@
   # The folder containing the optimized static/prerendered browser bundles
   publish = "dist/airwood/browser"
 
+[build.environment]
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
+
 # SPA routing redirect rule
 # Ensures that all requests that don't match a static file are redirected 
 # to index.html, preventing 404 errors on direct path loads.

@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
-import { AuthService, UserRole } from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 export interface TechDocument {
   id: string;
@@ -39,14 +39,13 @@ export class TechnicalComponent {
   };
   loginError = signal<string | null>(null);
   isLoggingIn = signal(false);
+  isGoogleLoggingIn = signal(false);
 
-  // Register form model
+  // Register form model (only Nome, Cognome, Email, Password)
   registerForm = {
     fullName: '',
-    company: '',
     email: '',
-    password: '',
-    role: 'progettista' as UserRole
+    password: ''
   };
   registerError = signal<string | null>(null);
   registerSuccess = signal<string | null>(null);
@@ -195,6 +194,23 @@ export class TechnicalComponent {
     });
   });
 
+  async onGoogleLogin(): Promise<void> {
+    this.loginError.set(null);
+    this.registerError.set(null);
+    this.isGoogleLoggingIn.set(true);
+
+    try {
+      await this.authService.loginWithGoogle();
+    } catch (e: any) {
+      console.error('Google login error:', e);
+      if (e.code !== 'auth/popup-closed-by-user') {
+        this.loginError.set('Accesso con Google non riuscito. Verifica la connessione o riprova.');
+      }
+    } finally {
+      this.isGoogleLoggingIn.set(false);
+    }
+  }
+
   async onLogin(): Promise<void> {
     if (!this.loginForm.email || !this.loginForm.password) return;
     this.isLoggingIn.set(true);
@@ -219,12 +235,11 @@ export class TechnicalComponent {
     this.registerSuccess.set(null);
 
     try {
-      await this.authService.register(this.registerForm.email, this.registerForm.password, {
-        fullName: this.registerForm.fullName,
-        company: this.registerForm.company,
-        role: this.registerForm.role
-      });
-      this.registerSuccess.set('Account creato con successo! Ora hai accesso ai documenti tecnici.');
+      await this.authService.register(
+        this.registerForm.email,
+        this.registerForm.password,
+        this.registerForm.fullName
+      );
     } catch (e: any) {
       console.error(e);
       this.registerError.set('Errore durante la registrazione: ' + (e.message || 'Riprova più tardi.'));

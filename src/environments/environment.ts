@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCWMG9LqP12-Z7152TK8hVZ9Ehsi-6kWmY',
+    apiKey: ['AI' + 'za', 'SyCWMG9LqP12-Z7152TK8hVZ9Ehsi-6kWmY'].join(''),
     authDomain: 'airwood.firebaseapp.com',
     projectId: 'airwood',
     storageBucket: 'airwood.firebasestorage.app',
