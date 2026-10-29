@@ -14,9 +14,43 @@
       <a routerLink="/cataloghi" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.catalogs }}</a>
       <a routerLink="/progetti" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.projects }}</a>
       <a routerLink="/chi-siamo" routerLinkActive="active" class="nav-link" (click)="closeMenu()">{{ t().nav.about }}</a>
+
+      <!-- Mobile drawer quick auth card -->
+      <div class="mobile-auth-section">
+        @if (authService.isLoggedIn()) {
+          <a routerLink="/area-tecnica" class="mobile-auth-btn logged-in" (click)="closeMenu()">
+            <span class="user-avatar-initial">{{ userInitial }}</span>
+            <div class="mobile-auth-info">
+              <span class="mobile-auth-status">Area Riservata attiva</span>
+              <span class="mobile-auth-name">{{ userDisplayName }}</span>
+            </div>
+          </a>
+        } @else {
+          <a routerLink="/area-tecnica" class="mobile-auth-btn" (click)="closeMenu()">
+            <svg class="auth-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <span>Accedi / Registrati</span>
+          </a>
+        }
+      </div>
     </nav>
     
     <div class="header-actions">
+      <!-- Quick User Account Icon Button (Desktop) -->
+      @if (authService.isLoggedIn()) {
+        <a routerLink="/area-tecnica" class="user-action-btn logged-in" (click)="closeMenu()" [title]="'Area Riservata (' + userDisplayName + ')'">
+          <span class="avatar-circle">{{ userInitial }}</span>
+          <span class="online-indicator"></span>
+        </a>
+      } @else {
+        <a routerLink="/area-tecnica" class="user-action-btn" (click)="closeMenu()" title="Area Tecnica · Accedi o Registrati">
+          <svg class="action-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </a>
+      }
+
       <!-- Language Switcher -->
       <div class="lang-switcher">
         <button [class.active]="currentLang() === 'it'" (click)="setLanguage('it')" aria-label="Italiano">IT</button>

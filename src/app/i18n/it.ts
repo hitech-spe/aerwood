@@ -93,7 +93,7 @@ export const it: Translations = {
       title: 'Tutto ciò che serve per progettare e posare',
       desc: 'Schede tecniche, istruzioni di montaggio, voci di capitolato, dichiarazioni di prestazione, disegni e scheda materiali. Registrati gratuitamente come progettista, posatore o rivenditore.',
       loginBtn: 'Accedi',
-      registerBtn: 'Richiedi accesso'
+      registerBtn: 'Registrati'
     },
     contactsPreview: {
       badge: 'CONTATTI E PREVENTIVI',
@@ -214,12 +214,12 @@ export const it: Translations = {
     passwordLabel: 'Password',
     loginBtn: 'Accedi',
     forgotPasswordBtn: 'Password dimenticata?',
-    registerTitle: "Richiedi l'accesso",
-    registerDesc: "Gratuito per professionisti del settore. L'account viene abilitato per la consultazione della documentazione tecnica.",
+    registerTitle: 'Registrati',
+    registerDesc: 'Crea il tuo account in pochi secondi per consultare e scaricare subito tutta la documentazione tecnica e le istruzioni di posa.',
     fullNameLabel: 'Nome e cognome',
     companyLabel: 'Azienda / studio',
     roleLabel: 'Ruolo professionale',
-    registerBtn: 'Invia richiesta',
+    registerBtn: 'Registrati e accedi',
     roles: {
       architect: 'Progettista / Architetto',
       installer: 'Posatore / Installatore',

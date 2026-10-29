@@ -92,8 +92,8 @@ export const en: Translations = {
       badge: 'TECHNICAL AREA · RESTRICTED ACCESS',
       title: 'Everything you need to specify and install',
       desc: 'Datasheets, assembly manuals, specification texts, declarations of performance, DWG drawings and bill of materials. Register free as an architect, installer or dealer.',
-      loginBtn: 'Log In',
-      registerBtn: 'Request Access'
+      loginBtn: 'Sign In',
+      registerBtn: 'Register'
     },
     contactsPreview: {
       badge: 'CONTACT & INQUIRIES',
@@ -214,12 +214,12 @@ export const en: Translations = {
     passwordLabel: 'Password',
     loginBtn: 'Sign In',
     forgotPasswordBtn: 'Forgot Password?',
-    registerTitle: 'Request Access',
-    registerDesc: 'Complimentary for industry professionals. Your account will be granted access to download technical files.',
+    registerTitle: 'Create Account',
+    registerDesc: 'Create an account in seconds to instantly view and download all technical documentation and installation guides.',
     fullNameLabel: 'Full Name',
     companyLabel: 'Company / Architectural Studio',
     roleLabel: 'Professional Role',
-    registerBtn: 'Submit Request',
+    registerBtn: 'Register & Access',
     roles: {
       architect: 'Architect / Specifier',
       installer: 'Façade Installer / Carpenter',
