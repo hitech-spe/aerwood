@@ -10,14 +10,21 @@ Airwood si posiziona come un brand B2B di lusso e premium industriale, specializ
 ### 1.1 Tavolozza dei Colori (Proprietà Personalizzate CSS)
 ```css
 :root {
-  --primary-dark: #1A1A1A;       /* Grigio antracite scuro / Nero fumo per testi, intestazioni e sfondi scuri */
-  --primary-wood: #C29B38;       /* Ocra Calda/Bronzo-Oro per elementi UI attivi premium ed evidenziazioni */
-  --primary-accent: #8A6546;     /* Marrone Noce caldo per richiamare la finitura del legno */
-  --bg-light: #FAFAFA;           /* Sfondo grigio/beige caldissimo per sezioni prodotto ad alto contrasto */
-  --bg-dark: #111111;            /* Antracite ancora più scuro per hero, footer e blocchi scuri */
-  --text-dark: #222222;          /* Testo standard su sfondi chiari */
-  --text-light: #F5F5F5;         /* Testo standard su sfondi scuri */
-  --border-color: #E0E0E0;       /* Bordi grigi chiari */
+  --primary-dark: #23201B;       /* Grigio corteccia / terra d'ombra scuro per testi, intestazioni e titoli */
+  --primary-wood: #9A5329;       /* Terracotta caldo / Ruggine / Burnt Amber per pulsanti primari, badge e accenti */
+  --primary-wood-hover: #83431D; /* Terracotta più scuro per stati hover */
+  --primary-accent: #9A5329;     /* Accento nobile terracotta */
+  --bg-light: #F6F2E9;           /* Sfondo calce / lino / avorio architettonico caldo (sfondo principale del sito) */
+  --bg-card: #FFFFFF;            /* Bianco puro per card e riquadri contenuti */
+  --bg-sand: #F0E8DB;            /* Beige sabbia caldo per sezioni secondarie/finiture */
+  --bg-hero: #9B9690;            /* Grigio pietra caldo / cemento architettonico */
+  --bg-dark: #2B2622;            /* Espresso scuro / terra d'ombra calda per sezioni scure (tecnologia, banner) */
+  --bg-footer: #23201B;          /* Terra d'ombra scurissima per il footer */
+  --text-dark: #2B2622;          /* Testo standard su sfondi chiari */
+  --text-muted: #666059;         /* Testo secondario/descrittivo su sfondi chiari */
+  --text-light: #F6F2E9;         /* Testo standard su sfondi scuri */
+  --border-color: #E2DDD4;       /* Bordi naturali e morbidi */
+  --border-subtle: #ECE6DC;      /* Bordi sottili per divisori interni */
   --eco-green: #2E7D32;          /* Verde foresta per le caratteristiche di sostenibilità ed eco */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }

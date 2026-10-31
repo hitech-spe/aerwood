@@ -45,7 +45,7 @@ export class ContactsComponent {
     this.submitError.set(false);
 
     try {
-      await this.leadService.saveContactRequest({ ...this.formModel });
+      await this.leadService.sendContactRequest({ ...this.formModel });
       this.submitSuccess.set(true);
       this.formModel = {
         fullName: '',

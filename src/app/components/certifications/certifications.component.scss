@@ -2,14 +2,14 @@
 
 .certifications-page {
   padding-top: 100px;
-  background-color: #FAFAF8;
+  background-color: var(--bg-light);
   min-height: 100vh;
 }
 
 .cert-header-section {
-  background: #FFFFFF;
+  background: var(--bg-light);
   padding: 60px 0 50px;
-  border-bottom: 1px solid #ECEBE6;
+  border-bottom: 1px solid var(--border-color);
 
   .section-badge {
     font-size: 0.78rem;
@@ -25,13 +25,13 @@
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 14px;
   }
 
   .page-intro {
     font-size: 1.1rem;
-    color: #555555;
+    color: var(--text-muted);
     max-width: 800px;
     line-height: 1.6;
   }
@@ -52,11 +52,11 @@
   }
 
   .highlight-card {
-    background: #FFFFFF;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 36px 28px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 14px rgba(43, 38, 34, 0.02);
 
     .highlight-code {
       display: block;
@@ -70,14 +70,14 @@
     .highlight-title {
       font-size: 1.25rem;
       font-weight: 800;
-      color: #1A1A1A;
+      color: var(--primary-dark);
       margin-bottom: 10px;
     }
 
     .highlight-desc {
       font-size: 0.9rem;
       line-height: 1.6;
-      color: #666666;
+      color: var(--text-muted);
       margin: 0;
     }
   }
@@ -86,22 +86,22 @@
 /* Performance Table */
 .perf-table-section {
   padding: 40px 0 70px;
-  background-color: #FFFFFF;
-  border-top: 1px solid #ECEBE6;
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
 
   .section-subtitle {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 24px;
   }
 
   .table-responsive {
     overflow-x: auto;
-    border: 1px solid #E0E0DB;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 12px rgba(43, 38, 34, 0.02);
   }
 
   .perf-table {
@@ -109,9 +109,10 @@
     border-collapse: collapse;
     text-align: left;
     font-size: 0.92rem;
+    background: #FFFFFF;
 
     thead {
-      background: #1C1C1C;
+      background: var(--bg-dark);
       color: #FFFFFF;
 
       th {
@@ -129,21 +130,21 @@
 
     tbody {
       tr {
-        border-bottom: 1px solid #ECEBE6;
+        border-bottom: 1px solid var(--border-subtle);
 
         &:nth-child(even) {
-          background-color: #FAFAF8;
+          background-color: #FAF8F4;
         }
 
         &:hover {
-          background-color: #F5F5F0;
+          background-color: #F5EFE6;
         }
       }
 
       td {
         padding: 14px 20px;
-        color: #333333;
-        border-right: 1px solid #ECEBE6;
+        color: var(--primary-dark);
+        border-right: 1px solid var(--border-subtle);
 
         &:last-child {
           border-right: none;
@@ -151,19 +152,19 @@
 
         &.char-cell {
           width: 40%;
-          color: #111111;
+          color: var(--primary-dark);
         }
 
         &.norm-cell code {
-          background: #EFEFEA;
+          background: var(--bg-sand);
           padding: 3px 6px;
           border-radius: 3px;
-          color: #333333;
+          color: var(--primary-dark);
         }
 
         &.val-cell {
           font-weight: 700;
-          color: #1A1A1A;
+          color: var(--primary-dark);
         }
       }
     }
@@ -171,7 +172,7 @@
 
   .footnote {
     font-size: 0.85rem;
-    color: #777777;
+    color: var(--text-muted);
     margin-top: 14px;
     font-style: italic;
   }
@@ -180,14 +181,14 @@
 /* Documents List */
 .cert-docs-section {
   padding: 60px 0 90px;
-  background-color: #FAFAF8;
-  border-top: 1px solid #ECEBE6;
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
 
   .section-subtitle {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 28px;
   }
 
@@ -198,8 +199,8 @@
   }
 
   .doc-row {
-    background: #FFFFFF;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 20px 24px;
     display: flex;
@@ -224,20 +225,20 @@
       .doc-row-title {
         font-size: 1.05rem;
         font-weight: 800;
-        color: #1A1A1A;
+        color: var(--primary-dark);
         margin-bottom: 4px;
       }
 
       .doc-row-sub {
         font-size: 0.85rem;
-        color: #666666;
+        color: var(--text-muted);
         margin: 0;
       }
     }
 
     .status-pill.coming-soon {
-      background: #EEEEEE;
-      color: #666666;
+      background: var(--bg-sand);
+      color: var(--primary-dark);
       font-size: 0.8rem;
       font-weight: 700;
       padding: 6px 14px;
@@ -247,16 +248,14 @@
 
   .docs-disclaimer {
     font-size: 0.85rem;
-    color: #777777;
+    color: var(--text-muted);
     margin-top: 20px;
   }
 }
 
 /* Dark CTA Section */
 .cert-cta-section {
-  position: relative;
-  background: linear-gradient(180deg, rgba(18, 18, 18, 0.82) 0%, rgba(18, 18, 18, 0.94) 100%),
-              url('/assets/images/ambient/Esterno_volume_piscina.png') center/cover no-repeat;
+  background-color: var(--bg-dark);
   color: #FFFFFF;
   padding: 85px 0;
 
@@ -282,7 +281,7 @@
 
   .cta-desc {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     margin: 0;
     max-width: 600px;
     line-height: 1.5;

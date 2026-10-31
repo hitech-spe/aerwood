@@ -54,7 +54,7 @@ export class HomeComponent {
     this.submitError.set(false);
 
     try {
-      await this.leadService.saveContactRequest({
+      await this.leadService.sendContactRequest({
         fullName: this.contactForm.fullName,
         company: this.contactForm.company,
         email: this.contactForm.email,

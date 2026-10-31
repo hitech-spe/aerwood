@@ -2,14 +2,14 @@
 
 .projects-page {
   padding-top: 100px;
-  background-color: #FAFAF8;
+  background-color: var(--bg-light);
   min-height: 100vh;
 }
 
 .projects-header-section {
-  background: #FFFFFF;
+  background: var(--bg-light);
   padding: 60px 0 50px;
-  border-bottom: 1px solid #ECEBE6;
+  border-bottom: 1px solid var(--border-color);
 
   .section-badge {
     font-size: 0.78rem;
@@ -25,13 +25,13 @@
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 14px;
   }
 
   .page-intro {
     font-size: 1.1rem;
-    color: #555555;
+    color: var(--text-muted);
     max-width: 800px;
     line-height: 1.6;
   }
@@ -51,19 +51,19 @@
   }
 
   .project-card {
-    background: #FFFFFF;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 16px rgba(43, 38, 34, 0.03);
     transition: all 0.25s ease;
 
     &:hover {
       border-color: var(--primary-wood);
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 24px rgba(43, 38, 34, 0.08);
 
       .project-name {
         color: var(--primary-wood);
@@ -73,7 +73,7 @@
     .project-img-box {
       width: 100%;
       height: 280px;
-      background: #F4F4F0;
+      background: var(--bg-light);
       position: relative;
       display: flex;
       align-items: center;
@@ -92,7 +92,7 @@
         position: absolute;
         top: 16px;
         right: 16px;
-        background: rgba(26, 26, 26, 0.85);
+        background: rgba(35, 32, 27, 0.85);
         color: #FFFFFF;
         font-size: 0.75rem;
         font-weight: 700;
@@ -114,7 +114,7 @@
         justify-content: space-between;
         font-size: 0.8rem;
         font-weight: 600;
-        color: #777777;
+        color: var(--text-muted);
         margin-bottom: 12px;
       }
 
@@ -122,7 +122,7 @@
         font-family: var(--font-heading);
         font-size: 1.4rem;
         font-weight: 800;
-        color: #1A1A1A;
+        color: var(--primary-dark);
         margin-bottom: 10px;
         transition: color 0.2s ease;
       }
@@ -130,19 +130,19 @@
       .project-desc {
         font-size: 0.92rem;
         line-height: 1.6;
-        color: #555555;
+        color: var(--text-muted);
         margin-bottom: 20px;
         flex-grow: 1;
       }
 
       .project-footer {
-        border-top: 1px solid #ECEBE6;
+        border-top: 1px solid var(--border-subtle);
         padding-top: 16px;
 
         .project-link {
           font-size: 0.85rem;
           font-weight: 700;
-          color: #1A1A1A;
+          color: var(--primary-dark);
           text-decoration: none;
           transition: color 0.2s ease;
 
@@ -157,7 +157,7 @@
 
 /* CTA Section */
 .projects-cta-section {
-  background-color: #141414;
+  background-color: var(--bg-dark);
   color: #FFFFFF;
   padding: 70px 0;
 

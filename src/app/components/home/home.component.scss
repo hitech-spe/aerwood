@@ -5,7 +5,7 @@
   min-height: 85vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.78) 0%, rgba(16, 16, 16, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.75) 0%, rgba(16, 16, 16, 0.90) 100%),
               url('/assets/images/ambient/Interno_soggiorno_soffitto_e_parete.jpg') center/cover no-repeat;
   color: #FFFFFF;
   padding: 140px 0 80px;
@@ -17,7 +17,7 @@
 
   .hero-badge {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -33,13 +33,13 @@
     letter-spacing: -0.5px;
     margin-bottom: 24px;
     white-space: pre-line;
-    color: #F8F8F8;
+    color: #FFFFFF;
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 36px;
     max-width: 680px;
   }
@@ -53,9 +53,9 @@
 
 /* Quick Links Grid */
 .quick-links-section {
-  background-color: #F9F9F8;
+  background-color: var(--bg-light);
   padding: 60px 0;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid var(--border-color);
 
   .quick-links-grid {
     display: grid;
@@ -72,8 +72,8 @@
   }
 
   .quick-card {
-    background: #FFFFFF;
-    border: 1px solid #E5E5E0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 28px 24px;
     border-radius: 4px;
     display: flex;
@@ -85,7 +85,7 @@
     &:hover {
       border-color: var(--primary-wood);
       transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 24px rgba(43, 38, 34, 0.06);
 
       .quick-card-cta {
         color: var(--primary-wood);
@@ -101,14 +101,14 @@
     .quick-card-title {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #1A1A1A;
+      color: var(--primary-dark);
       margin-bottom: 10px;
     }
 
     .quick-card-desc {
       font-size: 0.88rem;
       line-height: 1.5;
-      color: #555555;
+      color: var(--text-muted);
       flex-grow: 1;
       margin-bottom: 18px;
     }
@@ -118,7 +118,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #1A1A1A;
+      color: var(--primary-dark);
       transition: all 0.2s ease;
     }
   }
@@ -127,7 +127,7 @@
 /* Profiles Section */
 .home-profiles-section {
   padding: 90px 0;
-  background-color: #FFFFFF;
+  background-color: var(--bg-light);
 
   .section-header {
     margin-bottom: 48px;
@@ -148,13 +148,13 @@
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 12px;
   }
 
   .section-subtitle {
     font-size: 1.05rem;
-    color: #666666;
+    color: var(--text-muted);
     line-height: 1.6;
   }
 
@@ -173,8 +173,8 @@
   }
 
   .home-profile-card {
-    background: #FBFBFA;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 24px;
     border-radius: 4px;
     text-decoration: none;
@@ -186,7 +186,7 @@
     &:hover {
       border-color: var(--primary-wood);
       transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 28px rgba(43, 38, 34, 0.08);
 
       .profile-name {
         color: var(--primary-wood);
@@ -196,8 +196,8 @@
     .profile-card-img-wrap {
       width: 100%;
       height: 160px;
-      background: #FFFFFF;
-      border: 1px solid #EFEFEA;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
       border-radius: 2px;
       display: flex;
       align-items: center;
@@ -244,12 +244,12 @@
       flex-wrap: wrap;
       gap: 6px;
       padding-top: 14px;
-      border-top: 1px solid #EAEAEA;
+      border-top: 1px solid var(--border-subtle);
 
       .spec-pill {
         font-size: 0.75rem;
-        background: #EEEEEC;
-        color: #333333;
+        background: var(--bg-sand);
+        color: var(--primary-dark);
         padding: 4px 8px;
         border-radius: 2px;
         font-weight: 600;
@@ -260,7 +260,7 @@
 
 /* Dark Technology Block */
 .technology-dark-section {
-  background-color: #141414;
+  background-color: var(--bg-dark);
   color: #FFFFFF;
   padding: 90px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -284,7 +284,7 @@
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #F8F8F8;
+    color: #FFFFFF;
   }
 
   .tech-stats-grid {
@@ -302,7 +302,7 @@
   }
 
   .tech-stat-card {
-    background: #1C1C1C;
+    background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 32px 24px;
     border-radius: 4px;
@@ -311,7 +311,7 @@
       display: block;
       font-size: 2.2rem;
       font-weight: 800;
-      color: var(--primary-wood);
+      color: #FFFFFF;
       margin-bottom: 8px;
       font-family: var(--font-heading);
     }
@@ -326,7 +326,7 @@
     .stat-desc {
       font-size: 0.88rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.72);
     }
   }
 }
@@ -334,7 +334,7 @@
 /* Applications Section */
 .applications-section {
   padding: 80px 0;
-  background-color: #FAFAF8;
+  background-color: var(--bg-light);
 
   .section-badge {
     font-size: 0.78rem;
@@ -350,7 +350,7 @@
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 40px;
   }
 
@@ -421,7 +421,7 @@
 /* Finishes Section */
 .finishes-section {
   padding: 80px 0;
-  background-color: #FFFFFF;
+  background-color: var(--bg-sand);
 
   .finishes-header-row {
     display: flex;
@@ -470,7 +470,8 @@
   }
 
   .finish-swatch-card {
-    border: 1px solid #ECEBE6;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
     padding: 16px;
     border-radius: 4px;
     cursor: pointer;
@@ -480,7 +481,7 @@
     &:hover, &.active {
       border-color: var(--primary-wood);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 16px rgba(43, 38, 34, 0.08);
     }
 
     .swatch-color-box {
@@ -502,20 +503,20 @@
     .swatch-name {
       font-size: 0.88rem;
       font-weight: 700;
-      color: #1A1A1A;
+      color: var(--primary-dark);
       margin-bottom: 4px;
     }
 
     .swatch-code {
       font-size: 0.72rem;
-      color: #888888;
+      color: var(--text-muted);
       font-weight: 600;
     }
   }
 
   .finishes-disclaimer {
     font-size: 0.85rem;
-    color: #777777;
+    color: var(--text-muted);
     line-height: 1.6;
     margin-top: 16px;
   }
@@ -524,7 +525,7 @@
 /* Projects Preview */
 .projects-preview-section {
   padding: 80px 0;
-  background-color: #FAFAF8;
+  background-color: var(--bg-light);
 
   .section-badge {
     font-size: 0.78rem;
@@ -540,7 +541,7 @@
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 36px;
   }
 
@@ -555,8 +556,8 @@
   }
 
   .project-preview-card {
-    background: #FFFFFF;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     overflow: hidden;
     text-decoration: none;
@@ -566,7 +567,7 @@
     &:hover {
       border-color: var(--primary-wood);
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 24px rgba(43, 38, 34, 0.08);
 
       h4 {
         color: var(--primary-wood);
@@ -576,7 +577,7 @@
     .project-preview-img-wrap {
       width: 100%;
       height: 240px;
-      background: #F4F4F0;
+      background: var(--bg-light);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -595,14 +596,14 @@
       h4 {
         font-size: 1.15rem;
         font-weight: 700;
-        color: #1A1A1A;
+        color: var(--primary-dark);
         margin-bottom: 6px;
         transition: color 0.2s ease;
       }
 
       p {
         font-size: 0.88rem;
-        color: #666666;
+        color: var(--text-muted);
         margin: 0;
       }
     }
@@ -612,7 +613,7 @@
 /* Technical Banner */
 .technical-banner-section {
   padding: 80px 0;
-  background-color: #111111;
+  background-color: var(--bg-dark);
   color: #FFFFFF;
 
   .tech-banner-card {
@@ -651,7 +652,7 @@
     .tech-banner-desc {
       font-size: 0.95rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.75);
       margin: 0;
     }
   }
@@ -671,7 +672,7 @@
 /* Home Contacts */
 .home-contacts-section {
   padding: 90px 0;
-  background-color: #FFFFFF;
+  background-color: var(--bg-light);
 
   .contacts-wrapper {
     display: grid;
@@ -697,40 +698,40 @@
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 12px;
   }
 
   .contacts-desc {
     font-size: 1rem;
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 32px;
     line-height: 1.6;
   }
 
   .contacts-details-box {
-    background: #F9F9F8;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 24px;
     border-radius: 4px;
 
     .company-heading {
       font-size: 1.2rem;
       font-weight: 800;
-      color: #1A1A1A;
+      color: var(--primary-dark);
       margin-bottom: 10px;
     }
 
     .address-text, .phone-text, .email-text {
       font-size: 0.9rem;
-      color: #555555;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
   }
 
   .contacts-form-box {
-    background: #FAFAF8;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 32px;
     border-radius: 4px;
   }
@@ -753,7 +754,7 @@
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
-      color: #333333;
+      color: var(--primary-dark);
       margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -763,10 +764,10 @@
       width: 100%;
       padding: 12px 14px;
       font-size: 0.92rem;
-      border: 1px solid #D5D5CE;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
-      background: #FFFFFF;
-      color: #1A1A1A;
+      background: #FAF8F4;
+      color: var(--primary-dark);
       transition: border-color 0.2s ease;
 
       &:focus {
@@ -784,7 +785,7 @@
       align-items: center;
       gap: 10px;
       font-size: 0.85rem;
-      color: #555555;
+      color: var(--text-muted);
       cursor: pointer;
     }
   }

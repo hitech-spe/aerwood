@@ -2,14 +2,14 @@
 
 .contacts-page {
   padding-top: 100px;
-  background-color: #FAFAF8;
+  background-color: var(--bg-light);
   min-height: 100vh;
 }
 
 .contacts-header-section {
-  background: #FFFFFF;
+  background: var(--bg-light);
   padding: 60px 0 50px;
-  border-bottom: 1px solid #ECEBE6;
+  border-bottom: 1px solid var(--border-color);
 
   .section-badge {
     font-size: 0.78rem;
@@ -25,13 +25,13 @@
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 14px;
   }
 
   .page-intro {
     font-size: 1.1rem;
-    color: #555555;
+    color: var(--text-muted);
     max-width: 800px;
     line-height: 1.6;
   }
@@ -56,7 +56,7 @@
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: var(--primary-dark);
     margin-bottom: 6px;
   }
 
@@ -74,14 +74,14 @@
   }
 
   .info-card {
-    background: #FFFFFF;
-    border: 1px solid #ECEBE6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 20px 24px;
     border-radius: 4px;
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 12px rgba(43, 38, 34, 0.02);
 
     .info-icon {
       font-size: 1.4rem;
@@ -94,18 +94,18 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #888888;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
     .info-val {
       font-size: 0.95rem;
-      color: #222222;
+      color: var(--primary-dark);
       line-height: 1.5;
       margin: 0;
 
       a {
-        color: #1A1A1A;
+        color: var(--primary-dark);
         text-decoration: none;
         font-weight: 600;
         transition: color 0.2s ease;
@@ -119,11 +119,11 @@
 }
 
 .form-container-card {
-  background: #FFFFFF;
-  border: 1px solid #ECEBE6;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 36px 32px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 6px 20px rgba(43, 38, 34, 0.04);
 
   .form-row {
     display: grid;
@@ -144,7 +144,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #333333;
+      color: var(--primary-dark);
       margin-bottom: 6px;
     }
 
@@ -152,10 +152,10 @@
       width: 100%;
       padding: 12px 14px;
       font-size: 0.92rem;
-      border: 1px solid #D5D5CE;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
-      background: #FFFFFF;
-      color: #1A1A1A;
+      background: #FAF8F4;
+      color: var(--primary-dark);
       transition: border-color 0.2s ease;
 
       &:focus {
@@ -173,7 +173,7 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 0.85rem;
-      color: #555555;
+      color: var(--text-muted);
       line-height: 1.4;
       cursor: pointer;
     }
@@ -214,8 +214,8 @@
   .map-wrapper {
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #ECEBE6;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 20px rgba(43, 38, 34, 0.03);
 
     iframe {
       display: block;
